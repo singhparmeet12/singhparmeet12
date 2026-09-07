@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parmeet Singh — Living Digital Canvas (GitHub Profile)</title>
+  <title>Parmeet Singh — Personal Webpage & Profile</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-page: #EDF1E8;
-      --canvas-bg: #F6F8F3;
+      --card-bg: #FBFCF8;
       --border-subtle: #DCE8D8;
       --text-dark: #18231A;
       --text-muted: #657066;
       --primary-green: #4F7F5B;
       --deep-green: #24452E;
-      --soft-sage: #DCE8D8;
+      --soft-sage: #EAF2E8;
     }
 
     * {
@@ -31,13 +31,13 @@
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 15px;
       line-height: 1.6;
-      padding: 30px 16px 80px;
+      padding: 40px 16px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    /* Ambient background grid */
+    /* Subtle ambient grid */
     .bg-grid {
       position: fixed;
       inset: 0;
@@ -49,155 +49,100 @@
       z-index: 0;
     }
 
-    /* Top Preview Header */
-    .preview-header-bar {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      max-width: 900px;
-      margin-bottom: 24px;
-      padding: 12px 20px;
-      background: rgba(251, 252, 248, 0.92);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 4px 20px rgba(36, 69, 46, 0.05);
-    }
-
-    .preview-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--deep-green);
-    }
-
-    .status-pulse {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--primary-green);
-      box-shadow: 0 0 8px var(--primary-green);
-      animation: pulse 2s infinite ease-in-out;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
-    }
-
-    .preview-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .btn-action {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #EAF2E8;
-      color: var(--deep-green);
-      border: 1px solid #DCE8D8;
-      border-radius: 6px;
-      padding: 6px 14px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .btn-action:hover {
-      background: var(--primary-green);
-      color: #FFFFFF;
-      border-color: var(--primary-green);
-    }
-
-    /* THE CONTINUOUS LIVING CANVAS CONTAINER */
-    .continuous-canvas {
+    /* Container for continuous personal page */
+    .page-container {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 900px;
-      background: var(--canvas-bg);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 
-        0 10px 40px rgba(36, 69, 46, 0.08),
-        0 1px 3px rgba(36, 69, 46, 0.04);
-      border: 1px solid var(--border-subtle);
+      max-width: 860px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    /* Greeting Header */
+    .avatar-wrapper {
+      text-align: center;
+      margin-bottom: -6px;
+    }
+
+    .avatar-wrapper img {
+      width: 76px;
+      height: 76px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .banner-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      border: 1.5px solid var(--border-subtle);
+      box-shadow: 0 10px 30px rgba(36, 69, 46, 0.06);
+    }
+
+    .project-wrapper {
+      width: 100%;
       display: flex;
       flex-direction: column;
     }
 
-    /* Seamless panels - zero margins, zero borders, edge-to-edge flow */
-    .canvas-panel {
-      width: 100%;
-      display: block;
-      margin: 0;
-      padding: 0;
-      line-height: 0;
-    }
-
-    .canvas-panel svg,
-    .canvas-panel img {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0;
-      padding: 0;
-    }
-
-    .canvas-link {
+    .project-card-link {
       display: block;
       text-decoration: none;
-      transition: opacity 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
-    .canvas-link:hover {
-      opacity: 0.97;
+    .project-card-link:hover {
+      transform: translateY(-2px);
+      opacity: 0.98;
     }
 
-    /* Footer Direct Links */
-    .canvas-footer {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      max-width: 900px;
-      margin-top: 24px;
-      text-align: center;
+    .project-links {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 4px;
+      margin-bottom: 8px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
-      color: var(--text-muted);
     }
 
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 12px;
+    .project-links a {
+      color: var(--primary-green);
+      text-decoration: none;
+      font-weight: 600;
     }
 
-    .footer-links a {
+    .project-links a:hover {
+      text-decoration: underline;
+      color: var(--deep-green);
+    }
+
+    .footer-actions {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    .footer-actions a {
       color: var(--deep-green);
       text-decoration: none;
-      padding: 4px 10px;
-      border-radius: 4px;
-      background: rgba(251, 252, 248, 0.7);
-      border: 1px solid var(--border-subtle);
-      transition: all 0.2s ease;
+      margin: 0 8px;
+      font-weight: 600;
     }
 
-    .footer-links a:hover {
-      background: var(--primary-green);
-      color: #FFFFFF;
+    .footer-actions a:hover {
+      text-decoration: underline;
+      color: var(--primary-green);
+    }
+
+    .footer-sub {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 8px;
     }
   </style>
 </head>
@@ -205,79 +150,85 @@
 
   <div class="bg-grid"></div>
 
-  <!-- Top preview control -->
-  <div class="preview-header-bar">
-    <div class="preview-title">
-      <div class="status-pulse"></div>
-      <span>PARMEET SINGH &bull; CONTINUOUS DIGITAL CANVAS</span>
-    </div>
-    <div class="preview-actions">
-      <a href="https://github.com/singhparmeet12" target="_blank" class="btn-action">↗ GitHub Profile</a>
-      <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" class="btn-action">↗ Portfolio</a>
-    </div>
-  </div>
-
-  <!-- THE CONTINUOUS CANVAS -->
-  <main class="continuous-canvas">
+  <main class="page-container">
     
-    <!-- 01 HERO -->
-    <div class="canvas-panel">
-      <img src="./assets/canvas-01-hero.svg" alt="01 Hero — Parmeet Singh" />
-    </div>
-
-    <!-- 02 IDENTITY -->
-    <div class="canvas-panel">
-      <img src="./assets/canvas-02-identity.svg" alt="02 Identity & Architecture" />
-    </div>
-
-    <!-- 03 PROJECT: TRADELAB -->
-    <div class="canvas-panel">
-      <a href="https://tradelab-kappa.vercel.app/" target="_blank" class="canvas-link" title="Open TradeLab Demo">
-        <img src="./assets/canvas-03-project-tradelab.svg" alt="03 TradeLab — AI Trading & Computer Vision" />
+    <!-- Animated Hello Waving Hand -->
+    <div class="avatar-wrapper">
+      <a href="https://github.com/singhparmeet12" title="Hello from Parmeet!">
+        <img src="./assets/waving-hand.gif" alt="Friendly Waving Hand" />
       </a>
     </div>
 
-    <!-- 04 PROJECT: GAADIMANDI -->
-    <div class="canvas-panel">
-      <a href="https://car-trade-gamma.vercel.app/" target="_blank" class="canvas-link" title="Open GaadiMandi Demo">
-        <img src="./assets/canvas-04-project-gaadimandi.svg" alt="04 GaadiMandi — Automotive Dealership Platform" />
+    <!-- Greeting Banner -->
+    <img src="./assets/greeting.svg" alt="Hey there, I'm Parmeet" style="width: 100%; display: block;" />
+
+    <!-- Cozy Lofi Workspace Banner -->
+    <img src="./assets/lofi-workspace.jpg" alt="Parmeet's Cozy Lofi Workspace" class="banner-img" />
+
+    <!-- Project 01: TradeLab -->
+    <div class="project-wrapper">
+      <a href="https://tradelab-kappa.vercel.app/" target="_blank" class="project-card-link">
+        <img src="./assets/card-01-tradelab.svg" alt="01 TradeLab" style="width: 100%; display: block;" />
       </a>
+      <div class="project-links">
+        <a href="https://tradelab-kappa.vercel.app/" target="_blank">↗ View Live Demo</a>
+        <span style="color: #9DB89B;">•</span>
+        <a href="https://github.com/singhparmeet12/TradeLab" target="_blank">↗ GitHub Repository</a>
+      </div>
     </div>
 
-    <!-- 05 PROJECT: TOURCRAZE -->
-    <div class="canvas-panel">
-      <a href="https://tour-craze.vercel.app/" target="_blank" class="canvas-link" title="Open TourCraze Demo">
-        <img src="./assets/canvas-05-project-tourcraze.svg" alt="05 TourCraze — Travel Planner & TripSplit" />
+    <!-- Project 02: TourCraze -->
+    <div class="project-wrapper">
+      <a href="https://tour-craze.vercel.app/" target="_blank" class="project-card-link">
+        <img src="./assets/card-02-tourcraze.svg" alt="02 TourCraze" style="width: 100%; display: block;" />
       </a>
+      <div class="project-links">
+        <a href="https://tour-craze.vercel.app/" target="_blank">↗ View Live Demo</a>
+        <span style="color: #9DB89B;">•</span>
+        <a href="https://github.com/singhparmeet12/TourCraze" target="_blank">↗ GitHub Repository</a>
+      </div>
     </div>
 
-    <!-- 06 ABILITIES -->
-    <div class="canvas-panel">
-      <img src="./assets/canvas-06-abilities.svg" alt="06 Technical Stack & Disciplines" />
+    <!-- Project 03: GaadiMandi -->
+    <div class="project-wrapper">
+      <a href="https://car-trade-gamma.vercel.app/" target="_blank" class="project-card-link">
+        <img src="./assets/card-03-gaadimandi.svg" alt="03 GaadiMandi" style="width: 100%; display: block;" />
+      </a>
+      <div class="project-links">
+        <a href="https://car-trade-gamma.vercel.app/" target="_blank">↗ View Live Demo</a>
+      </div>
     </div>
 
-    <!-- 07 ACTIVITY -->
-    <div class="canvas-panel">
-      <img src="./assets/canvas-07-activity.svg" alt="07 Activity Streams & Telemetry" />
+    <!-- Project 04: Personal Portfolio -->
+    <div class="project-wrapper">
+      <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" class="project-card-link">
+        <img src="./assets/card-04-portfolio.svg" alt="04 Personal Portfolio" style="width: 100%; display: block;" />
+      </a>
+      <div class="project-links">
+        <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank">↗ View Live Site</a>
+        <span style="color: #9DB89B;">•</span>
+        <a href="https://github.com/singhparmeet12/Personal-Portfolio" target="_blank">↗ GitHub Repository</a>
+      </div>
     </div>
 
-    <!-- 08 CONNECT -->
-    <div class="canvas-panel">
-      <img src="./assets/canvas-08-connect.svg" alt="08 Connect & Contact" />
+    <!-- Skills & Tools -->
+    <img src="./assets/skills.svg" alt="Toolkit & Craft" style="width: 100%; display: block;" />
+
+    <!-- Connect & Resume -->
+    <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" class="project-card-link" style="width: 100%;">
+      <img src="./assets/connect.svg" alt="Let's Connect" style="width: 100%; display: block;" />
+    </a>
+
+    <!-- Direct Links -->
+    <div class="footer-actions">
+      <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank">📄 VIEW RESUME (PDF) ↗</a> &bull;
+      <a href="https://linkedin.com/in/parmeetsingh12" target="_blank">LinkedIn ↗</a> &bull;
+      <a href="mailto:parmeetssms@gmail.com">parmeetssms@gmail.com ↗</a> &bull;
+      <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank">Personal Portfolio ↗</a>
+      <div class="footer-sub">PARMEET SINGH &bull; FULL-STACK DEVELOPER &bull; DELHI, INDIA</div>
     </div>
 
   </main>
-
-  <!-- Interactive Footer Navigation -->
-  <footer class="canvas-footer">
-    <div class="footer-links">
-      <a href="https://github.com/singhparmeet12" target="_blank">GitHub ↗</a>
-      <a href="https://linkedin.com/in/parmeetsingh12" target="_blank">LinkedIn ↗</a>
-      <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank">Personal Portfolio ↗</a>
-      <a href="mailto:parmeetssms@gmail.com">parmeetssms@gmail.com ↗</a>
-    </div>
-    <div>PARMEET SINGH &bull; FULL-STACK DEVELOPER &bull; LIVING DIGITAL CANVAS &bull; 2026</div>
-  </footer>
 
 </body>
 </html>

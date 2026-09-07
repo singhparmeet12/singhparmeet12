@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 145" width="880" height="145">
+  <defs>
+    <style>
+      .num {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 28px;
+        font-weight: 700;
+        fill: #9DB89B;
+        letter-spacing: -0.05em;
+      }
+      .title {
+        font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 800;
+        fill: #18231A;
+        letter-spacing: -0.02em;
+      }
+      .desc {
+        font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Inter', sans-serif;
+        font-size: 14.5px;
+        font-weight: 400;
+        fill: #657066;
+      }
+      .tag {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        font-weight: 600;
+        fill: #4F7F5B;
+      }
+      .cta-txt {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11.5px;
+        font-weight: 700;
+        fill: #FFFFFF;
+        letter-spacing: 0.05em;
+      }
+    </style>
+    <linearGradient id="cardGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBFCF8"/>
+      <stop offset="100%" stop-color="#F4F7F1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Continuous Flow Line In -->
+  <line x1="440" y1="0" x2="440" y2="12" stroke="#4F7F5B" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+  <!-- Card Surface -->
+  <rect x="0" y="12" width="880" height="120" rx="16" fill="url(#cardGrad4)" stroke="#DCE8D8" stroke-width="1.5"/>
+
+  <!-- Left: Number & Project Info -->
+  <text x="32" y="65" class="num">04</text>
+  <text x="86" y="52" class="title">PERSONAL PORTFOLIO</text>
+  <text x="86" y="74" class="desc">An interactive digital space exploring creative web craft, 3D elements, and micro-interactions.</text>
+  <text x="86" y="98" class="tag">STACK &#8226; Next.js &#8226; Three.js &#8226; Framer Motion &#8226; Tailwind CSS</text>
+
+  <!-- Right: Stylized 3D Isometric Cube & CTA -->
+  <g transform="translate(680, 42)">
+    <!-- 3D Cube motif -->
+    <path d="M 26,6 L 44,15 L 26,24 L 8,15 Z" fill="#DCE8D8" stroke="#4F7F5B" stroke-width="1"/>
+    <path d="M 8,15 L 26,24 L 26,42 L 8,33 Z" fill="#9DB89B" stroke="#4F7F5B" stroke-width="1"/>
+    <path d="M 26,24 L 44,15 L 44,33 L 26,42 Z" fill="#4F7F5B" stroke="#24452E" stroke-width="1"/>
+
+    <!-- CTA Button -->
+    <g transform="translate(60, 10)">
+      <rect x="0" y="0" width="124" height="34" rx="8" fill="#24452E"/>
+      <text x="62" y="21" class="cta-txt" text-anchor="middle">VIEW PROJECT &#8594;</text>
+    </g>
+  </g>
+
+  <!-- Continuous Flow Line Out -->
+  <line x1="440" y1="132" x2="440" y2="145" stroke="#4F7F5B" stroke-width="1.5" stroke-dasharray="3,3"/>
+</svg>

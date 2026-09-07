@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 170" width="880" height="170">
+  <defs>
+    <style>
+      .section-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        font-weight: 700;
+        fill: #4F7F5B;
+        letter-spacing: 0.18em;
+      }
+      .heading {
+        font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Inter', sans-serif;
+        font-size: 22px;
+        font-weight: 800;
+        fill: #18231A;
+        letter-spacing: -0.02em;
+      }
+      .pill-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Inter', sans-serif;
+        font-size: 12.5px;
+        font-weight: 600;
+        fill: #24452E;
+      }
+      .pill-dot {
+        fill: #4F7F5B;
+      }
+    </style>
+    <linearGradient id="skillsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBFCF8"/>
+      <stop offset="100%" stop-color="#F4F7F1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Continuous Flow Line In -->
+  <line x1="440" y1="0" x2="440" y2="12" stroke="#4F7F5B" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+  <!-- Background Card -->
+  <rect x="0" y="12" width="880" height="146" rx="16" fill="url(#skillsBg)" stroke="#DCE8D8" stroke-width="1.5"/>
+
+  <!-- Title & Label -->
+  <text x="44" y="42" class="section-label">TOOLKIT &amp; CRAFT</text>
+  <text x="44" y="68" class="heading">I Build With</text>
+
+  <!-- Skills Row 1 -->
+  <g transform="translate(44, 82)">
+    <!-- Python -->
+    <rect x="0" y="0" width="88" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="16" cy="14" r="3.5" class="pill-dot"/>
+    <text x="27" y="18" class="pill-text">Python</text>
+
+    <!-- Django 5 -->
+    <rect x="98" y="0" width="102" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="114" cy="14" r="3.5" class="pill-dot"/>
+    <text x="125" y="18" class="pill-text">Django 5.x</text>
+
+    <!-- JavaScript -->
+    <rect x="210" y="0" width="112" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="226" cy="14" r="3.5" class="pill-dot"/>
+    <text x="237" y="18" class="pill-text">JavaScript</text>
+
+    <!-- Next.js -->
+    <rect x="332" y="0" width="94" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="348" cy="14" r="3.5" class="pill-dot"/>
+    <text x="359" y="18" class="pill-text">Next.js</text>
+
+    <!-- Three.js -->
+    <rect x="436" y="0" width="96" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="452" cy="14" r="3.5" class="pill-dot"/>
+    <text x="463" y="18" class="pill-text">Three.js</text>
+
+    <!-- HTML & CSS -->
+    <rect x="542" y="0" width="118" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="558" cy="14" r="3.5" class="pill-dot"/>
+    <text x="569" y="18" class="pill-text">HTML5 / CSS3</text>
+
+    <!-- Tailwind CSS -->
+    <rect x="670" y="0" width="120" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="686" cy="14" r="3.5" class="pill-dot"/>
+    <text x="697" y="18" class="pill-text">Tailwind CSS</text>
+  </g>
+
+  <!-- Skills Row 2 -->
+  <g transform="translate(44, 118)">
+    <!-- PostgreSQL -->
+    <rect x="0" y="0" width="124" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="16" cy="14" r="3.5" class="pill-dot"/>
+    <text x="27" y="18" class="pill-text">PostgreSQL &amp; SQL</text>
+
+    <!-- REST APIs -->
+    <rect x="134" y="0" width="104" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="150" cy="14" r="3.5" class="pill-dot"/>
+    <text x="161" y="18" class="pill-text">REST APIs</text>
+
+    <!-- AI & Vision -->
+    <rect x="248" y="0" width="138" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="264" cy="14" r="3.5" class="pill-dot"/>
+    <text x="275" y="18" class="pill-text">AI &#8226; YOLOv5 Vision</text>
+
+    <!-- Data Analytics -->
+    <rect x="396" y="0" width="130" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="412" cy="14" r="3.5" class="pill-dot"/>
+    <text x="423" y="18" class="pill-text">Data Analytics</text>
+
+    <!-- Git & Architecture -->
+    <rect x="536" y="0" width="126" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="552" cy="14" r="3.5" class="pill-dot"/>
+    <text x="563" y="18" class="pill-text">Git &amp; Deployment</text>
+
+    <!-- Creative Tech -->
+    <rect x="672" y="0" width="118" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="688" cy="14" r="3.5" class="pill-dot"/>
+    <text x="699" y="18" class="pill-text">Creative Tech</text>
+  </g>
+
+  <!-- Continuous Flow Line Out -->
+  <line x1="440" y1="158" x2="440" y2="170" stroke="#4F7F5B" stroke-width="1.5" stroke-dasharray="3,3"/>
+</svg>

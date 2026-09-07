@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 160" width="880" height="160">
+  <defs>
+    <style>
+      .label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        font-weight: 700;
+        fill: #4F7F5B;
+        letter-spacing: 0.18em;
+      }
+      .heading {
+        font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Inter', sans-serif;
+        font-size: 22px;
+        font-weight: 800;
+        fill: #18231A;
+        letter-spacing: -0.02em;
+      }
+      .subtext {
+        font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Inter', sans-serif;
+        font-size: 14.5px;
+        font-weight: 400;
+        fill: #657066;
+      }
+      .chip-title {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        font-weight: 700;
+        fill: #24452E;
+      }
+      .chip-action {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        font-weight: 700;
+        fill: #4F7F5B;
+      }
+    </style>
+    <linearGradient id="connectBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBFCF8"/>
+      <stop offset="100%" stop-color="#F4F7F1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Continuous Flow Line In -->
+  <line x1="440" y1="0" x2="440" y2="12" stroke="#4F7F5B" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+  <!-- Background Card -->
+  <rect x="0" y="12" width="880" height="136" rx="16" fill="url(#connectBg)" stroke="#DCE8D8" stroke-width="1.5"/>
+
+  <!-- Top Info -->
+  <text x="44" y="42" class="label">REACH OUT &amp; CONNECT</text>
+  <text x="44" y="68" class="heading">Let&#8217;s build something great.</text>
+  <text x="44" y="92" class="subtext">Currently open for full-stack engineering roles, creative collaborations, and high-impact web projects.</text>
+
+  <!-- 3 Elegant Link Chips -->
+  <g transform="translate(44, 108)">
+    <!-- LinkedIn -->
+    <rect x="0" y="0" width="170" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="16" cy="14" r="3.5" fill="#4F7F5B"/>
+    <text x="28" y="18" class="chip-title">LINKEDIN &#8599;</text>
+
+    <!-- Gmail -->
+    <rect x="182" y="0" width="180" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="198" cy="14" r="3.5" fill="#4F7F5B"/>
+    <text x="210" y="18" class="chip-title">EMAIL (GMAIL) &#8599;</text>
+
+    <!-- Resume Highlight -->
+    <rect x="374" y="0" width="200" height="28" rx="14" fill="#24452E" stroke="#18231A"/>
+    <circle cx="390" cy="14" r="3.5" fill="#DCE8D8"/>
+    <text x="402" y="18" class="chip-title" fill="#FFFFFF">VIEW RESUME &#8594;</text>
+
+    <!-- Portfolio -->
+    <rect x="586" y="0" width="180" height="28" rx="14" fill="#EAF2E8" stroke="#D0E2CC"/>
+    <circle cx="602" cy="14" r="3.5" fill="#4F7F5B"/>
+    <text x="614" y="18" class="chip-title">PORTFOLIO &#8599;</text>
+  </g>
+
+  <!-- Terminal Anchor at bottom -->
+  <circle cx="440" cy="148" r="4" fill="#4F7F5B"/>
+  <circle cx="440" cy="148" r="8" fill="none" stroke="#DCE8D8" stroke-width="1.5"/>
+</svg>

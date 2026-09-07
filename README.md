@@ -1,46 +1,88 @@
 <div align="center">
 
   <!-- ================================================================= -->
-  <!-- PARMEET SINGH — LIVING DIGITAL CANVAS (CONTINUOUS ARCHITECTURE)   -->
+  <!-- 01 • GREETING & ANIMATED HELLO                                    -->
+  <!-- ================================================================= -->
+  <a href="https://github.com/singhparmeet12" title="Hello from Parmeet!">
+    <img src="./assets/waving-hand.gif" alt="Friendly Waving Hand" width="76" height="76" style="margin-bottom: 8px;" />
+  </a>
+
+  <img src="./assets/greeting.svg" alt="Hey there, I'm Parmeet — Full-Stack Developer (Web • Data • AI)" width="100%" style="max-width: 860px; display: block;" />
+
+  <br/>
+
+  <!-- ================================================================= -->
+  <!-- 02 • COZY LOFI WORKSPACE BANNER                                   -->
+  <!-- ================================================================= -->
+  <img src="./assets/lofi-workspace.jpg" alt="Parmeet's Cozy Lofi Developer Workspace" width="100%" style="max-width: 860px; border-radius: 16px; display: block; border: 1.5px solid #DCE8D8;" />
+
+  <br/>
+
+  <!-- ================================================================= -->
+  <!-- 03 • SELECTED PROJECTS (01 - 04)                                  -->
   <!-- ================================================================= -->
 
-  <!-- 01: HERO CANVAS -->
-  <img src="./assets/canvas-01-hero.svg" alt="Parmeet Singh — Full-Stack Developer • Web • Data • AI" width="100%" style="max-width: 900px; display: block; margin: 0; padding: 0;" /><!--
-  --><!-- 02: IDENTITY & ARCHITECTURE -->
-  <img src="./assets/canvas-02-identity.svg" alt="Engineering Identity & Core Architecture" width="100%" style="max-width: 900px; display: block; margin: 0; padding: 0;" /><!--
-  --><!-- 03: PROJECT 01 — TRADELAB (AI TRADING & COMPUTER VISION) -->
-  <a href="https://tradelab-kappa.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/canvas-03-project-tradelab.svg" alt="01 TradeLab — AI Trading Platform & Computer Vision" width="100%" style="max-width: 900px; display: block; margin: 0; padding: 0;" /></a><!--
-  --><!-- 04: PROJECT 02 — GAADIMANDI (AUTOMOTIVE PLATFORM) -->
-  <a href="https://car-trade-gamma.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/canvas-04-project-gaadimandi.svg" alt="02 GaadiMandi — Automotive Dealership & Inventory Platform" width="100%" style="max-width: 900px; display: block; margin: 0; padding: 0;" /></a><!--
-  --><!-- 05: PROJECT 03 — TOURCRAZE (TRAVEL PLANNER & TRIPSPLIT) -->
-  <a href="https://tour-craze.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/canvas-05-project-tourcraze.svg" alt="03 TourCraze — Smart Travel Planner & TripSplit Algorithm" width="100%" style="max-width: 900px; display: block; margin: 0; padding: 0;" /></a><!--
-  --><!-- 06: TECHNICAL DISCIPLINES & ECOSYSTEM -->
-  <img src="./assets/canvas-06-abilities.svg" alt="Technical Disciplines & Stack Ecosystem" width="100%" style="max-width: 900px; display: block; margin: 0; padding: 0;" /><!--
-  --><!-- 07: SYSTEM ACTIVITY & TELEMETRY -->
-  <img src="./assets/canvas-07-activity.svg" alt="Active Systems & Engineering Velocity" width="100%" style="max-width: 900px; display: block; margin: 0; padding: 0;" /><!--
-  --><!-- 08: CONNECT & TERMINAL ANCHOR -->
-  <img src="./assets/canvas-08-connect.svg" alt="Connect with Parmeet Singh" width="100%" style="max-width: 900px; display: block; margin: 0; padding: 0;" />
-
-  <!-- INTERACTIVE ACTION BAR & DIRECT LINKS -->
-  <p align="center" style="margin-top: 16px; margin-bottom: 8px;">
-    <a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><code>LinkedIn ↗</code></a> &nbsp;&bull;&nbsp;
-    <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><code>Portfolio ↗</code></a> &nbsp;&bull;&nbsp;
-    <a href="https://github.com/singhparmeet12?tab=repositories" target="_blank" rel="noopener noreferrer"><code>Repositories ↗</code></a> &nbsp;&bull;&nbsp;
-    <a href="mailto:parmeetssms@gmail.com"><code>parmeetssms@gmail.com ↗</code></a>
+  <!-- PROJECT 01: TRADELAB -->
+  <a href="https://tradelab-kappa.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <img src="./assets/card-01-tradelab.svg" alt="01 TradeLab — AI Trading & Market Analysis Platform" width="100%" style="max-width: 860px; display: block;" />
+  </a>
+  <p align="right" style="max-width: 860px; margin-top: 2px; margin-bottom: 8px;">
+    <a href="https://tradelab-kappa.vercel.app/" target="_blank"><code>↗ View Live Demo</code></a> &nbsp;&bull;&nbsp;
+    <a href="https://github.com/singhparmeet12/TradeLab" target="_blank"><code>↗ GitHub Repository</code></a>
   </p>
 
-  <p align="center" style="margin-top: 4px; margin-bottom: 24px;">
-    <small>
-      <a href="https://tradelab-kappa.vercel.app/" target="_blank"><b>TradeLab Demo</b></a> &nbsp;|&nbsp;
-      <a href="https://github.com/singhparmeet12/TradeLab" target="_blank">TradeLab Code</a> &nbsp;&bull;&nbsp;
-      <a href="https://car-trade-gamma.vercel.app/" target="_blank"><b>GaadiMandi Demo</b></a> &nbsp;&bull;&nbsp;
-      <a href="https://tour-craze.vercel.app/" target="_blank"><b>TourCraze Demo</b></a> &nbsp;|&nbsp;
-      <a href="https://github.com/singhparmeet12/TourCraze" target="_blank">TourCraze Code</a>
-    </small>
+  <!-- PROJECT 02: TOURCRAZE -->
+  <a href="https://tour-craze.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <img src="./assets/card-02-tourcraze.svg" alt="02 TourCraze — Smart Travel Planner & Group Expenses" width="100%" style="max-width: 860px; display: block;" />
+  </a>
+  <p align="right" style="max-width: 860px; margin-top: 2px; margin-bottom: 8px;">
+    <a href="https://tour-craze.vercel.app/" target="_blank"><code>↗ View Live Demo</code></a> &nbsp;&bull;&nbsp;
+    <a href="https://github.com/singhparmeet12/TourCraze" target="_blank"><code>↗ GitHub Repository</code></a>
   </p>
 
-  <sub style="color: #657066; font-family: monospace;">
-    PARMEET SINGH &bull; DIGITAL CRAFTSMANSHIP &bull; 2026
+  <!-- PROJECT 03: GAADIMANDI -->
+  <a href="https://car-trade-gamma.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <img src="./assets/card-03-gaadimandi.svg" alt="03 GaadiMandi — Automotive Dealership & Inventory Platform" width="100%" style="max-width: 860px; display: block;" />
+  </a>
+  <p align="right" style="max-width: 860px; margin-top: 2px; margin-bottom: 8px;">
+    <a href="https://car-trade-gamma.vercel.app/" target="_blank"><code>↗ View Live Demo</code></a>
+  </p>
+
+  <!-- PROJECT 04: PERSONAL PORTFOLIO -->
+  <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <img src="./assets/card-04-portfolio.svg" alt="04 Personal Portfolio — Interactive Digital Experience" width="100%" style="max-width: 860px; display: block;" />
+  </a>
+  <p align="right" style="max-width: 860px; margin-top: 2px; margin-bottom: 12px;">
+    <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank"><code>↗ View Live Site</code></a> &nbsp;&bull;&nbsp;
+    <a href="https://github.com/singhparmeet12/Personal-Portfolio" target="_blank"><code>↗ GitHub Repository</code></a>
+  </p>
+
+  <br/>
+
+  <!-- ================================================================= -->
+  <!-- 04 • TOOLKIT & CRAFT (I BUILD WITH)                               -->
+  <!-- ================================================================= -->
+  <img src="./assets/skills.svg" alt="Toolkit & Craft: Technologies Parmeet Builds With" width="100%" style="max-width: 860px; display: block;" />
+
+  <br/>
+
+  <!-- ================================================================= -->
+  <!-- 05 • CONTACT & RESUME (LET'S CONNECT)                             -->
+  <!-- ================================================================= -->
+  <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer">
+    <img src="./assets/connect.svg" alt="Reach Out & Connect with Parmeet Singh" width="100%" style="max-width: 860px; display: block;" />
+  </a>
+
+  <!-- EXPLICIT ACTIONABLE LINKS -->
+  <p align="center" style="margin-top: 14px; margin-bottom: 6px;">
+    <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><b>📄 VIEW RESUME (PDF) ↗</b></a> &nbsp;&bull;&nbsp;
+    <a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><b>LinkedIn ↗</b></a> &nbsp;&bull;&nbsp;
+    <a href="mailto:parmeetssms@gmail.com"><b>parmeetssms@gmail.com ↗</b></a> &nbsp;&bull;&nbsp;
+    <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><b>Personal Portfolio ↗</b></a>
+  </p>
+
+  <sub style="color: #657066; font-family: -apple-system, BlinkMacSystemFont, sans-serif;">
+    PARMEET SINGH &bull; FULL-STACK DEVELOPER &bull; DELHI, INDIA
   </sub>
 
 </div>
