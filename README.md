@@ -31,15 +31,6 @@
 
 </div>
 
----
-
-<div align="center">
-
-  <!-- Interactive Animated Developer Terminal Window -->
-  <img src="./assets/developer-card.svg" alt="Developer Studio Terminal" width="100%" style="max-width: 780px;" />
-
-</div>
-
 <br/>
 
 ### ⚡ Selected Work

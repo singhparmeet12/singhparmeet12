@@ -475,24 +475,47 @@ html, body {
   overflow-x: auto;
 }
 
-/* Syntax Highlighting Colors */
-.c-comment { color: #64748b; font-style: italic; }
-.c-keyword { color: #f472b6; font-weight: 600; }
-.c-class { color: #60a5fa; font-weight: 700; }
-.c-func { color: #c084fc; font-weight: 600; }
-.c-string { color: #34d399; }
-.c-punct { color: #94a3b8; }
-.c-param { color: #fdba74; }
-.c-highlight { color: #38bdf8; font-weight: 600; }
+/* Overview List in Highlight Card */
+.overview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-.code-cursor {
-  display: inline-block;
-  width: 8px;
-  height: 14px;
-  background: var(--accent-cyan);
-  vertical-align: middle;
-  margin-left: 4px;
-  animation: blinkCursor 1s infinite;
+.overview-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all var(--transition-fast);
+}
+
+.overview-item:hover {
+  background: rgba(56, 189, 248, 0.05);
+  border-color: rgba(56, 189, 248, 0.25);
+  transform: translateX(3px);
+}
+
+.overview-icon {
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.overview-heading {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  letter-spacing: -0.01em;
+}
+
+.overview-sub {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-top: 1px;
 }
 
 .terminal-footer {
