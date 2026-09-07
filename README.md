@@ -1,64 +1,113 @@
 <div align="center">
 
-  <!-- Slim Futuristic Neon Header -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_color_list=0:050816,25:1d4ed8,70:7c3aed,100:06b6d4&height=150&section=header&text=Parmeet%20Singh&fontSize=42&fontAlignY=38&desc=Full%20Stack%20Web%20Developer&descAlignY=64&descAlign=50&animation=fadeIn" width="100%" alt="Parmeet Singh — Full Stack Web Developer" />
+  <!-- 01 — HERO SECTION: LIVING DIGITAL GARDEN & CONTRIBUTION GRID ECOSYSTEM -->
+  <img src="./assets/hero.svg" alt="Parmeet Singh — Full-Stack Developer • Data × AI × Web" width="100%" style="max-width: 880px;" />
 
-  <!-- Smooth Typing Animation -->
-  <a href="https://personal-portfolio-parmeet1.vercel.app/">
-    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=18&duration=2400&pause=900&color=38BDF8&center=true&vCenter=true&multiline=false&width=620&height=36&lines=%3E+Full+Stack+Web+Developer;%3E+Python+%26+Django+Specialist;%3E+Scalable+Web+Systems+Architect;%3E+AI+%26+Computer+Vision+Builder" alt="Typing Roles" />
+</div>
+
+<br/>
+
+## 02 // ABOUT
+
+<div align="center">
+  <img src="./assets/about-card.svg" alt="About Parmeet Singh — Architecture & Craft" width="100%" style="max-width: 880px;" />
+</div>
+
+<br/>
+
+## 03 // CURRENTLY BUILDING
+
+<div align="center">
+  <img src="./assets/system-status.svg" alt="Build Status: Building, Experimenting, Exploring" width="100%" style="max-width: 880px;" />
+</div>
+
+<br/>
+
+## 04 // SELECTED PROJECTS
+
+<div align="center">
+
+  <!-- Project 01: TradeLab -->
+  <a href="https://tradelab-kappa.vercel.app/" target="_blank">
+    <img src="./assets/project-tradelab.svg" alt="TradeLab — AI Trading Platform & Computer Vision" width="100%" style="max-width: 880px;" />
   </a>
-
-  <p>
-    <em>Crafting scalable web systems, clean backend architectures, and refined digital experiences.</em>
+  <p align="right" style="margin-top: 4px; margin-bottom: 20px;">
+    <a href="https://tradelab-kappa.vercel.app/" target="_blank"><code>↗ Live Demo</code></a> &nbsp;&bull;&nbsp;
+    <a href="https://github.com/singhparmeet12/TradeLab" target="_blank"><code>↗ GitHub Repository</code></a> &nbsp;&bull;&nbsp;
+    <a href="https://personal-portfolio-parmeet1.vercel.app/work/tradelab/" target="_blank"><code>↗ Case Study</code></a>
   </p>
 
-  <!-- Status & Quick Action Dock -->
-  <p align="center">
-    <img src="https://img.shields.io/badge/Status-🟢%20Available%20for%20Opportunities-10b981?style=flat-square&labelColor=050816" alt="Status" />
-    <a href="https://github.com/singhparmeet12">
-      <img src="https://img.shields.io/badge/GitHub-singhparmeet12-2563eb?style=flat-square&logo=github&logoColor=white&labelColor=050816" alt="GitHub" />
-    </a>
-    <a href="https://linkedin.com/in/parmeetsingh12" target="_blank">
-      <img src="https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=flat-square&logo=linkedin&logoColor=white&labelColor=050816" alt="LinkedIn" />
-    </a>
-    <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank">
-      <img src="https://img.shields.io/badge/Portfolio-Live-7c3aed?style=flat-square&logo=vercel&logoColor=white&labelColor=050816" alt="Portfolio" />
-    </a>
-    <a href="mailto:parmeetssms@gmail.com">
-      <img src="https://img.shields.io/badge/Contact-Email-ea4335?style=flat-square&logo=gmail&logoColor=white&labelColor=050816" alt="Email" />
-    </a>
+  <!-- Project 02: GaadiMandi -->
+  <a href="https://car-trade-gamma.vercel.app/" target="_blank">
+    <img src="./assets/project-gaadimandi.svg" alt="GaadiMandi — Automotive Dealer & Inventory Platform" width="100%" style="max-width: 880px;" />
+  </a>
+  <p align="right" style="margin-top: 4px; margin-bottom: 20px;">
+    <a href="https://car-trade-gamma.vercel.app/" target="_blank"><code>↗ Live Demo</code></a> &nbsp;&bull;&nbsp;
+    <a href="https://personal-portfolio-parmeet1.vercel.app/work/gaadimandi/" target="_blank"><code>↗ Case Study</code></a>
+  </p>
+
+  <!-- Project 03: TourCraze -->
+  <a href="https://tour-craze.vercel.app/" target="_blank">
+    <img src="./assets/project-tourcraze.svg" alt="TourCraze — Travel Planner & Group Expense Engine" width="100%" style="max-width: 880px;" />
+  </a>
+  <p align="right" style="margin-top: 4px; margin-bottom: 24px;">
+    <a href="https://tour-craze.vercel.app/" target="_blank"><code>↗ Live Demo</code></a> &nbsp;&bull;&nbsp;
+    <a href="https://github.com/singhparmeet12/TourCraze" target="_blank"><code>↗ GitHub Repository</code></a> &nbsp;&bull;&nbsp;
+    <a href="https://personal-portfolio-parmeet1.vercel.app/work/tourcraze/" target="_blank"><code>↗ Case Study</code></a>
   </p>
 
 </div>
 
 <br/>
 
-### ⚡ Selected Work
+## 05 // TECH STACK
 
-| Project | Description | Stack | Links |
-| :--- | :--- | :--- | :--- |
-| **🚗 GaadiMandi** | Automotive dealer & vehicle inventory platform | `Django 5` `PostgreSQL` `Cloudinary` | [Live Demo ↗](https://car-trade-gamma.vercel.app/) • [Case Study ↗](https://personal-portfolio-parmeet1.vercel.app/work/gaadimandi/) |
-| **✈️ TourCraze** | Smart travel planner with TripSplit greedy algorithm | `Python` `Django` `REST API` | [Live Demo ↗](https://tour-craze.vercel.app/) • [Source ↗](https://github.com/singhparmeet12/TourCraze) |
-| **📈 TradeLab** | AI trading platform with YOLOv5 chart pattern vision | `YOLOv5` `Django` `Pine Script` | [Live Demo ↗](https://tradelab-kappa.vercel.app/) • [Source ↗](https://github.com/singhparmeet12/TradeLab) |
+<div align="center">
+  <img src="./assets/tech-stack.svg" alt="Technical Stack: Development, Data & AI, Platforms & Tools" width="100%" style="max-width: 880px;" />
+</div>
 
 <br/>
 
-### 🛠️ Core Toolkit
+## 06 // GITHUB ACTIVITY & METRICS
 
-<p align="center">
-  <code>Python</code> &bull;
-  <code>Django 5.x</code> &bull;
-  <code>PostgreSQL</code> &bull;
-  <code>RESTful APIs</code> &bull;
-  <code>JavaScript (ES6+)</code> &bull;
-  <code>HTML5 / CSS3</code> &bull;
-  <code>YOLOv5 / OpenCV</code> &bull;
-  <code>Git</code> &bull;
-  <code>Vercel</code>
-</p>
+<div align="center">
+
+  <img src="./assets/activity-dashboard.svg" alt="Activity Dashboard: Commits, Projects, Contributions, Streak" width="100%" style="max-width: 880px;" />
+
+  <br/><br/>
+
+  <!-- Subtle Mint Contribution Streak -->
+  <a href="https://github.com/singhparmeet12">
+    <img src="https://streak-stats.demolab.com/?user=singhparmeet12&theme=git-dark&hide_border=true&background=F7FAF8&ring=2DA44E&fire=146B32&currStreakNum=146B32&sideNums=17231A&sideLabels=607064&dates=607064" alt="GitHub Contribution Streak" />
+  </a>
+
+</div>
+
+<br/>
+
+## 07 // TERMINAL
+
+<div align="center">
+  <img src="./assets/terminal.svg" alt="Interactive Developer Terminal Session" width="100%" style="max-width: 720px;" />
+</div>
+
+<br/>
 
 ---
 
+## 08 // CONNECT
+
 <div align="center">
-  <sub>⚡ Designed by <a href="https://personal-portfolio-parmeet1.vercel.app/">Parmeet Singh</a> &bull; Let's build something extraordinary together.</sub>
+
+  <p>
+    <a href="https://github.com/singhparmeet12"><code>GitHub ↗</code></a> &nbsp;&bull;&nbsp;
+    <a href="https://linkedin.com/in/parmeetsingh12" target="_blank"><code>LinkedIn ↗</code></a> &nbsp;&bull;&nbsp;
+    <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank"><code>Personal Portfolio ↗</code></a> &nbsp;&bull;&nbsp;
+    <a href="mailto:parmeetssms@gmail.com"><code>parmeetssms@gmail.com ↗</code></a>
+  </p>
+
+  <sub style="color: #607064;">
+    PARMEET SINGH &bull; DIGITAL GARDEN &bull; 2026 EDITION
+  </sub>
+
 </div>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 140" width="100%" height="100%">
+  <defs>
+    <linearGradient id="statusBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7FAF8" />
+      <stop offset="100%" stop-color="#EEF6F1" />
+    </linearGradient>
+
+    <style>
+      @keyframes pulseLive {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(0.85); }
+      }
+      .mono-status {
+        font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+      }
+      .sans-status {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      .dot-1 { animation: pulseLive 2s infinite ease-in-out; transform-origin: 32px 30px; }
+      .dot-2 { animation: pulseLive 2s infinite ease-in-out; animation-delay: 0.7s; transform-origin: 324px 30px; }
+      .dot-3 { animation: pulseLive 2s infinite ease-in-out; animation-delay: 1.4s; transform-origin: 616px 30px; }
+    </style>
+  </defs>
+
+  <!-- Card Frame -->
+  <rect x="2" y="2" width="876" height="136" rx="12" fill="url(#statusBg)" stroke="#D4E7D9" stroke-width="1.2" />
+
+  <!-- Column 1: BUILDING -->
+  <g transform="translate(24, 20)">
+    <circle cx="8" cy="10" r="4.5" fill="#2DA44E" class="dot-1" />
+    <text x="20" y="14" class="mono-status" font-size="11" font-weight="700" fill="#146B32" letter-spacing="0.08em">
+      BUILDING
+    </text>
+    <text x="8" y="38" class="sans-status" font-size="13" font-weight="700" fill="#17231A">
+      GaadiMandi
+    </text>
+    <text x="8" y="56" class="sans-status" font-size="11.5" fill="#607064">
+      Automotive inventory &amp; dealership
+    </text>
+    <text x="8" y="74" class="sans-status" font-size="11.5" fill="#607064">
+      platform with Django 5 &amp; PostgreSQL
+    </text>
+  </g>
+
+  <!-- Divider 1 -->
+  <line x1="298" y1="20" x2="298" y2="120" stroke="#D7EBDE" stroke-width="1" stroke-dasharray="3 3" />
+
+  <!-- Column 2: EXPERIMENTING -->
+  <g transform="translate(316, 20)">
+    <circle cx="8" cy="10" r="4.5" fill="#40C463" class="dot-2" />
+    <text x="20" y="14" class="mono-status" font-size="11" font-weight="700" fill="#146B32" letter-spacing="0.08em">
+      EXPERIMENTING
+    </text>
+    <text x="8" y="38" class="sans-status" font-size="13" font-weight="700" fill="#17231A">
+      TradeLab AI Vision
+    </text>
+    <text x="8" y="56" class="sans-status" font-size="11.5" fill="#607064">
+      YOLOv5 chart pattern detection
+    </text>
+    <text x="8" y="74" class="sans-status" font-size="11.5" fill="#607064">
+      &amp; custom Pine Script quant indicators
+    </text>
+  </g>
+
+  <!-- Divider 2 -->
+  <line x1="590" y1="20" x2="590" y2="120" stroke="#D7EBDE" stroke-width="1" stroke-dasharray="3 3" />
+
+  <!-- Column 3: LEARNING -->
+  <g transform="translate(608, 20)">
+    <circle cx="8" cy="10" r="4.5" fill="#9BE9A8" stroke="#2DA44E" stroke-width="1" class="dot-3" />
+    <text x="20" y="14" class="mono-status" font-size="11" font-weight="700" fill="#146B32" letter-spacing="0.08em">
+      EXPLORING
+    </text>
+    <text x="8" y="38" class="sans-status" font-size="13" font-weight="700" fill="#17231A">
+      Distributed Architectures
+    </text>
+    <text x="8" y="56" class="sans-status" font-size="11.5" fill="#607064">
+      Async Python microservices,
+    </text>
+    <text x="8" y="74" class="sans-status" font-size="11.5" fill="#607064">
+      high-efficiency query optimization
+    </text>
+  </g>
+
+</svg>

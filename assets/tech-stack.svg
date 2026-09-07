@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 135" width="100%" height="100%">
+  <defs>
+    <linearGradient id="techBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7FAF8" />
+      <stop offset="100%" stop-color="#EEF6F1" />
+    </linearGradient>
+
+    <style>
+      .mono-t { font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace; }
+      .sans-t { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Frame -->
+  <rect x="2" y="2" width="876" height="131" rx="12" fill="url(#techBg)" stroke="#D4E7D9" stroke-width="1.2" />
+
+  <!-- Column 1: DEVELOPMENT -->
+  <g transform="translate(28, 22)">
+    <text x="0" y="10" class="mono-t" font-size="10.5" font-weight="700" fill="#2DA44E" letter-spacing="0.08em">
+      // DEVELOPMENT
+    </text>
+    <g transform="translate(0, 32)" class="sans-t" font-size="12" fill="#17231A" font-weight="600">
+      <text x="0" y="0">Python &bull; Django 5.x &bull; JavaScript</text>
+      <text x="0" y="22" fill="#4B5E50" font-weight="500">PostgreSQL &bull; SQLite &bull; REST APIs</text>
+      <text x="0" y="44" fill="#607064" font-weight="400">Responsive Systems &bull; HTML5 / CSS3</text>
+    </g>
+  </g>
+
+  <!-- Divider 1 -->
+  <line x1="298" y1="18" x2="298" y2="117" stroke="#D7EBDE" stroke-width="1" stroke-dasharray="3 3" />
+
+  <!-- Column 2: DATA & AI -->
+  <g transform="translate(322, 22)">
+    <text x="0" y="10" class="mono-t" font-size="10.5" font-weight="700" fill="#2DA44E" letter-spacing="0.08em">
+      // DATA &amp; AI
+    </text>
+    <g transform="translate(0, 32)" class="sans-t" font-size="12" fill="#17231A" font-weight="600">
+      <text x="0" y="0">YOLOv5 &bull; Computer Vision</text>
+      <text x="0" y="22" fill="#4B5E50" font-weight="500">OpenCV &bull; Machine Learning</text>
+      <text x="0" y="44" fill="#607064" font-weight="400">Data Analytics &bull; Pandas &bull; NumPy</text>
+    </g>
+  </g>
+
+  <!-- Divider 2 -->
+  <line x1="590" y1="18" x2="590" y2="117" stroke="#D7EBDE" stroke-width="1" stroke-dasharray="3 3" />
+
+  <!-- Column 3: PLATFORMS & TOOLS -->
+  <g transform="translate(614, 22)">
+    <text x="0" y="10" class="mono-t" font-size="10.5" font-weight="700" fill="#2DA44E" letter-spacing="0.08em">
+      // PLATFORMS &amp; TOOLS
+    </text>
+    <g transform="translate(0, 32)" class="sans-t" font-size="12" fill="#17231A" font-weight="600">
+      <text x="0" y="0">Git &bull; GitHub Versioning</text>
+      <text x="0" y="22" fill="#4B5E50" font-weight="500">Vercel Serverless &bull; Cloudinary</text>
+      <text x="0" y="44" fill="#607064" font-weight="400">TradingView Pine Script &bull; Postman</text>
+    </g>
+  </g>
+
+</svg>

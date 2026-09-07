@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 148" width="100%" height="100%">
+  <defs>
+    <linearGradient id="p3Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7FAF8" />
+      <stop offset="60%" stop-color="#EFF7F2" />
+      <stop offset="100%" stop-color="#E7F3EC" />
+    </linearGradient>
+
+    <style>
+      .mono-p { font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace; }
+      .sans-p { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Base Card -->
+  <rect x="2" y="2" width="876" height="144" rx="12" fill="url(#p3Bg)" stroke="#D4E7D9" stroke-width="1.2" />
+
+  <!-- Index & Deco Grid in Top Right -->
+  <g transform="translate(800, 20)">
+    <text x="56" y="10" class="mono-p" font-size="12" font-weight="700" fill="#2DA44E" text-anchor="end">03 // 03</text>
+    <g transform="translate(16, 22)">
+      <rect x="0" y="0" width="8" height="8" rx="2" fill="#2DA44E" />
+      <rect x="11" y="0" width="8" height="8" rx="2" fill="#146B32" />
+      <rect x="22" y="0" width="8" height="8" rx="2" fill="#40C463" />
+      <rect x="33" y="0" width="8" height="8" rx="2" fill="#9BE9A8" />
+      <rect x="0" y="11" width="8" height="8" rx="2" fill="#9BE9A8" />
+      <rect x="11" y="11" width="8" height="8" rx="2" fill="#E2F2E6" />
+      <rect x="22" y="11" width="8" height="8" rx="2" fill="#2DA44E" />
+      <rect x="33" y="11" width="8" height="8" rx="2" fill="#40C463" />
+    </g>
+  </g>
+
+  <!-- Content -->
+  <g transform="translate(32, 28)">
+    <!-- Category Pill -->
+    <rect x="0" y="0" width="180" height="20" rx="4" fill="#DFF5E5" stroke="#BFE8CA" stroke-width="1" />
+    <text x="8" y="14" class="mono-p" font-size="9" font-weight="700" fill="#146B32" letter-spacing="0.08em">
+      TRAVEL TECH &amp; ALGORITHMS
+    </text>
+
+    <!-- Project Title -->
+    <text x="0" y="44" class="sans-p" font-size="22" font-weight="800" fill="#17231A" letter-spacing="-0.02em">
+      TourCraze
+    </text>
+
+    <!-- Short Description -->
+    <text x="0" y="68" class="sans-p" font-size="12.5" fill="#4B5E50">
+      Full-stack travel platform with automated itinerary generation, destination search, and TripSplit —
+    </text>
+    <text x="0" y="86" class="sans-p" font-size="12.5" fill="#4B5E50">
+      a greedy graph debt-simplification algorithm minimizing group settlement transactions.
+    </text>
+
+    <!-- Stack Chips -->
+    <g transform="translate(0, 102)" class="mono-p" font-size="10" fill="#2DA44E" font-weight="600">
+      <text x="0" y="0">Python &bull; Django &bull; JavaScript &bull; REST APIs &bull; AJAX &bull; Greedy Algorithms</text>
+    </g>
+  </g>
+
+</svg>

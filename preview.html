@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GitHub Profile Preview — Parmeet Singh (@singhparmeet12)</title>
+  <title>GitHub Profile Preview — Parmeet Singh (Digital Garden)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-canvas: #050816;
-      --bg-surface: rgba(13, 17, 23, 0.85);
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --text-primary: #e6edf3;
-      --text-secondary: #8b949e;
-      --text-link: #38bdf8;
-      --accent-cyan: #38bdf8;
+      --bg-page: #F5FAF6;
+      --bg-card: #FFFFFF;
+      --border-subtle: #D4E7D9;
+      --text-primary: #17231A;
+      --text-secondary: #607064;
+      --accent-green: #2DA44E;
+      --deep-green: #146B32;
+      --soft-mint: #DFF5E5;
     }
 
     * {
@@ -25,227 +26,254 @@
     }
 
     body {
-      background-color: var(--bg-canvas);
+      background-color: var(--bg-page);
       color: var(--text-primary);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
-      font-size: 14.5px;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 15px;
       line-height: 1.6;
-      padding: 24px 16px 48px;
+      padding: 24px 16px 60px;
     }
 
+    /* Ambient Subtle Grid Background */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: 
+        linear-gradient(to right, rgba(45, 164, 78, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(45, 164, 78, 0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      z-index: 0;
+    }
+
+    /* Top Preview Control Bar */
     .preview-header-bar {
-      max-width: 860px;
+      position: relative;
+      z-index: 1;
+      max-width: 920px;
       margin: 0 auto 20px;
       padding: 10px 18px;
-      background: rgba(18, 23, 33, 0.9);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
       border: 1px solid var(--border-subtle);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      box-shadow: 0 4px 16px rgba(20, 107, 50, 0.04);
     }
 
     .preview-title {
       display: flex;
       align-items: center;
       gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
       font-weight: 600;
-      font-size: 0.88rem;
+      color: var(--deep-green);
     }
 
     .preview-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 8px #10b981;
+      background: var(--accent-green);
+      box-shadow: 0 0 6px var(--accent-green);
     }
 
     .btn-preview {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #1f293d;
-      color: var(--text-primary);
-      border: 1px solid var(--border-subtle);
+      background: var(--soft-mint);
+      color: var(--deep-green);
+      border: 1px solid #BFE8CA;
       border-radius: 6px;
       padding: 5px 12px;
-      font-size: 12.5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.2s ease;
     }
 
     .btn-preview:hover {
-      background: #2d3748;
-      color: var(--accent-cyan);
+      background: #cbf0d3;
+      transform: translateY(-1px);
     }
 
-    .markdown-container {
-      max-width: 860px;
+    /* Main Container Shell */
+    .readme-shell {
+      position: relative;
+      z-index: 1;
+      max-width: 920px;
       margin: 0 auto;
-      background-color: var(--bg-surface);
+      background: #FFFFFF;
       border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 28px 36px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+      border-radius: 14px;
+      padding: 36px 40px;
+      box-shadow: 0 12px 32px rgba(20, 107, 50, 0.05);
+    }
+
+    h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--deep-green);
+      letter-spacing: 0.08em;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #E4F2E8;
+      padding-bottom: 6px;
     }
 
     hr {
       height: 1px;
       background: var(--border-subtle);
       border: 0;
-      margin: 22px 0;
-    }
-
-    h3 {
-      font-size: 1.18rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #f1f5f9;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 16px;
-    }
-
-    table th, table td {
-      padding: 10px 14px;
-      border: 1px solid var(--border-subtle);
-      background-color: #080d1a;
-      font-size: 0.88rem;
-    }
-
-    table th {
-      background-color: #0f172a;
-      color: #94a3b8;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      margin: 28px 0;
     }
 
     code {
       font-family: 'JetBrains Mono', monospace;
       font-size: 85%;
-      background-color: rgba(255, 255, 255, 0.06);
-      padding: 0.15em 0.4em;
+      background-color: var(--soft-mint);
+      color: var(--deep-green);
+      padding: 0.2em 0.5em;
       border-radius: 4px;
-      color: #7dd3fc;
+      border: 1px solid #CEEED6;
+      font-weight: 600;
     }
 
     a {
-      color: var(--text-link);
+      color: var(--deep-green);
       text-decoration: none;
+      transition: color 0.15s ease;
     }
 
     a:hover {
       text-decoration: underline;
+      color: var(--accent-green);
+    }
+
+    img {
+      max-width: 100%;
+      box-sizing: border-box;
     }
   </style>
 </head>
 <body>
 
+  <div class="bg-grid"></div>
+
+  <!-- Preview Toolbar -->
   <div class="preview-header-bar">
     <div class="preview-title">
       <span class="preview-dot"></span>
-      <span>GitHub Profile Preview &bull; <strong>singhparmeet12 / README.md</strong></span>
+      <span>PARMEET SINGH &bull; DIGITAL GARDEN &bull; README.md</span>
     </div>
     <div>
-      <a href="index.html" class="btn-preview">Open Full Homepage ↗</a>
       <a href="https://github.com/singhparmeet12" target="_blank" class="btn-preview">Live Profile ↗</a>
     </div>
   </div>
 
-  <div class="markdown-container">
+  <!-- Rendered Markdown Shell -->
+  <div class="readme-shell">
+
     <div align="center">
-      <!-- Slim Futuristic Neon Header -->
-      <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_color_list=0:050816,25:1d4ed8,70:7c3aed,100:06b6d4&height=150&section=header&text=Parmeet%20Singh&fontSize=42&fontAlignY=38&desc=Full%20Stack%20Web%20Developer&descAlignY=64&descAlign=50&animation=fadeIn" width="100%" alt="Parmeet Singh Header" />
+      <!-- 01 — HERO SECTION -->
+      <img src="./assets/hero.svg" alt="Parmeet Singh — Full-Stack Developer • Data × AI × Web" width="100%" style="max-width: 880px;" />
+    </div>
 
-      <!-- Smooth Typing Animation -->
-      <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank">
-        <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=18&duration=2400&pause=900&color=38BDF8&center=true&vCenter=true&multiline=false&width=620&height=36&lines=%3E+Full+Stack+Web+Developer;%3E+Python+%26+Django+Specialist;%3E+Scalable+Web+Systems+Architect;%3E+AI+%26+Computer+Vision+Builder" alt="Typing Roles" />
+    <br/>
+
+    <h2>02 // ABOUT</h2>
+    <div align="center">
+      <img src="./assets/about-card.svg" alt="About Parmeet Singh — Architecture & Craft" width="100%" style="max-width: 880px;" />
+    </div>
+
+    <br/>
+
+    <h2>03 // CURRENTLY BUILDING</h2>
+    <div align="center">
+      <img src="./assets/system-status.svg" alt="Build Status: Building, Experimenting, Exploring" width="100%" style="max-width: 880px;" />
+    </div>
+
+    <br/>
+
+    <h2>04 // SELECTED PROJECTS</h2>
+
+    <div align="center">
+      <!-- Project 01: TradeLab -->
+      <a href="https://tradelab-kappa.vercel.app/" target="_blank">
+        <img src="./assets/project-tradelab.svg" alt="TradeLab — AI Trading Platform & Computer Vision" width="100%" style="max-width: 880px;" />
       </a>
-
-      <p style="color: #94a3b8; margin: 10px 0;">
-        <em>Crafting scalable web systems, clean backend architectures, and refined digital experiences.</em>
+      <p align="right" style="margin-top: 4px; margin-bottom: 20px;">
+        <a href="https://tradelab-kappa.vercel.app/" target="_blank"><code>↗ Live Demo</code></a> &nbsp;&bull;&nbsp;
+        <a href="https://github.com/singhparmeet12/TradeLab" target="_blank"><code>↗ GitHub Repository</code></a> &nbsp;&bull;&nbsp;
+        <a href="https://personal-portfolio-parmeet1.vercel.app/work/tradelab/" target="_blank"><code>↗ Case Study</code></a>
       </p>
 
-      <!-- Status & Quick Action Dock -->
-      <p align="center" style="margin-top: 12px;">
-        <img src="https://img.shields.io/badge/Status-🟢%20Available%20for%20Opportunities-10b981?style=flat-square&labelColor=050816" alt="Status" />
-        <a href="https://github.com/singhparmeet12">
-          <img src="https://img.shields.io/badge/GitHub-singhparmeet12-2563eb?style=flat-square&logo=github&logoColor=white&labelColor=050816" alt="GitHub" />
-        </a>
-        <a href="https://linkedin.com/in/parmeetsingh12" target="_blank">
-          <img src="https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=flat-square&logo=linkedin&logoColor=white&labelColor=050816" alt="LinkedIn" />
-        </a>
-        <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank">
-          <img src="https://img.shields.io/badge/Portfolio-Live-7c3aed?style=flat-square&logo=vercel&logoColor=white&labelColor=050816" alt="Portfolio" />
-        </a>
-        <a href="mailto:parmeetssms@gmail.com">
-          <img src="https://img.shields.io/badge/Contact-Email-ea4335?style=flat-square&logo=gmail&logoColor=white&labelColor=050816" alt="Email" />
-        </a>
+      <!-- Project 02: GaadiMandi -->
+      <a href="https://car-trade-gamma.vercel.app/" target="_blank">
+        <img src="./assets/project-gaadimandi.svg" alt="GaadiMandi — Automotive Dealer & Inventory Platform" width="100%" style="max-width: 880px;" />
+      </a>
+      <p align="right" style="margin-top: 4px; margin-bottom: 20px;">
+        <a href="https://car-trade-gamma.vercel.app/" target="_blank"><code>↗ Live Demo</code></a> &nbsp;&bull;&nbsp;
+        <a href="https://personal-portfolio-parmeet1.vercel.app/work/gaadimandi/" target="_blank"><code>↗ Case Study</code></a>
+      </p>
+
+      <!-- Project 03: TourCraze -->
+      <a href="https://tour-craze.vercel.app/" target="_blank">
+        <img src="./assets/project-tourcraze.svg" alt="TourCraze — Travel Planner & Group Expense Engine" width="100%" style="max-width: 880px;" />
+      </a>
+      <p align="right" style="margin-top: 4px; margin-bottom: 24px;">
+        <a href="https://tour-craze.vercel.app/" target="_blank"><code>↗ Live Demo</code></a> &nbsp;&bull;&nbsp;
+        <a href="https://github.com/singhparmeet12/TourCraze" target="_blank"><code>↗ GitHub Repository</code></a> &nbsp;&bull;&nbsp;
+        <a href="https://personal-portfolio-parmeet1.vercel.app/work/tourcraze/" target="_blank"><code>↗ Case Study</code></a>
       </p>
     </div>
 
     <br/>
 
-    <h3>⚡ Selected Work</h3>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Project</th>
-          <th>Description</th>
-          <th>Stack</th>
-          <th>Links</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>🚗 GaadiMandi</strong></td>
-          <td>Automotive dealer &amp; vehicle inventory platform</td>
-          <td><code>Django 5</code> <code>PostgreSQL</code></td>
-          <td><a href="https://car-trade-gamma.vercel.app/" target="_blank">Live Demo ↗</a> &bull; <a href="https://personal-portfolio-parmeet1.vercel.app/work/gaadimandi/" target="_blank">Case Study ↗</a></td>
-        </tr>
-        <tr>
-          <td><strong>✈️ TourCraze</strong></td>
-          <td>Smart travel planner with TripSplit greedy algorithm</td>
-          <td><code>Python</code> <code>Django</code></td>
-          <td><a href="https://tour-craze.vercel.app/" target="_blank">Live Demo ↗</a> &bull; <a href="https://github.com/singhparmeet12/TourCraze" target="_blank">Source ↗</a></td>
-        </tr>
-        <tr>
-          <td><strong>📈 TradeLab</strong></td>
-          <td>AI trading platform with YOLOv5 chart pattern vision</td>
-          <td><code>YOLOv5</code> <code>Django</code></td>
-          <td><a href="https://tradelab-kappa.vercel.app/" target="_blank">Live Demo ↗</a> &bull; <a href="https://github.com/singhparmeet12/TradeLab" target="_blank">Source ↗</a></td>
-        </tr>
-      </tbody>
-    </table>
+    <h2>05 // TECH STACK</h2>
+    <div align="center">
+      <img src="./assets/tech-stack.svg" alt="Technical Stack: Development, Data & AI, Platforms & Tools" width="100%" style="max-width: 880px;" />
+    </div>
 
     <br/>
 
-    <h3 align="center">🛠️ Core Toolkit</h3>
+    <h2>06 // GITHUB ACTIVITY &amp; METRICS</h2>
+    <div align="center">
+      <img src="./assets/activity-dashboard.svg" alt="Activity Dashboard: Commits, Projects, Contributions, Streak" width="100%" style="max-width: 880px;" />
+      <br/><br/>
+      <a href="https://github.com/singhparmeet12">
+        <img src="https://streak-stats.demolab.com/?user=singhparmeet12&theme=git-dark&hide_border=true&background=F7FAF8&ring=2DA44E&fire=146B32&currStreakNum=146B32&sideNums=17231A&sideLabels=607064&dates=607064" alt="GitHub Contribution Streak" />
+      </a>
+    </div>
 
-    <p align="center">
-      <code>Python</code> &bull;
-      <code>Django 5.x</code> &bull;
-      <code>PostgreSQL</code> &bull;
-      <code>RESTful APIs</code> &bull;
-      <code>JavaScript (ES6+)</code> &bull;
-      <code>HTML5 / CSS3</code> &bull;
-      <code>YOLOv5 / OpenCV</code> &bull;
-      <code>Git</code> &bull;
-      <code>Vercel</code>
-    </p>
+    <br/>
+
+    <h2>07 // TERMINAL</h2>
+    <div align="center">
+      <img src="./assets/terminal.svg" alt="Interactive Developer Terminal Session" width="100%" style="max-width: 720px;" />
+    </div>
+
+    <br/>
 
     <hr/>
 
+    <h2>08 // CONNECT</h2>
     <div align="center">
-      <sub style="color: #64748b;">⚡ Designed by <a href="https://personal-portfolio-parmeet1.vercel.app/">Parmeet Singh</a> &bull; Let's build something extraordinary together.</sub>
+      <p style="margin-bottom: 12px;">
+        <a href="https://github.com/singhparmeet12"><code>GitHub ↗</code></a> &nbsp;&bull;&nbsp;
+        <a href="https://linkedin.com/in/parmeetsingh12" target="_blank"><code>LinkedIn ↗</code></a> &nbsp;&bull;&nbsp;
+        <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank"><code>Personal Portfolio ↗</code></a> &nbsp;&bull;&nbsp;
+        <a href="mailto:parmeetssms@gmail.com"><code>parmeetssms@gmail.com ↗</code></a>
+      </p>
+      <sub style="color: #607064; font-family: 'JetBrains Mono', monospace;">
+        PARMEET SINGH &bull; DIGITAL GARDEN &bull; 2026 EDITION
+      </sub>
     </div>
 
   </div>
