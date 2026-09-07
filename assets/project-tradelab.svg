@@ -53,7 +53,7 @@
 
     <!-- Stack Chips -->
     <g transform="translate(0, 102)" class="mono-p" font-size="10" fill="#2DA44E" font-weight="600">
-      <text x="0" y="0">Python &bull; Django &bull; YOLOv5 &bull; Computer Vision &bull; Pine Script &bull; Pandas</text>
+      <text x="0" y="0">Python &#8226; Django &#8226; YOLOv5 &#8226; Computer Vision &#8226; Pine Script &#8226; Pandas</text>
     </g>
   </g>
 

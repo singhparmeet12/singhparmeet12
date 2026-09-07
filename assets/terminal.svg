@@ -35,7 +35,7 @@
   <circle cx="50" cy="17" r="4.5" fill="#2DA44E" stroke="#146B32" stroke-width="1" />
 
   <text x="360" y="20.5" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#607064" text-anchor="middle">
-    parmeet@workstation: ~/session &bull; zsh
+    parmeet@workstation: ~/session &#8226; zsh
   </text>
 
   <!-- Terminal Session Commands & Outputs -->
@@ -54,7 +54,7 @@
       <tspan fill="#2DA44E" font-weight="700">$</tspan> <tspan fill="#146B32" font-weight="600">focus</tspan>
     </text>
     <text x="0" y="62" fill="#607064">
-      full-stack &bull; scalable-data &bull; computer-vision &bull; digital-craft
+      full-stack &#8226; scalable-data &#8226; computer-vision &#8226; digital-craft
     </text>
 
     <!-- Command 3: status -->

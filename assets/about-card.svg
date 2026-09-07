@@ -34,9 +34,9 @@
       // 02 CORE EXPLORATIONS
     </text>
     <g transform="translate(0, 32)" class="sans-a" font-size="12" fill="#17231A">
-      <text x="0" y="0"><tspan fill="#2DA44E">&bull;</tspan> Scalable Django 5.x architectures &amp; PostgreSQL query tuning</text>
-      <text x="0" y="20"><tspan fill="#2DA44E">&bull;</tspan> Applied computer vision (YOLOv5) &amp; financial chart pattern recognition</text>
-      <text x="0" y="40"><tspan fill="#2DA44E">&bull;</tspan> Greedy debt-simplification algorithms &amp; asynchronous UI pipelines</text>
+      <text x="0" y="0"><tspan fill="#2DA44E">&#8226;</tspan> Scalable Django 5.x architectures &amp; PostgreSQL query tuning</text>
+      <text x="0" y="20"><tspan fill="#2DA44E">&#8226;</tspan> Applied computer vision (YOLOv5) &amp; financial chart pattern recognition</text>
+      <text x="0" y="40"><tspan fill="#2DA44E">&#8226;</tspan> Greedy debt-simplification algorithms &amp; asynchronous UI pipelines</text>
     </g>
   </g>
 </svg>

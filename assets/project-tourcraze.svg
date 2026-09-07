@@ -53,7 +53,7 @@
 
     <!-- Stack Chips -->
     <g transform="translate(0, 102)" class="mono-p" font-size="10" fill="#2DA44E" font-weight="600">
-      <text x="0" y="0">Python &bull; Django &bull; JavaScript &bull; REST APIs &bull; AJAX &bull; Greedy Algorithms</text>
+      <text x="0" y="0">Python &#8226; Django &#8226; JavaScript &#8226; REST APIs &#8226; AJAX &#8226; Greedy Algorithms</text>
     </g>
   </g>
 
