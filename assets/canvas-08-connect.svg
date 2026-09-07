@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 180" width="100%" height="100%">
+  <defs>
+    <!-- Uniform Canvas Background -->
+    <linearGradient id="c8Bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F6F8F3" />
+      <stop offset="100%" stop-color="#F6F8F3" />
+    </linearGradient>
+
+    <style>
+      .sans-c {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+      }
+      .mono-c {
+        font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+      }
+    </style>
+  </defs>
+
+  <!-- Base Surface -->
+  <rect width="900" height="180" fill="url(#c8Bg)" />
+
+  <!-- Continuous Spine Line Entrance & Termination -->
+  <line x1="450" y1="0" x2="450" y2="40" stroke="#4F7F5B" stroke-width="1.2" />
+  
+  <!-- Terminal Geometric Anchor -->
+  <circle cx="450" cy="40" r="14" fill="#FBFCF8" stroke="#DCE8D8" stroke-width="1.2" />
+  <circle cx="450" cy="40" r="8" fill="#DCE8D8" fill-opacity="0.5" stroke="#9DB89B" stroke-width="1" />
+  <circle cx="450" cy="40" r="3.5" fill="#4F7F5B" />
+
+  <!-- Content & Coordinates -->
+  <g transform="translate(450, 85)" text-anchor="middle">
+    <text x="0" y="0" class="mono-c" font-size="11.5" font-weight="700" fill="#4F7F5B" letter-spacing="0.18em">
+      // INQUIRIES &amp; CONNECTIONS
+    </text>
+
+    <text x="0" y="26" class="sans-c" font-size="13" fill="#3D4A3F">
+      Open for full-stack engineering roles, technical consultations, and ambitious digital ventures.
+    </text>
+
+    <text x="0" y="56" class="mono-c" font-size="10" fill="#7A8D7E" letter-spacing="0.12em">
+      PARMEET SINGH &#8226; 2026 EDITION &#8226; CONTINUOUS CANVAS
+    </text>
+  </g>
+
+</svg>

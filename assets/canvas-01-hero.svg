@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" width="100%" height="100%">
+  <defs>
+    <!-- Master Canvas Background: Warm Sage Paper #F6F8F3 -->
+    <linearGradient id="c1Bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F6F8F3" />
+      <stop offset="100%" stop-color="#F6F8F3" />
+    </linearGradient>
+
+    <!-- Soft Sage Glow Radial -->
+    <radialGradient id="sageGlow" cx="72%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#DCE8D8" stop-opacity="0.7" />
+      <stop offset="50%" stop-color="#E9F1E6" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#F6F8F3" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Orbital Gradient for Flow Lines -->
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9DB89B" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#4F7F5B" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#24452E" stop-opacity="0.8" />
+    </linearGradient>
+
+    <style>
+      @keyframes floatOrbit {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(6deg) scale(1.02); }
+      }
+      @keyframes pulseNode {
+        0%, 100% { opacity: 0.6; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.15); }
+      }
+      @keyframes dashFlow {
+        0% { stroke-dashoffset: 40; }
+        100% { stroke-dashoffset: 0; }
+      }
+
+      .sans-title {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+      }
+      .mono-tech {
+        font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+      }
+
+      .orbit-group {
+        transform-origin: 660px 190px;
+        animation: floatOrbit 16s ease-in-out infinite alternate;
+      }
+      .node-pulse {
+        animation: pulseNode 3s infinite ease-in-out;
+      }
+      .flow-spine {
+        stroke-dasharray: 4 4;
+        animation: dashFlow 8s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Canvas Surface -->
+  <rect width="900" height="440" fill="url(#c1Bg)" />
+
+  <!-- Background Soft Sage Ambient Glow -->
+  <rect width="900" height="440" fill="url(#sageGlow)" />
+
+  <!-- Subtle Technical Grid Accents -->
+  <g stroke="#DCE8D8" stroke-width="0.75" stroke-opacity="0.6">
+    <line x1="60" y1="40" x2="60" y2="400" />
+    <line x1="450" y1="20" x2="450" y2="100" stroke-dasharray="2 4" />
+    <line x1="840" y1="40" x2="840" y2="400" />
+    <line x1="40" y1="60" x2="860" y2="60" stroke-opacity="0.4" />
+  </g>
+
+  <!-- Small Registration Crosshairs -->
+  <g stroke="#9DB89B" stroke-width="1">
+    <path d="M 56 60 L 64 60 M 60 56 L 60 64" />
+    <path d="M 836 60 L 844 60 M 840 56 L 840 64" />
+  </g>
+
+  <!-- ======================================================================
+       RIGHT: ABSTRACT DIGITAL SCULPTURE & ORBITAL LIVING CANVAS
+       ====================================================================== -->
+  <g class="orbit-group">
+    <!-- Outer Elliptical Curves -->
+    <ellipse cx="660" cy="190" rx="150" ry="120" fill="none" stroke="url(#lineGrad)" stroke-width="1.2" stroke-opacity="0.5" transform="rotate(-15 660 190)" />
+    <ellipse cx="660" cy="190" rx="110" ry="140" fill="none" stroke="#DCE8D8" stroke-width="1" stroke-dasharray="3 6" transform="rotate(25 660 190)" />
+    
+    <!-- Translucent Sculptural Rings -->
+    <circle cx="660" cy="190" r="70" fill="#FBFCF8" fill-opacity="0.5" stroke="#9DB89B" stroke-width="1.2" />
+    <circle cx="660" cy="190" r="45" fill="#DCE8D8" fill-opacity="0.35" stroke="#4F7F5B" stroke-width="1" />
+    <circle cx="660" cy="190" r="16" fill="#4F7F5B" fill-opacity="0.85" />
+    <circle cx="660" cy="190" r="6" fill="#FBFCF8" />
+
+    <!-- Orbital Data Nodes -->
+    <circle cx="530" cy="155" r="4.5" fill="#4F7F5B" class="node-pulse" style="transform-origin: 530px 155px;" />
+    <line x1="530" y1="155" x2="660" y2="190" stroke="#9DB89B" stroke-width="0.75" stroke-opacity="0.4" />
+
+    <circle cx="760" cy="100" r="4" fill="#24452E" class="node-pulse" style="animation-delay: 1s; transform-origin: 760px 100px;" />
+    <line x1="760" y1="100" x2="660" y2="190" stroke="#9DB89B" stroke-width="0.75" stroke-opacity="0.4" />
+
+    <circle cx="750" cy="270" r="3.5" fill="#9DB89B" class="node-pulse" style="animation-delay: 1.8s; transform-origin: 750px 270px;" />
+    <line x1="750" y1="270" x2="660" y2="190" stroke="#9DB89B" stroke-width="0.75" stroke-opacity="0.4" />
+  </g>
+
+  <!-- ======================================================================
+       LEFT: HERO TYPOGRAPHY & MANIFESTO
+       ====================================================================== -->
+  <g transform="translate(60, 100)">
+    
+    <!-- Meta System Tracker -->
+    <text x="0" y="0" class="mono-tech" font-size="11" font-weight="600" fill="#4F7F5B" letter-spacing="0.16em">
+      // DIGITAL WORKSPACE &#8226; 2026
+    </text>
+
+    <!-- Prominent Name -->
+    <text x="0" y="56" class="sans-title" font-size="48" font-weight="800" fill="#18231A" letter-spacing="-0.035em">
+      PARMEET SINGH
+    </text>
+
+    <!-- Subtitle: Developer Disciplines -->
+    <text x="2" y="94" class="mono-tech" font-size="13.5" font-weight="700" fill="#4F7F5B" letter-spacing="0.14em">
+      FULL-STACK DEVELOPER
+    </text>
+    <text x="2" y="118" class="mono-tech" font-size="12" font-weight="600" fill="#657066" letter-spacing="0.18em">
+      WEB &#8226; DATA &#8226; AI
+    </text>
+
+    <!-- Short, Sharp Manifesto Statement -->
+    <g class="sans-title" font-size="14.5" fill="#3D4A3F" line-height="1.6">
+      <text x="2" y="166">Engineering resilient web platforms, scalable backend architectures,</text>
+      <text x="2" y="190">and intelligent data systems at the intersection of logic and design.</text>
+    </g>
+
+    <!-- Technical Status Badge -->
+    <g transform="translate(2, 230)">
+      <rect x="0" y="0" width="190" height="24" rx="12" fill="#FBFCF8" stroke="#DCE8D8" stroke-width="1" />
+      <circle cx="12" cy="12" r="3.5" fill="#4F7F5B" />
+      <text x="22" y="16" class="mono-tech" font-size="10.5" font-weight="600" fill="#24452E" letter-spacing="0.06em">
+        STATUS: IN PRODUCTION
+      </text>
+    </g>
+
+  </g>
+
+  <!-- ======================================================================
+       CONTINUOUS CANVAS SPINE LINE (Enters scene & leads into next panel)
+       ====================================================================== -->
+  <!-- The line originates from the abstract sculpture and curves to center bottom (x=450, y=440) -->
+  <path d="M 660 330 C 660 390, 450 380, 450 440" fill="none" stroke="#4F7F5B" stroke-width="1.2" />
+  <circle cx="450" cy="440" r="3" fill="#4F7F5B" />
+
+</svg>

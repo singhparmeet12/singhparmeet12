@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="100%" height="100%">
+  <defs>
+    <!-- Uniform Canvas Background -->
+    <linearGradient id="c5Bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F6F8F3" />
+      <stop offset="100%" stop-color="#F6F8F3" />
+    </linearGradient>
+
+    <style>
+      .sans-p {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+      }
+      .mono-p {
+        font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+      }
+    </style>
+  </defs>
+
+  <!-- Base Canvas Surface -->
+  <rect width="900" height="360" fill="url(#c5Bg)" />
+
+  <!-- Technical Grid Markers -->
+  <line x1="60" y1="0" x2="60" y2="360" stroke="#DCE8D8" stroke-width="0.75" stroke-opacity="0.4" />
+  <line x1="840" y1="0" x2="840" y2="360" stroke="#DCE8D8" stroke-width="0.75" stroke-opacity="0.4" />
+
+  <!-- Continuous Spine Line Entrance -->
+  <line x1="450" y1="0" x2="450" y2="30" stroke="#4F7F5B" stroke-width="1.2" />
+  <circle cx="450" cy="30" r="3" fill="#4F7F5B" />
+
+  <!-- Flowing Curve into TourCraze -->
+  <path d="M 450 30 C 450 60, 200 50, 200 80" fill="none" stroke="#9DB89B" stroke-width="1" stroke-dasharray="3 3" />
+
+  <!-- ======================================================================
+       PROJECT 03: TOURCRAZE PRESENTATION
+       ====================================================================== -->
+  <!-- Left Side: Product Specifications -->
+  <g transform="translate(60, 75)">
+    <text x="0" y="20" class="mono-p" font-size="13" font-weight="700" fill="#4F7F5B" letter-spacing="0.1em">
+      03 // PRODUCT
+    </text>
+    
+    <text x="0" y="58" class="sans-p" font-size="34" font-weight="800" fill="#18231A" letter-spacing="-0.03em">
+      TourCraze
+    </text>
+
+    <text x="2" y="82" class="mono-p" font-size="11.5" font-weight="600" fill="#657066" letter-spacing="0.08em">
+      SMART TRAVEL PLANNER &amp; TRIPSPLIT ALGORITHM
+    </text>
+
+    <g class="sans-p" font-size="13" fill="#3D4A3F" line-height="1.55">
+      <text x="2" y="118">Full-stack travel discovery and itinerary engine.</text>
+      <text x="2" y="138">Engineered TripSplit, a greedy graph debt-simplification</text>
+      <text x="2" y="158">algorithm minimizing group settlement transactions down</text>
+      <text x="2" y="178">to the mathematical minimum with zero cash conflicts.</text>
+    </g>
+
+    <g transform="translate(2, 216)" class="mono-p" font-size="10.5" fill="#4F7F5B" font-weight="600">
+      <text x="0" y="0">STACK &#8226; Python &#8226; Django &#8226; JavaScript &#8226; REST APIs &#8226; Greedy Graph Logic</text>
+    </g>
+  </g>
+
+  <!-- Right Side: Stylized Debt-Graph Algorithm Visual -->
+  <g transform="translate(510, 70)">
+    <rect x="0" y="0" width="330" height="235" rx="10" fill="#FBFCF8" stroke="#DCE8D8" stroke-width="1" />
+
+    <!-- Visual Header Bar -->
+    <rect x="0" y="0" width="330" height="28" rx="10" fill="#F0F5EE" />
+    <rect x="0" y="20" width="330" height="8" fill="#F0F5EE" />
+    <line x1="0" y1="28" x2="330" y2="28" stroke="#DCE8D8" stroke-width="0.75" />
+    <circle cx="16" cy="14" r="3" fill="#4F7F5B" />
+    <text x="28" y="18" class="mono-p" font-size="9" fill="#657066">tripsplit_solver.py // GREEDY GRAPH ALGORITHM</text>
+
+    <!-- Visual Graph Node Network -->
+    <g transform="translate(45, 45)">
+      <!-- Central Algorithm Status -->
+      <text x="120" y="15" class="mono-p" font-size="8.5" font-weight="700" fill="#4F7F5B" text-anchor="middle">
+        NET SETTLEMENT REDUCTION: 6 &#8594; 2 TXNs
+      </text>
+
+      <!-- Graph Nodes -->
+      <!-- Node A: User A -->
+      <circle cx="50" cy="55" r="20" fill="#DCE8D8" stroke="#4F7F5B" stroke-width="1.2" />
+      <text x="50" y="58" class="mono-p" font-size="9" font-weight="700" fill="#18231A" text-anchor="middle">NODE A</text>
+
+      <!-- Node B: User B -->
+      <circle cx="190" cy="55" r="20" fill="#DCE8D8" stroke="#4F7F5B" stroke-width="1.2" />
+      <text x="190" y="58" class="mono-p" font-size="9" font-weight="700" fill="#18231A" text-anchor="middle">NODE B</text>
+
+      <!-- Node C: User C -->
+      <circle cx="50" cy="125" r="20" fill="#FBFCF8" stroke="#9DB89B" stroke-width="1.2" />
+      <text x="50" y="128" class="mono-p" font-size="9" font-weight="700" fill="#657066" text-anchor="middle">NODE C</text>
+
+      <!-- Node D: User D -->
+      <circle cx="190" cy="125" r="20" fill="#FBFCF8" stroke="#9DB89B" stroke-width="1.2" />
+      <text x="190" y="128" class="mono-p" font-size="9" font-weight="700" fill="#657066" text-anchor="middle">NODE D</text>
+
+      <!-- Simplified Transfer Vectors -->
+      <path d="M 70 55 L 170 55" stroke="#24452E" stroke-width="1.8" />
+      <polygon points="170,55 162,51 162,59" fill="#24452E" />
+
+      <path d="M 50 105 L 50 75" stroke="#4F7F5B" stroke-width="1.5" stroke-dasharray="3 3" />
+      <polygon points="50,75 46,83 54,83" fill="#4F7F5B" />
+
+      <path d="M 190 105 L 190 75" stroke="#4F7F5B" stroke-width="1.5" stroke-dasharray="3 3" />
+      <polygon points="190,75 186,83 194,83" fill="#4F7F5B" />
+
+      <text x="120" y="48" class="mono-p" font-size="7.5" fill="#24452E" text-anchor="middle">OPTIMAL PATH</text>
+    </g>
+
+  </g>
+
+  <!-- Continuous Spine Line Exit -->
+  <path d="M 510 320 C 510 345, 450 335, 450 360" fill="none" stroke="#4F7F5B" stroke-width="1.2" />
+  <circle cx="450" cy="360" r="3" fill="#4F7F5B" />
+
+</svg>
