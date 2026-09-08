@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 55" width="880" height="55">
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="0.5" fill="#1a3a1a" opacity="0.5"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#39FF14" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="g"/>
+      <feMerge>
+        <feMergeNode in="g"/>
+        <feMergeNode in="g"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="880" height="55" fill="#0d1117"/>
+  <rect width="880" height="55" fill="url(#dots)"/>
+  <text x="440" y="32" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#e6edf3" letter-spacing="3" opacity="0.9">SELECTED WORK</text>
+  <line x1="340" y1="44" x2="540" y2="44" stroke="#39FF14" stroke-width="1.5" opacity="0.5" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+  </line>
+</svg>

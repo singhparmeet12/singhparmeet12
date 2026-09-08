@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 65" width="880" height="65">
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="0.5" fill="#1a3a1a" opacity="0.5"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#39FF14" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="g"/>
+      <feMerge>
+        <feMergeNode in="g"/>
+        <feMergeNode in="g"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="880" height="65" fill="#0d1117"/>
+  <rect width="880" height="65" fill="url(#dots)"/>
+  <text x="440" y="30" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#e6edf3" letter-spacing="3" opacity="0.9">LET'S CONNECT</text>
+  <line x1="345" y1="42" x2="535" y2="42" stroke="#39FF14" stroke-width="1.5" opacity="0.5" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+  </line>
+  <text x="440" y="58" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="12" fill="#8b949e" opacity="0.6">Always up for a conversation — reach out anytime.</text>
+</svg>
