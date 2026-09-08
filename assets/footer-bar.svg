@@ -1,21 +1,123 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 45" width="880" height="45">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 65" width="880" height="65">
+  
   <defs>
-    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="12" cy="12" r="0.5" fill="#1a3a1a" opacity="0.5"/>
+    <!-- Notebook Graph Grid Pattern -->
+    <pattern id="notebookGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#14231b" stroke-width="0.8" opacity="0.6"/>
+      <circle cx="12" cy="12" r="0.6" fill="#00FF66" opacity="0.25"/>
     </pattern>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
-      <feFlood flood-color="#39FF14" flood-opacity="0.5" result="color"/>
-      <feComposite in="color" in2="blur" operator="in" result="g"/>
+
+    <!-- Neon Glow Filters -->
+    <filter id="neonGlowGreen" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur1" operator="in" result="glow1"/>
+      <feComposite in="color" in2="blur2" operator="in" result="glow2"/>
       <feMerge>
-        <feMergeNode in="g"/>
-        <feMergeNode in="g"/>
+        <feMergeNode in="glow2"/>
+        <feMergeNode in="glow1"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <filter id="neonGlowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.55" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.4" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Animated Shimmer Gradient -->
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00FF66">
+        <animate attributeName="stop-color" values="#00FF66;#00F0FF;#00FF66" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#00F0FF">
+        <animate attributeName="stop-color" values="#00F0FF;#00FF66;#00F0FF" dur="4s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <!-- Ambient Avatar Glow -->
+    <radialGradient id="avatarBackdropGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00FF66" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#00F0FF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect width="880" height="45" fill="#0d1117"/>
-  <rect width="880" height="45" fill="url(#dots)"/>
-  <line x1="240" y1="5" x2="640" y2="5" stroke="#1a3a1a" stroke-width="0.5" opacity="0.5"/>
-  <text x="440" y="30" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="11" fill="#484f58" letter-spacing="2" opacity="0.6">PARMEET SINGH  ·  FULL-STACK DEVELOPER  ·  DELHI, INDIA</text>
+
+  
+  <style><![CDATA[
+    
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&amp;family=Caveat:wght@600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;family=Inter:wght@400;600;800&amp;display=swap');
+
+.doodle-hand {
+  font-family: 'Patrick Hand', 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive, sans-serif;
+}
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+}
+.sans {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+    @keyframes floatAvatar {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(-1deg); }
+    }
+    @keyframes blinkCursor {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes pulseNeon {
+      0%, 100% { opacity: 0.55; stroke-width: 1.5; }
+      50% { opacity: 1; stroke-width: 2.2; }
+    }
+    @keyframes radarPing {
+      0% { r: 3; opacity: 1; }
+      70% { r: 8; opacity: 0; }
+      100% { r: 8; opacity: 0; }
+    }
+    @keyframes starTwinkle {
+      0%, 100% { transform: scale(0.8); opacity: 0.3; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+    @keyframes dashTravel {
+      to { stroke-dashoffset: -32; }
+    }
+    .floating-avatar { animation: floatAvatar 4.5s ease-in-out infinite; transform-origin: center; }
+    .cursor-blink { animation: blinkCursor 0.9s infinite; }
+    .pulse-glow { animation: pulseNeon 2.8s ease-in-out infinite; }
+    .radar-pulse { animation: radarPing 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
+    .star-1 { animation: starTwinkle 2.5s ease-in-out infinite; transform-origin: center; }
+    .star-2 { animation: starTwinkle 2.5s ease-in-out infinite 1.2s; transform-origin: center; }
+    .connecting-line { stroke-dasharray: 6, 6; animation: dashTravel 2s linear infinite; }
+  ]]></style>
+
+
+  <!-- Background -->
+  <rect width="880" height="65" fill="#0d1117"/>
+  <rect width="880" height="65" fill="url(#notebookGrid)"/>
+
+  <!-- Left Continuous Margin Guide Line -->
+  <line x1="45" y1="0" x2="45" y2="65" stroke="#00FF66" stroke-width="1.2" opacity="0.35"/>
+  <line x1="49" y1="0" x2="49" y2="65" stroke="#00F0FF" stroke-width="0.6" opacity="0.2"/>
+
+  <!-- Thin neon divider line -->
+  <line x1="140" y1="12" x2="740" y2="12" stroke="#00FF66" stroke-width="0.8" stroke-dasharray="6,6" opacity="0.4"/>
+
+  <!-- Footer Signature (Handwritten Notebook) -->
+  <text x="440" y="38" text-anchor="middle" class="doodle-hand" font-size="18" font-weight="600" fill="#8b949e">
+    ✏️ Doodled, designed &amp; coded with <tspan fill="#00FF66">💚</tspan> by <tspan fill="#f0f6fc" font-weight="700">Parmeet Singh</tspan> • Delhi, India
+  </text>
 </svg>

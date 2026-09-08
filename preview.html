@@ -1,152 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Parmeet Singh — GitHub Profile Preview</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parmeet Singh — Cyber-Doodle Notebook GitHub Profile Preview</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: #0d1117;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: #f0f6fc;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       display: flex;
-      justify-content: center;
-      padding: 32px 16px;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px;
       min-height: 100vh;
     }
-    .container {
+    .github-canvas {
       max-width: 880px;
       width: 100%;
+      background: #0d1117;
       text-align: center;
     }
-    .container img {
-      display: block;
-      margin: 0 auto;
-      max-width: 100%;
-    }
-    .btn-row {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin: 8px 0 20px;
-      flex-wrap: wrap;
-    }
-    .btn-row a img {
-      height: 38px;
+    .github-canvas img {
       display: inline-block;
+      vertical-align: middle;
     }
-    .cards-row {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      margin: 4px 0;
-      flex-wrap: wrap;
-    }
-    .cards-row a {
-      width: 48.5%;
-      max-width: 430px;
-    }
-    .cards-row a img {
-      width: 100%;
-    }
-    .quick-links {
-      margin: 2px 0 16px;
-      font-size: 11px;
-      font-family: 'Consolas', 'SF Mono', 'Fira Code', monospace;
-    }
-    .quick-links a {
-      color: #8b949e;
+    .github-canvas a {
       text-decoration: none;
-    }
-    .quick-links a:hover {
-      color: #39FF14;
-    }
-    .chip-row {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin: 6px 0 10px;
-      flex-wrap: wrap;
-    }
-    .chip-row a img {
-      height: 36px;
       display: inline-block;
+    }
+    .pfp-preview {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #121820;
+      padding: 12px 20px;
+      border-radius: 40px;
+      border: 1px solid #00FF66;
+    }
+    .pfp-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid #00FF66;
+      object-fit: cover;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Hero -->
-    <img src="./assets/hero-banner.svg" alt="Hero Banner"/>
 
-    <!-- Buttons -->
-    <div class="btn-row">
-      <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank">
-        <img src="./assets/btn-resume.svg" alt="Resume"/>
-      </a>
-      <a href="https://linkedin.com/in/parmeetsingh12" target="_blank">
-        <img src="./assets/btn-linkedin.svg" alt="LinkedIn"/>
-      </a>
-      <a href="mailto:parmeetssms@gmail.com">
-        <img src="./assets/btn-talk.svg" alt="Let's Talk"/>
-      </a>
+  <!-- Matching PFP Preview Banner -->
+  <div class="pfp-preview">
+    <img class="pfp-img" src="./assets/profile-avatar.jpg" alt="Matching Theme Profile Picture" />
+    <div style="text-align: left;">
+      <div style="font-weight: 700; font-size: 15px; color: #00FF66;">NEW MATCHING THEME PROFILE PICTURE GENERATED!</div>
+      <div style="font-size: 12px; color: #8b949e;">Saved to <code>assets/profile-avatar.jpg</code> — Ready to upload to GitHub Profile!</div>
     </div>
-
-    <!-- Tech Stack -->
-    <img src="./assets/tech-stack.svg" alt="Tech Stack"/>
-
-    <!-- Projects Header -->
-    <img src="./assets/section-work.svg" alt="Selected Work"/>
-
-    <!-- Cards Row 1 -->
-    <div class="cards-row">
-      <a href="https://tradelab-kappa.vercel.app/" target="_blank">
-        <img src="./assets/card-01-tradelab.svg" alt="TradeLab"/>
-      </a>
-      <a href="https://tour-craze.vercel.app/" target="_blank">
-        <img src="./assets/card-02-tourcraze.svg" alt="TourCraze"/>
-      </a>
-    </div>
-
-    <!-- Cards Row 2 -->
-    <div class="cards-row">
-      <a href="https://car-trade-gamma.vercel.app/" target="_blank">
-        <img src="./assets/card-03-gaadimandi.svg" alt="GaadiMandi"/>
-      </a>
-      <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank">
-        <img src="./assets/card-04-portfolio.svg" alt="Portfolio"/>
-      </a>
-    </div>
-
-    <!-- Quick Links -->
-    <div class="quick-links">
-      <a href="https://github.com/singhparmeet12/TradeLab">TradeLab Repo ↗</a> &nbsp;·&nbsp;
-      <a href="https://github.com/singhparmeet12/TourCraze">TourCraze Repo ↗</a> &nbsp;·&nbsp;
-      <a href="https://github.com/singhparmeet12/carTrade">GaadiMandi Repo ↗</a> &nbsp;·&nbsp;
-      <a href="https://github.com/singhparmeet12/portfolio">Portfolio Repo ↗</a>
-    </div>
-
-    <!-- Connect Header -->
-    <img src="./assets/section-connect.svg" alt="Let's Connect"/>
-
-    <!-- Contact Chips -->
-    <div class="chip-row">
-      <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank">
-        <img src="./assets/chip-resume.svg" alt="Resume"/>
-      </a>
-      <a href="https://linkedin.com/in/parmeetsingh12" target="_blank">
-        <img src="./assets/chip-linkedin.svg" alt="LinkedIn"/>
-      </a>
-      <a href="mailto:parmeetssms@gmail.com">
-        <img src="./assets/chip-email.svg" alt="Email"/>
-      </a>
-      <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank">
-        <img src="./assets/chip-portfolio.svg" alt="Portfolio"/>
-      </a>
-    </div>
-
-    <!-- Footer -->
-    <img src="./assets/footer-bar.svg" alt="Footer"/>
   </div>
+
+  <div class="github-canvas">
+    <div align="center">
+  <!-- 01 • HERO BANNER -->
+  <img src="./assets/hero-banner.svg" alt="Hey, I'm Parmeet — Full-Stack Developer" width="100%" style="max-width: 880px;" /><br/>
+  <!-- 02 • ACTION BUTTONS -->
+  <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-resume.svg" height="42" alt="View Resume (PDF)" /></a>&nbsp;&nbsp;<a href="mailto:parmeetssms@gmail.com"><img src="./assets/btn-talk.svg" height="42" alt="Let's Talk" /></a>&nbsp;&nbsp;<a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-linkedin.svg" height="42" alt="LinkedIn Profile" /></a>&nbsp;&nbsp;<a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-portfolio.svg" height="42" alt="Personal Portfolio" /></a><br/>
+  <!-- 03 • TECH STACK -->
+  <img src="./assets/tech-stack.svg" alt="Tech Stack &amp; Toolkit: React, Next.js, Python, Django, Node.js" width="100%" style="max-width: 880px;" /><br/>
+  <!-- 04 • FEATURED PROJECTS -->
+  <img src="./assets/section-work.svg" alt="Featured Projects — Click any card to launch demo" width="100%" style="max-width: 880px;" /><br/>
+  <a href="https://tradelab-kappa.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-01-tradelab.svg" width="48.5%" style="max-width: 430px;" alt="TradeLab — Real-Time Stock Market Simulator (Launch Demo)" /></a>&nbsp;<a href="https://tour-craze.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-02-tourcraze.svg" width="48.5%" style="max-width: 430px;" alt="TourCraze — AI Travel Planning Platform (Launch Demo)" /></a><br/>
+  <a href="https://github.com/singhparmeet12/TradeLab" target="_blank" rel="noopener noreferrer"><img src="./assets/repo-tradelab.svg" height="26" alt="TradeLab Source Code" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/singhparmeet12/TourCraze" target="_blank" rel="noopener noreferrer"><img src="./assets/repo-tourcraze.svg" height="26" alt="TourCraze Source Code" /></a><br/>
+  <a href="https://car-trade-gamma.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-03-gaadimandi.svg" width="48.5%" style="max-width: 430px;" alt="GaadiMandi — Vehicle Marketplace (Launch Demo)" /></a>&nbsp;<a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-04-portfolio.svg" width="48.5%" style="max-width: 430px;" alt="Personal Portfolio 2026 (Launch Live Site)" /></a><br/>
+  <a href="https://github.com/singhparmeet12/Personal-Portfolio" target="_blank" rel="noopener noreferrer"><img src="./assets/repo-portfolio.svg" height="26" alt="Portfolio Source Code" /></a><br/>
+  <!-- 05 • CONNECT SECTION -->
+  <img src="./assets/section-connect.svg" alt="Let's Connect &amp; Build" width="100%" style="max-width: 880px;" /><br/>
+  <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-resume.svg" height="40" alt="View Resume (PDF)" /></a>&nbsp;&nbsp;<a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-linkedin.svg" height="40" alt="LinkedIn Profile" /></a>&nbsp;&nbsp;<a href="mailto:parmeetssms@gmail.com"><img src="./assets/chip-email.svg" height="40" alt="Email Parmeet" /></a>&nbsp;&nbsp;<a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-portfolio.svg" height="40" alt="Personal Portfolio" /></a><br/>
+  <!-- 06 • FOOTER BAR -->
+  <img src="./assets/footer-bar.svg" alt="Parmeet Singh • Full-Stack Developer • Delhi, India" width="100%" style="max-width: 880px;" />
+</div>
+
+  </div>
+
 </body>
 </html>

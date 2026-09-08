@@ -1,29 +1,216 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 180" width="880" height="180">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 240" width="880" height="240">
+  
   <defs>
-    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="12" cy="12" r="0.5" fill="#1a3a1a" opacity="0.5"/>
+    <!-- Notebook Graph Grid Pattern -->
+    <pattern id="notebookGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#14231b" stroke-width="0.8" opacity="0.6"/>
+      <circle cx="12" cy="12" r="0.6" fill="#00FF66" opacity="0.25"/>
     </pattern>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
-      <feFlood flood-color="#39FF14" flood-opacity="0.5" result="color"/>
-      <feComposite in="color" in2="blur" operator="in" result="g"/>
+
+    <!-- Neon Glow Filters -->
+    <filter id="neonGlowGreen" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur1" operator="in" result="glow1"/>
+      <feComposite in="color" in2="blur2" operator="in" result="glow2"/>
       <feMerge>
-        <feMergeNode in="g"/>
-        <feMergeNode in="g"/>
+        <feMergeNode in="glow2"/>
+        <feMergeNode in="glow1"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <filter id="neonGlowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.55" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.4" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Animated Shimmer Gradient -->
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00FF66">
+        <animate attributeName="stop-color" values="#00FF66;#00F0FF;#00FF66" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#00F0FF">
+        <animate attributeName="stop-color" values="#00F0FF;#00FF66;#00F0FF" dur="4s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <!-- Ambient Avatar Glow -->
+    <radialGradient id="avatarBackdropGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00FF66" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#00F0FF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect width="880" height="180" fill="#0d1117"/>
-  <rect width="880" height="180" fill="url(#dots)"/>
 
-  <!-- Section title -->
-  <text x="440" y="42" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#e6edf3" letter-spacing="3" opacity="0.9">WHAT I BUILD WITH</text>
-  <line x1="340" y1="55" x2="540" y2="55" stroke="#39FF14" stroke-width="1.5" opacity="0.5" filter="url(#glow)">
-    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
-  </line>
+  
+  <style><![CDATA[
+    
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&amp;family=Caveat:wght@600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;family=Inter:wght@400;600;800&amp;display=swap');
 
-  <!-- Tech pills row 1 -->
-  <rect x="122" y="88" width="67" height="30" rx="15" fill="#161b22" stroke="#39FF14" stroke-width="1" opacity="0"><animate attributeName="opacity" from="0" to="0.85" dur="0.5s" begin="0.0s" fill="freeze"/><animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="0.5s" repeatCount="indefinite"/></rect><rect x="204" y="88" width="82" height="30" rx="15" fill="#161b22" stroke="#39FF14" stroke-width="1" opacity="0"><animate attributeName="opacity" from="0" to="0.85" dur="0.5s" begin="0.1s" fill="freeze"/><animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="0.6s" repeatCount="indefinite"/></rect><rect x="300" y="88" width="82" height="30" rx="15" fill="#161b22" stroke="#39FF14" stroke-width="1" opacity="0"><animate attributeName="opacity" from="0" to="0.85" dur="0.5s" begin="0.2s" fill="freeze"/><animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="0.7s" repeatCount="indefinite"/></rect><rect x="396" y="88" width="74" height="30" rx="15" fill="#161b22" stroke="#39FF14" stroke-width="1" opacity="0"><animate attributeName="opacity" from="0" to="0.85" dur="0.5s" begin="0.3s" fill="freeze"/><animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="0.8s" repeatCount="indefinite"/></rect><rect x="484" y="88" width="74" height="30" rx="15" fill="#161b22" stroke="#39FF14" stroke-width="1" opacity="0"><animate attributeName="opacity" from="0" to="0.85" dur="0.5s" begin="0.4s" fill="freeze"/><animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="0.9s" repeatCount="indefinite"/></rect><rect x="572" y="88" width="82" height="30" rx="15" fill="#161b22" stroke="#39FF14" stroke-width="1" opacity="0"><animate attributeName="opacity" from="0" to="0.85" dur="0.5s" begin="0.5s" fill="freeze"/><animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="1.0s" repeatCount="indefinite"/></rect><rect x="668" y="88" width="90" height="30" rx="15" fill="#161b22" stroke="#39FF14" stroke-width="1" opacity="0"><animate attributeName="opacity" from="0" to="0.85" dur="0.5s" begin="0.6s" fill="freeze"/><animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="1.1s" repeatCount="indefinite"/></rect><rect x="190" y="132" width="106" height="30" rx="15" fill="#161b22" stroke="#39FF14" stroke-width="1" opacity="0"><animate attributeName="opacity" from="0" to="0.85" dur="0.5s" begin="0.9s" fill="freeze"/><animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="1.4s" repeatCount="indefinite"/></rect><rect x="310" y="132" width="82" height="30" rx="15" fill="#161b22" stroke="#39FF14" stroke-width="1" opacity="0"><animate attributeName="opacity" from="0" to="0.85" dur="0.5s" begin="1.0s" fill="freeze"/><animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="1.5s" repeatCount="indefinite"/></rect><rect x="406" y="132" width="106" height="30" rx="15" fill="#161b22" stroke="#39FF14" stroke-width="1" opacity="0"><animate attributeName="opacity" from="0" to="0.85" dur="0.5s" begin="1.1s" fill="freeze"/><animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="1.6s" repeatCount="indefinite"/></rect><rect x="526" y="132" width="51" height="30" rx="15" fill="#161b22" stroke="#39FF14" stroke-width="1" opacity="0"><animate attributeName="opacity" from="0" to="0.85" dur="0.5s" begin="1.1s" fill="freeze"/><animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="1.6s" repeatCount="indefinite"/></rect><rect x="592" y="132" width="98" height="30" rx="15" fill="#161b22" stroke="#39FF14" stroke-width="1" opacity="0"><animate attributeName="opacity" from="0" to="0.85" dur="0.5s" begin="1.2s" fill="freeze"/><animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="1.8s" repeatCount="indefinite"/></rect>
-  <text x="156" y="108" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" fill="#e6edf3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.0s" fill="freeze"/>React</text><text x="244" y="108" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" fill="#e6edf3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.1s" fill="freeze"/>Next.js</text><text x="340" y="108" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" fill="#e6edf3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.2s" fill="freeze"/>Node.js</text><text x="432" y="108" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" fill="#e6edf3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.3s" fill="freeze"/>Python</text><text x="520" y="108" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" fill="#e6edf3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.4s" fill="freeze"/>Django</text><text x="612" y="108" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" fill="#e6edf3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.5s" fill="freeze"/>MongoDB</text><text x="712" y="108" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" fill="#e6edf3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.6s" fill="freeze"/>Tailwind</text><text x="244" y="152" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" fill="#e6edf3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.9s" fill="freeze"/>JavaScript</text><text x="352" y="152" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" fill="#e6edf3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="1.0s" fill="freeze"/>Express</text><text x="460" y="152" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" fill="#e6edf3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="1.1s" fill="freeze"/>PostgreSQL</text><text x="552" y="152" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" fill="#e6edf3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="1.1s" fill="freeze"/>Git</text><text x="640" y="152" text-anchor="middle" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" fill="#e6edf3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="1.2s" fill="freeze"/>REST APIs</text>
+.doodle-hand {
+  font-family: 'Patrick Hand', 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive, sans-serif;
+}
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+}
+.sans {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+    @keyframes floatAvatar {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(-1deg); }
+    }
+    @keyframes blinkCursor {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes pulseNeon {
+      0%, 100% { opacity: 0.55; stroke-width: 1.5; }
+      50% { opacity: 1; stroke-width: 2.2; }
+    }
+    @keyframes radarPing {
+      0% { r: 3; opacity: 1; }
+      70% { r: 8; opacity: 0; }
+      100% { r: 8; opacity: 0; }
+    }
+    @keyframes starTwinkle {
+      0%, 100% { transform: scale(0.8); opacity: 0.3; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+    @keyframes dashTravel {
+      to { stroke-dashoffset: -32; }
+    }
+    .floating-avatar { animation: floatAvatar 4.5s ease-in-out infinite; transform-origin: center; }
+    .cursor-blink { animation: blinkCursor 0.9s infinite; }
+    .pulse-glow { animation: pulseNeon 2.8s ease-in-out infinite; }
+    .radar-pulse { animation: radarPing 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
+    .star-1 { animation: starTwinkle 2.5s ease-in-out infinite; transform-origin: center; }
+    .star-2 { animation: starTwinkle 2.5s ease-in-out infinite 1.2s; transform-origin: center; }
+    .connecting-line { stroke-dasharray: 6, 6; animation: dashTravel 2s linear infinite; }
+  ]]></style>
+
+
+  <!-- Background -->
+  <rect width="880" height="240" fill="#0d1117"/>
+  <rect width="880" height="240" fill="url(#notebookGrid)"/>
+
+  <!-- Continuous Flow Line from Top -->
+  <line x1="440" y1="0" x2="440" y2="28" stroke="#00FF66" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
+  <circle cx="440" cy="28" r="4" fill="#00FF66" filter="url(#softGlow)"/>
+
+  <!-- Section Title Badge -->
+  <g transform="translate(300, 38)">
+    <rect x="0" y="0" width="280" height="34" rx="17" fill="#121820" stroke="#00FF66" stroke-width="1.5" filter="url(#softGlow)"/>
+    <text x="140" y="22" text-anchor="middle" class="doodle-hand" font-size="20" font-weight="700" fill="#00FF66" letter-spacing="1">
+      ⚡ TECH STACK &amp; TOOLKIT ⚡
+    </text>
+  </g>
+
+  <!-- Handwritten Note Beside Title -->
+  <text x="440" y="94" text-anchor="middle" class="doodle-hand" font-size="17" fill="#8b949e">
+    // tools I reach for to turn coffee into production-ready software
+  </text>
+
+  <!-- Left Notebook Margin Guide Line -->
+  <line x1="45" y1="0" x2="45" y2="240" stroke="#00FF66" stroke-width="1.2" opacity="0.35"/>
+  <line x1="49" y1="0" x2="49" y2="240" stroke="#00F0FF" stroke-width="0.6" opacity="0.2"/>
+
+  <!-- Row 1: Frontend & Core -->
+  <g transform="translate(80, 115)">
+    <!-- React -->
+    <g transform="translate(0, 0)">
+      <rect width="105" height="36" rx="18" fill="#121820" stroke="#00F0FF" stroke-width="1.2"/>
+      <circle cx="16" cy="18" r="4" fill="#00F0FF" class="pulse-glow"/>
+      <text x="58" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">React.js</text>
+    </g>
+    <!-- Next.js -->
+    <g transform="translate(120, 0)">
+      <rect width="105" height="36" rx="18" fill="#121820" stroke="#f0f6fc" stroke-width="1.2" opacity="0.9"/>
+      <circle cx="16" cy="18" r="4" fill="#f0f6fc"/>
+      <text x="58" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">Next.js</text>
+    </g>
+    <!-- TypeScript -->
+    <g transform="translate(240, 0)">
+      <rect width="115" height="36" rx="18" fill="#121820" stroke="#00F0FF" stroke-width="1.2"/>
+      <circle cx="16" cy="18" r="4" fill="#00F0FF"/>
+      <text x="63" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">TypeScript</text>
+    </g>
+    <!-- Tailwind CSS -->
+    <g transform="translate(370, 0)">
+      <rect width="115" height="36" rx="18" fill="#121820" stroke="#00F0FF" stroke-width="1.2"/>
+      <circle cx="16" cy="18" r="4" fill="#00F0FF"/>
+      <text x="63" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">TailwindCSS</text>
+    </g>
+    <!-- JavaScript -->
+    <g transform="translate(500, 0)">
+      <rect width="110" height="36" rx="18" fill="#121820" stroke="#FFD700" stroke-width="1.2"/>
+      <circle cx="16" cy="18" r="4" fill="#FFD700"/>
+      <text x="61" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">JavaScript</text>
+    </g>
+    <!-- HTML5/CSS3 -->
+    <g transform="translate(625, 0)">
+      <rect width="95" height="36" rx="18" fill="#121820" stroke="#00FF66" stroke-width="1.2"/>
+      <circle cx="16" cy="18" r="4" fill="#00FF66"/>
+      <text x="53" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">HTML/CSS</text>
+    </g>
+  </g>
+
+  <!-- Row 2: Backend, Data, AI & Cloud -->
+  <g transform="translate(80, 168)">
+    <!-- Node.js -->
+    <g transform="translate(0, 0)">
+      <rect width="105" height="36" rx="18" fill="#121820" stroke="#00FF66" stroke-width="1.2"/>
+      <circle cx="16" cy="18" r="4" fill="#00FF66" class="pulse-glow"/>
+      <text x="58" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">Node.js</text>
+    </g>
+    <!-- Python -->
+    <g transform="translate(120, 0)">
+      <rect width="100" height="36" rx="18" fill="#121820" stroke="#FFD700" stroke-width="1.2"/>
+      <circle cx="16" cy="18" r="4" fill="#FFD700"/>
+      <text x="56" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">Python</text>
+    </g>
+    <!-- Django -->
+    <g transform="translate(235, 0)">
+      <rect width="100" height="36" rx="18" fill="#121820" stroke="#00FF66" stroke-width="1.2"/>
+      <circle cx="16" cy="18" r="4" fill="#00FF66"/>
+      <text x="56" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">Django</text>
+    </g>
+    <!-- MongoDB -->
+    <g transform="translate(350, 0)">
+      <rect width="105" height="36" rx="18" fill="#121820" stroke="#00FF66" stroke-width="1.2"/>
+      <circle cx="16" cy="18" r="4" fill="#00FF66"/>
+      <text x="58" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">MongoDB</text>
+    </g>
+    <!-- PostgreSQL -->
+    <g transform="translate(470, 0)">
+      <rect width="115" height="36" rx="18" fill="#121820" stroke="#00F0FF" stroke-width="1.2"/>
+      <circle cx="16" cy="18" r="4" fill="#00F0FF"/>
+      <text x="63" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">PostgreSQL</text>
+    </g>
+    <!-- Git & GitHub -->
+    <g transform="translate(600, 0)">
+      <rect width="120" height="36" rx="18" fill="#121820" stroke="#FF2A85" stroke-width="1.2"/>
+      <circle cx="16" cy="18" r="4" fill="#FF2A85"/>
+      <text x="66" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">Git &amp; GitHub</text>
+    </g>
+  </g>
+
+  <!-- Continuous Flow Line to Next Section -->
+  <line x1="440" y1="215" x2="440" y2="240" stroke="#00FF66" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
+  <circle cx="440" cy="238" r="3" fill="#00FF66"/>
 </svg>

@@ -1,48 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 170" width="430" height="170">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 205" width="430" height="205">
   <defs>
-    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="12" cy="12" r="0.5" fill="#1a3a1a" opacity="0.5"/>
-    </pattern>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
-      <feFlood flood-color="#39FF14" flood-opacity="0.4" result="color"/>
-      <feComposite in="color" in2="blur" operator="in" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="5" result="b"/>
-      <feFlood flood-color="#39FF14" flood-opacity="0.15"/>
-      <feComposite in2="b" operator="in" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="cardGlow_01" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.35" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
+  <style><![CDATA[
+    
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&amp;family=Caveat:wght@600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;family=Inter:wght@400;600;800&amp;display=swap');
 
-  <style>
-    @keyframes borderGlow { 0%,100% { opacity:0.45; } 50% { opacity:0.95; } }
-    .glow-border { animation: borderGlow 3s ease-in-out infinite; }
-  </style>
+.doodle-hand {
+  font-family: 'Patrick Hand', 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive, sans-serif;
+}
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+}
+.sans {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
 
-  <!-- Card background -->
-  <rect width="430" height="170" rx="12" fill="#0d1117"/>
-  <rect width="430" height="170" rx="12" fill="url(#dots)" opacity="0.5"/>
-  <rect x="1" y="1" width="428" height="168" rx="11" fill="none" stroke="#161b22" stroke-width="1"/>
+    @keyframes radarPing_01 {
+      0% { r: 3; opacity: 1; }
+      70% { r: 7; opacity: 0; }
+      100% { r: 7; opacity: 0; }
+    }
+    .radar-pulse { animation: radarPing_01 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
+    @keyframes borderPulse_01 {
+      0%, 100% { stroke-opacity: 0.6; }
+      50% { stroke-opacity: 1; }
+    }
+    .glow-border { animation: borderPulse_01 3s ease-in-out infinite; }
+  ]]></style>
 
-  <!-- Neon left accent bar -->
-  <rect x="0" y="20" width="3.5" height="130" rx="2" fill="#39FF14" class="glow-border" filter="url(#glow)"/>
+  <!-- Card Surface (Doodle Notebook Card) -->
+  <rect x="3" y="3" width="424" height="199" rx="16" fill="#121820"/>
 
-  <!-- Project number (large, dim) -->
-  <text x="390" y="45" text-anchor="end" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="40" font-weight="800" fill="#1a3a1a" opacity="0.5">01</text>
+  <!-- Sketched Doodle Neon Border -->
+  <rect x="3" y="3" width="424" height="199" rx="16" fill="none" stroke="#00FF66" stroke-width="1.5" class="glow-border" filter="url(#cardGlow_01)"/>
 
-  <!-- Project name -->
-  <text x="24" y="48" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#e6edf3">TradeLab</text>
+  <!-- Left Accent Notch -->
+  <rect x="3" y="30" width="4" height="145" rx="2" fill="#00FF66"/>
 
-  <!-- Tech tags -->
-  <text x="24" y="72" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="11" fill="#39FF14" opacity="0.7">React · Node.js · MongoDB</text>
+  <!-- Top Notebook Tape Header Accent -->
+  <polygon points="25,3 110,3 105,14 20,14" fill="#00FF66" opacity="0.25"/>
 
-  <!-- Description -->
-  <text x="24" y="102" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="13" fill="#8b949e" opacity="0.75">Real-time stock market simulator</text>
-  <text x="24" y="120" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="13" fill="#8b949e" opacity="0.75">with virtual trading & portfolio tracking.</text>
+  <!-- Status Beacon Badge -->
+  <g transform="translate(290, 18)">
+    <rect x="0" y="0" width="122" height="22" rx="11" fill="#0d1117" stroke="#00FF66" stroke-width="1"/>
+    <!-- Animated Radar Circle -->
+    <circle cx="14" cy="11" r="3.5" fill="#00FF66"/>
+    <circle cx="14" cy="11" r="3.5" fill="none" stroke="#00FF66" stroke-width="1.5" class="radar-pulse"/>
+    <text x="24" y="15" class="mono" font-size="9" font-weight="700" fill="#00FF66" letter-spacing="0.5">● LIVE SIMULATOR</text>
+  </g>
 
-  <!-- LIVE DEMO link -->
-  <text x="24" y="152" font-family="'Consolas', 'SF Mono', 'Fira Code', monospace" font-size="12" font-weight="700" fill="#39FF14" filter="url(#softGlow)">LIVE DEMO  →</text>
+  <!-- Project Number & Title -->
+  <text x="22" y="44" class="mono" font-size="13" font-weight="700" fill="#00FF66" letter-spacing="1">01 // STOCK MARKET SIMULATOR</text>
+  <text x="22" y="74" class="doodle-hand" font-size="28" font-weight="700" fill="#f0f6fc" letter-spacing="0.5">TradeLab</text>
+
+  <!-- Sketched Handwritten Description (Native SVG Text for 100% reliability) -->
+  <text x="22" y="102" class="doodle-hand" font-size="17" fill="#8b949e">Real-time virtual trading platform with live interactive charts,</text>
+  <text x="22" y="124" class="doodle-hand" font-size="17" fill="#8b949e">portfolio performance tracking &amp; simulated market execution.</text>
+
+  <!-- Tech Stack Pills -->
+  <g transform="translate(22, 146)">
+    <text x="0" y="12" class="mono" font-size="11" font-weight="600" fill="#00F0FF" opacity="0.85">React • Node.js • MongoDB • Chart.js</text>
+  </g>
+
+  <!-- Launch Prompt Bar -->
+  <g transform="translate(22, 172)">
+    <rect x="0" y="0" width="386" height="24" rx="6" fill="#0d1117" stroke="#00FF66" stroke-width="0.8" opacity="0.8"/>
+    <text x="193" y="16" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#00FF66" letter-spacing="1">
+      CLICK TO LAUNCH LIVE APP ↗
+    </text>
+  </g>
 </svg>

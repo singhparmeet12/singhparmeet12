@@ -1,16 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 46" width="170" height="46">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165 40" width="165" height="40">
   <defs>
-    <style>
-      .chip-txt {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 12px;
-        font-weight: 700;
-        fill: #24452E;
-        letter-spacing: 0.04em;
-      }
-    </style>
+    <filter id="chipGlow_portfolio" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.4" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <rect x="2" y="2" width="166" height="42" rx="21" fill="#EAF2E8" stroke="#D0E2CC" stroke-width="1.2"/>
-  <circle cx="24" cy="23" r="4.5" fill="#4F7F5B"/>
-  <text x="36" y="27" class="chip-txt">PORTFOLIO &#8599;</text>
+  <style><![CDATA[
+    
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&amp;family=Caveat:wght@600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;family=Inter:wght@400;600;800&amp;display=swap');
+
+.doodle-hand {
+  font-family: 'Patrick Hand', 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive, sans-serif;
+}
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+}
+.sans {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+  ]]></style>
+  <rect x="2" y="2" width="161" height="36" rx="18" fill="#121820" stroke="#00FF66" stroke-width="1.4" filter="url(#chipGlow_portfolio)"/>
+  <text x="82" y="25" text-anchor="middle" class="doodle-hand" font-size="16" font-weight="700" fill="#f0f6fc">🌐 Personal Portfolio</text>
 </svg>

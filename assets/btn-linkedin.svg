@@ -1,15 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 44" width="150" height="44">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 44" width="140" height="44">
   <defs>
-    <style>
-      .btn-text {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 12px;
-        font-weight: 700;
-        fill: #24452E;
-        letter-spacing: 0.04em;
-      }
-    </style>
+    <filter id="btnGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+      <feFlood flood-color="#FFD700" flood-opacity="0.45" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <rect x="2" y="2" width="146" height="40" rx="10" fill="#EAF2E8" stroke="#D0E2CC" stroke-width="1.2"/>
-  <text x="75" y="26" class="btn-text" text-anchor="middle">💼 LINKEDIN &#8599;</text>
+  <style><![CDATA[
+    
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&amp;family=Caveat:wght@600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;family=Inter:wght@400;600;800&amp;display=swap');
+
+.doodle-hand {
+  font-family: 'Patrick Hand', 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive, sans-serif;
+}
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+}
+.sans {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+    @keyframes btnPulse {
+      0%, 100% { stroke-opacity: 0.6; stroke-width: 1.4; }
+      50% { stroke-opacity: 1; stroke-width: 2.0; }
+    }
+    .btn-border { animation: btnPulse 2.8s ease-in-out infinite; }
+  ]]></style>
+
+  <!-- Button Background -->
+  <rect x="2" y="2" width="136" height="40" rx="20" fill="#121820"/>
+
+  <!-- Neon Sketched Border -->
+  <rect x="2" y="2" width="136" height="40" rx="20" fill="none" stroke="#FFD700" stroke-width="1.6" class="btn-border" filter="url(#btnGlow)"/>
+
+  <!-- Button Label (Handwritten/Casual + Clean) -->
+  <text x="70" y="27" text-anchor="middle" class="doodle-hand" font-size="18" font-weight="700" fill="#f0f6fc" letter-spacing="0.3">
+    💼 LinkedIn
+  </text>
 </svg>
