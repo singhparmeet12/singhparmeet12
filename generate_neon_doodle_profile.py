@@ -2,13 +2,21 @@
 """
 generate_neon_doodle_profile.py
 Builds Parmeet Singh's Cyber-Doodle Notebook GitHub Profile:
-- Clean, Uncluttered Avatar (removed extra emojis around photo and above status badge)
-- Removed rocket emojis from Featured Projects header
-- Clean Project Cue Cards (removed overlapping emojis, descriptions split into 2 perfectly fitting lines)
-- "Let's Talk" button directs to https://personal-portfolio-parmeet1.vercel.app/contact/
-- Removed Gmail chip from bottom connect section (now 3 centered, perfectly spaced chips)
-- All links configured with target="_blank" rel="noopener noreferrer"
-- Spacious, neat layout throughout
+- 100% Seamless in BOTH Light Mode and Dark Mode (ZERO white gaps anywhere!)
+  - Full-width tiled button bar (4 x 220px = 880px solid dark background, 25% each)
+  - Full-width tiled project cards (2 x 440px = 880px solid dark background, 50% each)
+  - Full-width tiled connect chips (3 chips: 293+294+293 = 880px solid dark background)
+  - Zero <br/> tags and zero &nbsp; (no browser line-height gaps exposing white background)
+  - HTML comment tags (<!-- -->) between images to eliminate all inline whitespace
+- 3 Cute Emojis Revolving Around Avatar (Laptop 💻, Coffee ☕, Sparkles ✨)
+  - Smooth 22s orbital rotation along circular path (R=152px)
+  - Both SMIL <animateTransform> & CSS @keyframes for universal hardware-accelerated playback
+  - Upright counter-rotation (emojis stay upright throughout rotation)
+  - Zero collision with bio text (138px safe buffer) or avatar (25px outer clearance)
+- Clean Project Cue Cards (440px wide, safe text, no clipping, no overlapping icons)
+- "Let's Talk" links to https://personal-portfolio-parmeet1.vercel.app/contact/
+- Removed Gmail chip from bottom (3 clean chips: Resume, LinkedIn, Portfolio)
+- Featured Projects header clean (no rocket emojis)
 """
 
 import base64
@@ -115,7 +123,15 @@ COMMON_STYLES = f"""
     {FONTS_CSS}
     @keyframes floatAvatar {{
       0%, 100% {{ transform: translateY(0px) rotate(0deg); }}
-      50% {{ transform: translateY(-10px) rotate(-1deg); }}
+      50% {{ transform: translateY(-7px) rotate(-1deg); }}
+    }}
+    @keyframes orbitSpin {{
+      from {{ transform: rotate(0deg); }}
+      to {{ transform: rotate(360deg); }}
+    }}
+    @keyframes orbitCounter {{
+      from {{ transform: rotate(0deg); }}
+      to {{ transform: rotate(-360deg); }}
     }}
     @keyframes blinkCursor {{
       0%, 49% {{ opacity: 1; }}
@@ -130,19 +146,15 @@ COMMON_STYLES = f"""
       70% {{ r: 8; opacity: 0; }}
       100% {{ r: 8; opacity: 0; }}
     }}
-    @keyframes starTwinkle {{
-      0%, 100% {{ transform: scale(0.8); opacity: 0.3; }}
-      50% {{ transform: scale(1.2); opacity: 1; }}
-    }}
     @keyframes dashTravel {{
       to {{ stroke-dashoffset: -32; }}
     }}
     .floating-avatar {{ animation: floatAvatar 4.5s ease-in-out infinite; transform-origin: center; }}
+    .orbit-system {{ animation: orbitSpin 22s linear infinite; transform-origin: 0px 0px; }}
+    .orbit-counter {{ animation: orbitCounter 22s linear infinite; transform-origin: 0px 0px; }}
     .cursor-blink {{ animation: blinkCursor 0.9s infinite; }}
     .pulse-glow {{ animation: pulseNeon 2.8s ease-in-out infinite; }}
     .radar-pulse {{ animation: radarPing 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }}
-    .star-1 {{ animation: starTwinkle 2.5s ease-in-out infinite; transform-origin: center; }}
-    .star-2 {{ animation: starTwinkle 2.5s ease-in-out infinite 1.2s; transform-origin: center; }}
     .connecting-line {{ stroke-dasharray: 6, 6; animation: dashTravel 2s linear infinite; }}
   ]]></style>
 """
@@ -153,23 +165,23 @@ def write_file(filename, content):
     print(f"[OK] Generated {filename}")
 
 # ═══════════════════════════════════════════════════════════════
-# 3. HERO BANNER (880 × 420) - Clean, Uncluttered, Elegant
+# 3. HERO BANNER (880 × 410) - 3 Cute Revolving Orbiting Emojis
 # ═══════════════════════════════════════════════════════════════
-hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 420" width="880" height="420">
+hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 410" width="880" height="410">
   {COMMON_DEFS}
   {COMMON_STYLES}
 
   <!-- Seamless Canvas Background -->
-  <rect width="880" height="420" fill="{BG}"/>
-  <rect width="880" height="420" fill="url(#notebookGrid)"/>
+  <rect width="880" height="410" fill="{BG}"/>
+  <rect width="880" height="410" fill="url(#notebookGrid)"/>
 
   <!-- Top Notebook Washi Tape Accent -->
   <polygon points="40,14 180,12 178,30 38,32" fill="{NEON_GREEN}" opacity="0.18"/>
   <text x="109" y="25" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="{NEON_GREEN}" letter-spacing="1.5">PARMEET.DEV // 2026</text>
 
   <!-- Left Continuous Margin Guide Line -->
-  <line x1="45" y1="0" x2="45" y2="420" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
-  <line x1="49" y1="0" x2="49" y2="420" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
+  <line x1="45" y1="0" x2="45" y2="410" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
+  <line x1="49" y1="0" x2="49" y2="410" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
 
   <!-- Main Greeting Group (Clean, Left-aligned, No clutter above status) -->
   <g transform="translate(70, 75)">
@@ -215,40 +227,87 @@ hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w
     </g>
   </g>
 
-  <!-- Right Floating Sikh Tech Avatar (Clean, no extra emojis around photo) -->
+  <!-- Right Floating Sikh Tech Avatar + 3 Cute Revolving Orbiting Emojis -->
   <g transform="translate(565, 30)">
     <!-- Ambient Neon Backdrop Glow -->
-    <ellipse cx="145" cy="180" rx="145" ry="165" fill="url(#avatarBackdropGlow)"/>
+    <ellipse cx="145" cy="175" rx="145" ry="160" fill="url(#avatarBackdropGlow)"/>
 
-    <!-- Subtle Sketched Orbit Ring -->
-    <ellipse cx="145" cy="180" rx="135" ry="155" fill="none" stroke="{NEON_GREEN}" stroke-width="1.2" stroke-dasharray="6,8" opacity="0.3" class="connecting-line"/>
+    <!-- Visible Dashed Circular Orbit Track (Radius R=152) -->
+    <ellipse cx="145" cy="175" rx="152" ry="152" fill="none" stroke="{NEON_GREEN}" stroke-width="1.2" stroke-dasharray="5,8" opacity="0.32"/>
 
-    <!-- Floating Avatar with Laptop -->
+    <!-- Floating Avatar with Laptop (Center cx=145, cy=175) -->
     <g class="floating-avatar">
-      <image href="data:image/png;base64,{AVATAR_B64}" x="20" y="10" width="250" height="340" preserveAspectRatio="xMidYMid meet"/>
+      <image href="data:image/png;base64,{AVATAR_B64}" x="20" y="5" width="250" height="340" preserveAspectRatio="xMidYMid meet"/>
+    </g>
+
+    <!-- 3 CUTE REVOLVING EMOJIS (Smooth 22s Orbit, Zero Covering, Upright Counter-Rotation) -->
+    <!-- Center of orbit is at (145, 175). Both SMIL and CSS keep it rotating smoothly at 60fps -->
+    <g transform="translate(145, 175)">
+      <g class="orbit-system">
+        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="22s" repeatCount="indefinite" />
+
+        <!-- 1. Laptop 💻 (Top: Angle 270° -> x=0, y=-152) -->
+        <g transform="translate(0, -152)">
+          <g class="orbit-counter">
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="22s" repeatCount="indefinite" />
+            <circle cx="0" cy="0" r="17" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.6" filter="url(#softGlow)"/>
+            <text x="0" y="5" text-anchor="middle" font-size="15">💻</text>
+          </g>
+        </g>
+
+        <!-- 2. Coffee ☕ (Bottom-Right: Angle 30° -> x=132, y=76) -->
+        <g transform="translate(132, 76)">
+          <g class="orbit-counter">
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="22s" repeatCount="indefinite" />
+            <circle cx="0" cy="0" r="17" fill="{BG_SURFACE}" stroke="{NEON_GOLD}" stroke-width="1.6" filter="url(#softGlow)"/>
+            <text x="0" y="5" text-anchor="middle" font-size="15">☕</text>
+          </g>
+        </g>
+
+        <!-- 3. Sparkles ✨ (Bottom-Left: Angle 150° -> x=-132, y=76) -->
+        <g transform="translate(-132, 76)">
+          <g class="orbit-counter">
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="22s" repeatCount="indefinite" />
+            <circle cx="0" cy="0" r="17" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.6" filter="url(#softGlow)"/>
+            <text x="0" y="5" text-anchor="middle" font-size="15">✨</text>
+          </g>
+        </g>
+      </g>
     </g>
   </g>
 
   <!-- Bottom Connecting Neon Guide (Flows into buttons) -->
-  <line x1="440" y1="385" x2="440" y2="420" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
-  <circle cx="440" cy="418" r="3" fill="{NEON_GREEN}"/>
+  <line x1="440" y1="375" x2="440" y2="410" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
+  <circle cx="440" cy="408" r="3" fill="{NEON_GREEN}"/>
 </svg>"""
 
 write_file(os.path.join(ASSETS_DIR, 'hero-banner.svg'), hero_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 4. ACTION BUTTONS (Clickable SVGs with Doodle + Neon Glow)
+# 4. ACTION BUTTONS (4 × 220px = 880px Solid Dark Tiled Bar)
 # ═══════════════════════════════════════════════════════════════
+# Each button is 220px wide with a full-bleed #0d1117 background + grid.
+# Placed side-by-side (25% each), they form a solid 880px dark bar with ZERO white space in light mode!
 buttons_data = [
-    ('resume',    '📄 View Resume', 165, NEON_GREEN),
-    ('talk',      '💬 Let\'s Talk', 150, NEON_CYAN),
-    ('linkedin',  '💼 LinkedIn',    145, NEON_GOLD),
-    ('portfolio', '🌐 Portfolio',   155, NEON_GREEN),
+    ('resume',    '📄 View Resume', NEON_GREEN, True,  False), # left margin lines
+    ('talk',      '💬 Let\'s Talk',  NEON_CYAN,  False, True),  # center line on right edge
+    ('linkedin',  '💼 LinkedIn',    NEON_GOLD,  False, False),
+    ('portfolio', '🌐 Portfolio',   NEON_GREEN, False, False),
 ]
 
-for b_id, label, width, color in buttons_data:
-    btn_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} 44" width="{width}" height="44">
+for b_id, label, color, has_left_margin, has_center_line in buttons_data:
+    left_line = f"""
+      <line x1="45" y1="0" x2="45" y2="54" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
+      <line x1="49" y1="0" x2="49" y2="54" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
+    """ if has_left_margin else ""
+
+    center_line = f"""
+      <line x1="220" y1="0" x2="220" y2="54" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
+    """ if has_center_line else ""
+
+    btn_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 54" width="220" height="54">
   <defs>
+    {COMMON_DEFS}
     <filter id="btnGlow_{b_id}" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
       <feFlood flood-color="{color}" flood-opacity="0.45" result="color"/>
@@ -265,18 +324,36 @@ for b_id, label, width, color in buttons_data:
     .btn-border {{ animation: btnPulse 2.8s ease-in-out infinite; }}
   ]]></style>
 
-  <!-- Button Background -->
-  <rect x="2" y="2" width="{width-4}" height="40" rx="20" fill="{BG_SURFACE}"/>
+  <!-- Full-bleed dark background tiles seamlessly into 880px container -->
+  <rect width="220" height="54" fill="{BG}"/>
+  <rect width="220" height="54" fill="url(#notebookGrid)"/>
+  {left_line}
+  {center_line}
 
-  <!-- Neon Sketched Border -->
-  <rect x="2" y="2" width="{width-4}" height="40" rx="20" fill="none" stroke="{color}" stroke-width="1.6" class="btn-border" filter="url(#btnGlow_{b_id})"/>
+  <!-- Centered Button Pill -->
+  <rect x="15" y="6" width="190" height="42" rx="21" fill="{BG_SURFACE}"/>
+  <rect x="15" y="6" width="190" height="42" rx="21" fill="none" stroke="{color}" stroke-width="1.6" class="btn-border" filter="url(#btnGlow_{b_id})"/>
 
-  <!-- Button Label (Handwritten/Casual + Clean) -->
-  <text x="{width//2}" y="27" text-anchor="middle" class="doodle-hand" font-size="18" font-weight="700" fill="{TEXT_MAIN}" letter-spacing="0.3">
+  <!-- Button Label -->
+  <text x="110" y="32" text-anchor="middle" class="doodle-hand" font-size="18" font-weight="700" fill="{TEXT_MAIN}" letter-spacing="0.3">
     {label}
   </text>
 </svg>"""
     write_file(os.path.join(ASSETS_DIR, f'btn-{b_id}.svg'), btn_svg)
+
+# ═══════════════════════════════════════════════════════════════
+# 4B. SEAMLESS DIVIDER LINE (880 × 24) - Fills gaps with dark canvas
+# ═══════════════════════════════════════════════════════════════
+divider_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 24" width="880" height="24">
+  {COMMON_DEFS}
+  {COMMON_STYLES}
+  <rect width="880" height="24" fill="{BG}"/>
+  <rect width="880" height="24" fill="url(#notebookGrid)"/>
+  <line x1="45" y1="0" x2="45" y2="24" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
+  <line x1="49" y1="0" x2="49" y2="24" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
+  <line x1="440" y1="0" x2="440" y2="24" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
+</svg>"""
+write_file(os.path.join(ASSETS_DIR, 'divider-mid.svg'), divider_svg)
 
 # ═══════════════════════════════════════════════════════════════
 # 5. TECH STACK & TOOLKIT (880 × 265) - Clean & Focused
@@ -310,95 +387,46 @@ tech_stack_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 26
   <line x1="45" y1="0" x2="45" y2="265" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
   <line x1="49" y1="0" x2="49" y2="265" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
 
-  <!-- Row 1: Frontend & Core (Y=125) -->
-  <g transform="translate(80, 125)">
-    <!-- React -->
-    <g transform="translate(0, 0)">
-      <rect width="105" height="36" rx="18" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="{NEON_CYAN}" class="pulse-glow"/>
-      <text x="58" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="{TEXT_MAIN}">React.js</text>
-    </g>
-    <!-- Next.js -->
-    <g transform="translate(120, 0)">
-      <rect width="105" height="36" rx="18" fill="{BG_SURFACE}" stroke="{TEXT_MAIN}" stroke-width="1.2" opacity="0.9"/>
-      <circle cx="16" cy="18" r="4" fill="{TEXT_MAIN}"/>
-      <text x="58" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="{TEXT_MAIN}">Next.js</text>
-    </g>
-    <!-- TypeScript -->
-    <g transform="translate(240, 0)">
-      <rect width="115" height="36" rx="18" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="{NEON_CYAN}"/>
-      <text x="63" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="{TEXT_MAIN}">TypeScript</text>
-    </g>
-    <!-- Tailwind CSS -->
-    <g transform="translate(370, 0)">
-      <rect width="115" height="36" rx="18" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="{NEON_CYAN}"/>
-      <text x="63" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="{TEXT_MAIN}">TailwindCSS</text>
-    </g>
-    <!-- JavaScript -->
-    <g transform="translate(500, 0)">
-      <rect width="110" height="36" rx="18" fill="{BG_SURFACE}" stroke="{NEON_GOLD}" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="{NEON_GOLD}"/>
-      <text x="61" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="{TEXT_MAIN}">JavaScript</text>
-    </g>
-    <!-- HTML5/CSS3 -->
-    <g transform="translate(625, 0)">
-      <rect width="95" height="36" rx="18" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="{NEON_GREEN}"/>
-      <text x="53" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="{TEXT_MAIN}">HTML/CSS</text>
-    </g>
+  <!-- 3 Categorized Skill Cards (Width 240 each) -->
+  <!-- Card 1: Frontend -->
+  <g transform="translate(70, 118)">
+    <rect x="0" y="0" width="232" height="118" rx="12" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.2"/>
+    <rect x="12" y="10" width="100" height="20" rx="6" fill="{BG}"/>
+    <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="{NEON_GREEN}">01 // FRONTEND</text>
+    <text x="14" y="52" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• React.js &amp; Next.js 14</text>
+    <text x="14" y="74" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• TypeScript &amp; JavaScript</text>
+    <text x="14" y="96" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Tailwind CSS &amp; Motion</text>
   </g>
 
-  <!-- Row 2: Backend, Data, AI & Cloud (Y=182, 21px gap) -->
-  <g transform="translate(80, 182)">
-    <!-- Node.js -->
-    <g transform="translate(0, 0)">
-      <rect width="105" height="36" rx="18" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="{NEON_GREEN}" class="pulse-glow"/>
-      <text x="58" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="{TEXT_MAIN}">Node.js</text>
-    </g>
-    <!-- Python -->
-    <g transform="translate(120, 0)">
-      <rect width="100" height="36" rx="18" fill="{BG_SURFACE}" stroke="{NEON_GOLD}" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="{NEON_GOLD}"/>
-      <text x="56" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="{TEXT_MAIN}">Python</text>
-    </g>
-    <!-- Django -->
-    <g transform="translate(235, 0)">
-      <rect width="100" height="36" rx="18" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="{NEON_GREEN}"/>
-      <text x="56" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="{TEXT_MAIN}">Django</text>
-    </g>
-    <!-- MongoDB -->
-    <g transform="translate(350, 0)">
-      <rect width="105" height="36" rx="18" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="{NEON_GREEN}"/>
-      <text x="58" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="{TEXT_MAIN}">MongoDB</text>
-    </g>
-    <!-- PostgreSQL -->
-    <g transform="translate(470, 0)">
-      <rect width="115" height="36" rx="18" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="{NEON_CYAN}"/>
-      <text x="63" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="{TEXT_MAIN}">PostgreSQL</text>
-    </g>
-    <!-- Git & GitHub -->
-    <g transform="translate(600, 0)">
-      <rect width="120" height="36" rx="18" fill="{BG_SURFACE}" stroke="{NEON_PINK}" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="{NEON_PINK}"/>
-      <text x="66" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="{TEXT_MAIN}">Git &amp; GitHub</text>
-    </g>
+  <!-- Card 2: Backend & APIs -->
+  <g transform="translate(324, 118)">
+    <rect x="0" y="0" width="232" height="118" rx="12" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.2"/>
+    <rect x="12" y="10" width="112" height="20" rx="6" fill="{BG}"/>
+    <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="{NEON_CYAN}">02 // BACKEND</text>
+    <text x="14" y="52" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Python &amp; Django / DRF</text>
+    <text x="14" y="74" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Node.js &amp; Express</text>
+    <text x="14" y="96" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• RESTful APIs &amp; WebSockets</text>
   </g>
 
-  <!-- Continuous Flow Line to Next Section -->
-  <line x1="440" y1="235" x2="440" y2="265" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
+  <!-- Card 3: Databases & DevOps -->
+  <g transform="translate(578, 118)">
+    <rect x="0" y="0" width="232" height="118" rx="12" fill="{BG_SURFACE}" stroke="{NEON_GOLD}" stroke-width="1.2"/>
+    <rect x="12" y="10" width="124" height="20" rx="6" fill="{BG}"/>
+    <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="{NEON_GOLD}">03 // DATA &amp; CLOUD</text>
+    <text x="14" y="52" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• PostgreSQL &amp; MongoDB</text>
+    <text x="14" y="74" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Redis &amp; SQLite</text>
+    <text x="14" y="96" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Git, Docker &amp; Vercel</text>
+  </g>
+
+  <!-- Continuous Flow Line to Projects -->
+  <line x1="440" y1="236" x2="440" y2="265" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
   <circle cx="440" cy="263" r="3" fill="{NEON_GREEN}"/>
 </svg>"""
 
 write_file(os.path.join(ASSETS_DIR, 'tech-stack.svg'), tech_stack_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 6. SELECTED WORK HEADER (880 × 95) - NO ROCKET EMOJIS
+# 6. SELECTED WORK HEADER (880 × 95) - Clean, No Rocket Emoji
 # ═══════════════════════════════════════════════════════════════
 section_work_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 95" width="880" height="95">
   {COMMON_DEFS}
@@ -432,8 +460,10 @@ section_work_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 
 write_file(os.path.join(ASSETS_DIR, 'section-work.svg'), section_work_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 7. PROJECT CARDS (430 × 205) - Zero Overlapping Doodles, 2 Safe Lines
+# 7. PROJECT CARDS (2 × 440px = 880px Solid Dark Tiled Rows)
 # ═══════════════════════════════════════════════════════════════
+# Left card (440px) + Right card (440px) = 880px solid dark row with ZERO white gaps!
+# Inset card body is 372px wide, leaving 20px notebook gap in between.
 projects = [
     {
         'num': '01',
@@ -445,46 +475,74 @@ projects = [
         'tech': 'React • Node.js • MongoDB • Chart.js',
         'badge': '● LIVE SIMULATOR',
         'accent': NEON_GREEN,
+        'is_left': True,
     },
     {
         'num': '02',
         'file': 'card-02-tourcraze',
         'title': 'TourCraze',
         'type': 'SMART TRAVEL BOOKING',
-        'desc1': 'AI-powered smart travel planning platform',
-        'desc2': 'with curated tours &amp; instant booking.',
+        'desc1': 'Smart AI travel planning platform with',
+        'desc2': 'curated tour discovery &amp; instant booking.',
         'tech': 'React • Express • MongoDB • Tailwind',
         'badge': '● LIVE PLATFORM',
         'accent': NEON_CYAN,
+        'is_left': False,
     },
     {
         'num': '03',
         'file': 'card-03-gaadimandi',
         'title': 'GaadiMandi',
         'type': 'VEHICLE MARKETPLACE',
-        'desc1': 'Full-stack automotive trading marketplace',
-        'desc2': 'with verified listings &amp; dealer analytics.',
+        'desc1': 'Full-stack automotive marketplace with',
+        'desc2': 'verified listings &amp; dealer analytics.',
         'tech': 'Python • Django • PostgreSQL • Tailwind',
         'badge': '● LIVE MARKETPLACE',
         'accent': NEON_GOLD,
+        'is_left': True,
     },
     {
         'num': '04',
         'file': 'card-04-portfolio',
         'title': 'Personal Portfolio',
         'type': 'DEVELOPER SHOWCASE',
-        'desc1': 'Interactive 3D developer showcase with',
-        'desc2': 'motion animations &amp; responsive design.',
+        'desc1': 'Interactive developer portfolio with',
+        'desc2': 'smooth animations &amp; creative showcase.',
         'tech': 'Next.js • TailwindCSS • Framer Motion',
         'badge': '● LIVE SITE',
         'accent': NEON_GREEN,
+        'is_left': False,
     },
 ]
 
 for p in projects:
     acc = p['accent']
-    card_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 205" width="430" height="205">
+    is_left = p['is_left']
+
+    # Dimensions & offsets for Left vs Right card
+    if is_left:
+        # Left card has left notebook margin line at x=45, 49
+        left_margin_code = f"""
+          <line x1="45" y1="0" x2="45" y2="205" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
+          <line x1="49" y1="0" x2="49" y2="205" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
+        """
+        box_x = 58
+        content_x = 76
+        tape_points = "75,3 160,3 155,14 70,14"
+        badge_x = 296
+        launch_w = 338
+    else:
+        # Right card
+        left_margin_code = ""
+        box_x = 10
+        content_x = 28
+        tape_points = "28,3 113,3 108,14 23,14"
+        badge_x = 248
+        launch_w = 338
+
+    card_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 205" width="440" height="205">
   <defs>
+    {COMMON_DEFS}
     <filter id="cardGlow_{p['num']}" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="3" result="blur"/>
       <feFlood flood-color="{acc}" flood-opacity="0.35" result="color"/>
@@ -507,20 +565,25 @@ for p in projects:
     .glow-border {{ animation: borderPulse_{p['num']} 3s ease-in-out infinite; }}
   ]]></style>
 
-  <!-- Card Surface (Doodle Notebook Card) -->
-  <rect x="3" y="3" width="424" height="199" rx="16" fill="{BG_SURFACE}"/>
+  <!-- Full-bleed outer dark canvas (Tiles seamlessly to 880px) -->
+  <rect width="440" height="205" fill="{BG}"/>
+  <rect width="440" height="205" fill="url(#notebookGrid)"/>
+  {left_margin_code}
+
+  <!-- Card Surface (Doodle Notebook Card, width 372px) -->
+  <rect x="{box_x}" y="3" width="372" height="199" rx="16" fill="{BG_SURFACE}"/>
 
   <!-- Sketched Doodle Neon Border -->
-  <rect x="3" y="3" width="424" height="199" rx="16" fill="none" stroke="{acc}" stroke-width="1.5" class="glow-border" filter="url(#cardGlow_{p['num']})"/>
+  <rect x="{box_x}" y="3" width="372" height="199" rx="16" fill="none" stroke="{acc}" stroke-width="1.5" class="glow-border" filter="url(#cardGlow_{p['num']})"/>
 
   <!-- Left Accent Notch -->
-  <rect x="3" y="28" width="4" height="145" rx="2" fill="{acc}"/>
+  <rect x="{box_x}" y="28" width="4" height="145" rx="2" fill="{acc}"/>
 
   <!-- Top Notebook Tape Header Accent -->
-  <polygon points="25,3 110,3 105,14 20,14" fill="{acc}" opacity="0.25"/>
+  <polygon points="{tape_points}" fill="{acc}" opacity="0.25"/>
 
   <!-- Status Beacon Badge (Right aligned) -->
-  <g transform="translate(290, 18)">
+  <g transform="translate({badge_x}, 18)">
     <rect x="0" y="0" width="122" height="22" rx="11" fill="{BG}" stroke="{acc}" stroke-width="1"/>
     <circle cx="14" cy="11" r="3.5" fill="{acc}"/>
     <circle cx="14" cy="11" r="3.5" fill="none" stroke="{acc}" stroke-width="1.5" class="radar-pulse"/>
@@ -528,24 +591,24 @@ for p in projects:
   </g>
 
   <!-- Project Number & Category -->
-  <text x="22" y="44" class="mono" font-size="12" font-weight="700" fill="{acc}" letter-spacing="1">{p['num']} // {p['type']}</text>
+  <text x="{content_x}" y="44" class="mono" font-size="12" font-weight="700" fill="{acc}" letter-spacing="1">{p['num']} // {p['type']}</text>
 
   <!-- Project Title (Size 26: never collides with badge) -->
-  <text x="22" y="74" class="doodle-hand" font-size="26" font-weight="700" fill="{TEXT_MAIN}" letter-spacing="0.5">{p['title']}</text>
+  <text x="{content_x}" y="74" class="doodle-hand" font-size="26" font-weight="700" fill="{TEXT_MAIN}" letter-spacing="0.5">{p['title']}</text>
 
   <!-- 2 Clean Short Lines: Never Out of Box, Zero Overlap -->
-  <text x="22" y="103" class="doodle-hand" font-size="16" fill="{TEXT_MUTED}">{p['desc1']}</text>
-  <text x="22" y="125" class="doodle-hand" font-size="16" fill="{TEXT_MUTED}">{p['desc2']}</text>
+  <text x="{content_x}" y="103" class="doodle-hand" font-size="15" fill="{TEXT_MUTED}">{p['desc1']}</text>
+  <text x="{content_x}" y="125" class="doodle-hand" font-size="15" fill="{TEXT_MUTED}">{p['desc2']}</text>
 
   <!-- Tech Stack Pills -->
-  <g transform="translate(22, 143)">
-    <text x="0" y="11" class="mono" font-size="11.5" font-weight="600" fill="{NEON_CYAN}" opacity="0.88">{p['tech']}</text>
+  <g transform="translate({content_x}, 143)">
+    <text x="0" y="11" class="mono" font-size="11" font-weight="600" fill="{NEON_CYAN}" opacity="0.88">{p['tech']}</text>
   </g>
 
   <!-- Launch Prompt Bar (Click Card To Launch) -->
-  <g transform="translate(22, 166)">
-    <rect x="0" y="0" width="386" height="25" rx="7" fill="{BG}" stroke="{acc}" stroke-width="1" opacity="0.9"/>
-    <text x="193" y="17" text-anchor="middle" class="mono" font-size="10.5" font-weight="700" fill="{acc}" letter-spacing="1">
+  <g transform="translate({content_x}, 166)">
+    <rect x="0" y="0" width="{launch_w}" height="25" rx="7" fill="{BG}" stroke="{acc}" stroke-width="1" opacity="0.9"/>
+    <text x="{launch_w//2}" y="17" text-anchor="middle" class="mono" font-size="10.5" font-weight="700" fill="{acc}" letter-spacing="1">
       CLICK CARD TO LAUNCH LIVE APP ↗
     </text>
   </g>
@@ -587,17 +650,24 @@ section_connect_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8
 write_file(os.path.join(ASSETS_DIR, 'section-connect.svg'), section_connect_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 9. CONNECT CHIPS (3 Clickable Badges - Resume, LinkedIn, Portfolio)
+# 9. CONNECT CHIPS (3 chips: 293+294+293 = 880px Solid Dark Tiled Bar)
 # ═══════════════════════════════════════════════════════════════
-chips = [
-    ('resume',    '📄 View Resume (PDF)', 195, NEON_GREEN),
-    ('linkedin',  '💼 LinkedIn Profile',  185, NEON_CYAN),
-    ('portfolio', '🌐 Personal Portfolio', 195, NEON_GREEN),
+# 3 chips form a solid 880px dark bar with ZERO white space in light mode!
+chips_data = [
+    ('resume',    293, '📄 View Resume (PDF)', NEON_GREEN, True),  # has left margin line
+    ('linkedin',  294, '💼 LinkedIn Profile',  NEON_CYAN,  False),
+    ('portfolio', 293, '🌐 Personal Portfolio', NEON_GREEN, False),
 ]
 
-for c_id, label, width, color in chips:
-    chip_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} 44" width="{width}" height="44">
+for c_id, w, label, color, has_left_margin in chips_data:
+    left_line = f"""
+      <line x1="45" y1="0" x2="45" y2="54" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
+      <line x1="49" y1="0" x2="49" y2="54" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
+    """ if has_left_margin else ""
+
+    chip_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} 54" width="{w}" height="54">
   <defs>
+    {COMMON_DEFS}
     <filter id="chipGlow_{c_id}" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
       <feFlood flood-color="{color}" flood-opacity="0.4" result="color"/>
@@ -608,8 +678,15 @@ for c_id, label, width, color in chips:
   <style><![CDATA[
     {FONTS_CSS}
   ]]></style>
-  <rect x="2" y="2" width="{width-4}" height="40" rx="20" fill="{BG_SURFACE}" stroke="{color}" stroke-width="1.5" filter="url(#chipGlow_{c_id})"/>
-  <text x="{width//2}" y="27" text-anchor="middle" class="doodle-hand" font-size="17" font-weight="700" fill="{TEXT_MAIN}">{label}</text>
+
+  <!-- Full-bleed dark background tiles seamlessly into 880px container -->
+  <rect width="{w}" height="54" fill="{BG}"/>
+  <rect width="{w}" height="54" fill="url(#notebookGrid)"/>
+  {left_line}
+
+  <!-- Centered Chip Pill -->
+  <rect x="{(w-210)//2}" y="6" width="210" height="42" rx="21" fill="{BG_SURFACE}" stroke="{color}" stroke-width="1.5" filter="url(#chipGlow_{c_id})"/>
+  <text x="{w//2}" y="32" text-anchor="middle" class="doodle-hand" font-size="17" font-weight="700" fill="{TEXT_MAIN}">{label}</text>
 </svg>"""
     write_file(os.path.join(ASSETS_DIR, f'chip-{c_id}.svg'), chip_svg)
 
@@ -640,57 +717,31 @@ footer_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 75" wi
 write_file(os.path.join(ASSETS_DIR, 'footer-bar.svg'), footer_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 11. README.md - CLEAN, SPACIOUS, 100% WORKING LINKS
+# 11. README.md - 100% UNBROKEN CONTINUOUS FLOW (ZERO WHITE GAPS!)
 # ═══════════════════════════════════════════════════════════════
+# Notice: ZERO <br/> tags and ZERO whitespace between HTML tags!
+# HTML comments (<!-- -->) ensure images touch seamlessly without browser line gaps.
 readme_md = f"""<div align="center">
-
   <!-- 01 • HERO BANNER -->
-  <img src="./assets/hero-banner.svg" alt="Hey, I'm Parmeet — Full-Stack Developer" width="100%" style="max-width: 880px;" /><br/><br/>
-
-  <!-- 02 • ACTION BUTTONS (ALL WITH TARGET=_BLANK FOR NEW TAB) -->
-  <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-resume.svg" height="44" alt="View Resume (PDF)" /></a>
-  &nbsp;&nbsp;
-  <a href="https://personal-portfolio-parmeet1.vercel.app/contact/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-talk.svg" height="44" alt="Let's Talk" /></a>
-  &nbsp;&nbsp;
-  <a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-linkedin.svg" height="44" alt="LinkedIn Profile" /></a>
-  &nbsp;&nbsp;
-  <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-portfolio.svg" height="44" alt="Personal Portfolio" /></a>
-  <br/><br/>
-
-  <!-- 03 • TECH STACK -->
-  <img src="./assets/tech-stack.svg" alt="Tech Stack &amp; Toolkit: React, Next.js, Python, Django, Node.js" width="100%" style="max-width: 880px;" /><br/><br/>
-
-  <!-- 04 • FEATURED PROJECTS (CLICK CARD DIRECTLY LAUNCHES DEMO) -->
-  <img src="./assets/section-work.svg" alt="Featured Projects — Click any card to launch demo" width="100%" style="max-width: 880px;" /><br/><br/>
-
-  <!-- ROW 1: TradeLab & TourCraze -->
-  <a href="https://tradelab-kappa.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-01-tradelab.svg" width="48.5%" style="max-width: 430px;" alt="TradeLab — Real-Time Stock Market Simulator (Launch Demo)" /></a>
-  &nbsp;
-  <a href="https://tour-craze.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-02-tourcraze.svg" width="48.5%" style="max-width: 430px;" alt="TourCraze — AI Travel Planning Platform (Launch Demo)" /></a>
-  <br/><br/>
-
-  <!-- ROW 2: GaadiMandi & Portfolio -->
-  <a href="https://car-trade-gamma.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-03-gaadimandi.svg" width="48.5%" style="max-width: 430px;" alt="GaadiMandi — Vehicle Marketplace (Launch Demo)" /></a>
-  &nbsp;
-  <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-04-portfolio.svg" width="48.5%" style="max-width: 430px;" alt="Personal Portfolio 2026 (Launch Live Site)" /></a>
-  <br/><br/>
-
-  <!-- 05 • CONNECT SECTION -->
-  <img src="./assets/section-connect.svg" alt="Let's Connect &amp; Build" width="100%" style="max-width: 880px;" /><br/><br/>
-
-  <!-- CLICKABLE CONNECT CHIPS (3 CLEAN, SPACIOUS CHIPS - CENTERED) -->
-  <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-resume.svg" height="44" alt="View Resume (PDF)" /></a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-linkedin.svg" height="44" alt="LinkedIn Profile" /></a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-portfolio.svg" height="44" alt="Personal Portfolio" /></a>
-  <br/><br/>
-
-  <!-- 06 • FOOTER BAR -->
-  <img src="./assets/footer-bar.svg" alt="Parmeet Singh • Full-Stack Developer • Delhi, India" width="100%" style="max-width: 880px;" />
-
-</div>
-"""
+  <img src="./assets/hero-banner.svg" alt="Hey, I'm Parmeet — Full-Stack Developer" width="100%" /><!--
+  --><a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-resume.svg" width="25%" alt="View Resume (PDF)" /></a><!--
+  --><a href="https://personal-portfolio-parmeet1.vercel.app/contact/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-talk.svg" width="25%" alt="Let's Talk" /></a><!--
+  --><a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-linkedin.svg" width="25%" alt="LinkedIn Profile" /></a><!--
+  --><a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-portfolio.svg" width="25%" alt="Personal Portfolio" /></a><!--
+  --><img src="./assets/divider-mid.svg" width="100%" alt="" /><!--
+  --><img src="./assets/tech-stack.svg" alt="Tech Stack &amp; Toolkit: React, Next.js, Python, Django, Node.js" width="100%" /><!--
+  --><img src="./assets/section-work.svg" alt="Featured Projects — Click any card to launch demo" width="100%" /><!--
+  --><a href="https://tradelab-kappa.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-01-tradelab.svg" width="50%" alt="TradeLab — Real-Time Stock Market Simulator (Launch Demo)" /></a><!--
+  --><a href="https://tour-craze.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-02-tourcraze.svg" width="50%" alt="TourCraze — AI Travel Planning Platform (Launch Demo)" /></a><!--
+  --><img src="./assets/divider-mid.svg" width="100%" alt="" /><!--
+  --><a href="https://car-trade-gamma.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-03-gaadimandi.svg" width="50%" alt="GaadiMandi — Vehicle Marketplace (Launch Demo)" /></a><!--
+  --><a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-04-portfolio.svg" width="50%" alt="Personal Portfolio 2026 (Launch Live Site)" /></a><!--
+  --><img src="./assets/section-connect.svg" alt="Let's Connect &amp; Build" width="100%" /><!--
+  --><a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-resume.svg" width="33.33%" alt="View Resume (PDF)" /></a><!--
+  --><a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-linkedin.svg" width="33.34%" alt="LinkedIn Profile" /></a><!--
+  --><a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-portfolio.svg" width="33.33%" alt="Personal Portfolio" /></a><!--
+  --><img src="./assets/footer-bar.svg" alt="Parmeet Singh • Full-Stack Developer • Delhi, India" width="100%" />
+</div>"""
 
 write_file('README.md', readme_md)
 
@@ -702,36 +753,63 @@ preview_html = f"""<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parmeet Singh — GitHub Profile Preview</title>
+  <title>Parmeet Singh — GitHub Profile Preview (Light &amp; Dark Mode Test)</title>
   <style>
     * {{ margin: 0; padding: 0; box-sizing: border-box; }}
     body {{
-      background: {BG};
-      color: {TEXT_MAIN};
+      background: #ffffff; /* Test against light mode by default! */
+      color: #000;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 40px 16px;
       min-height: 100vh;
+      transition: background 0.3s ease;
+    }}
+    .mode-switch {{
+      margin-bottom: 24px;
+      display: flex;
+      gap: 12px;
+    }}
+    .mode-btn {{
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      background: #f6f8fa;
     }}
     .github-canvas {{
       max-width: 880px;
       width: 100%;
-      background: {BG};
       text-align: center;
+      line-height: 0;
+      font-size: 0;
     }}
     .github-canvas img {{
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: top;
+      margin: 0;
+      padding: 0;
+      border: 0;
     }}
     .github-canvas a {{
       text-decoration: none;
       display: inline-block;
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+      font-size: 0;
     }}
   </style>
 </head>
 <body>
+  <div class="mode-switch">
+    <button class="mode-btn" onclick="document.body.style.background='#ffffff';">☀️ Light Mode (#ffffff)</button>
+    <button class="mode-btn" onclick="document.body.style.background='#0d1117';">🌙 Dark Mode (#0d1117)</button>
+  </div>
   <div class="github-canvas">
     {readme_md}
   </div>

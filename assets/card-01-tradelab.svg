@@ -1,5 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 205" width="430" height="205">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 205" width="440" height="205">
   <defs>
+    
+  <defs>
+    <!-- Notebook Graph Grid Pattern -->
+    <pattern id="notebookGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#14231b" stroke-width="0.8" opacity="0.6"/>
+      <circle cx="12" cy="12" r="0.6" fill="#00FF66" opacity="0.25"/>
+    </pattern>
+
+    <!-- Neon Glow Filters -->
+    <filter id="neonGlowGreen" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur1" operator="in" result="glow1"/>
+      <feComposite in="color" in2="blur2" operator="in" result="glow2"/>
+      <feMerge>
+        <feMergeNode in="glow2"/>
+        <feMergeNode in="glow1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="neonGlowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.55" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.4" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Animated Shimmer Gradient -->
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00FF66">
+        <animate attributeName="stop-color" values="#00FF66;#00F0FF;#00FF66" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#00F0FF">
+        <animate attributeName="stop-color" values="#00F0FF;#00FF66;#00F0FF" dur="4s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <!-- Ambient Avatar Glow -->
+    <radialGradient id="avatarBackdropGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00FF66" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#00F0FF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
     <filter id="cardGlow_01" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="3" result="blur"/>
       <feFlood flood-color="#00FF66" flood-opacity="0.35" result="color"/>
@@ -34,20 +91,28 @@
     .glow-border { animation: borderPulse_01 3s ease-in-out infinite; }
   ]]></style>
 
-  <!-- Card Surface (Doodle Notebook Card) -->
-  <rect x="3" y="3" width="424" height="199" rx="16" fill="#121820"/>
+  <!-- Full-bleed outer dark canvas (Tiles seamlessly to 880px) -->
+  <rect width="440" height="205" fill="#0d1117"/>
+  <rect width="440" height="205" fill="url(#notebookGrid)"/>
+  
+          <line x1="45" y1="0" x2="45" y2="205" stroke="#00FF66" stroke-width="1.2" opacity="0.35"/>
+          <line x1="49" y1="0" x2="49" y2="205" stroke="#00F0FF" stroke-width="0.6" opacity="0.2"/>
+        
+
+  <!-- Card Surface (Doodle Notebook Card, width 372px) -->
+  <rect x="58" y="3" width="372" height="199" rx="16" fill="#121820"/>
 
   <!-- Sketched Doodle Neon Border -->
-  <rect x="3" y="3" width="424" height="199" rx="16" fill="none" stroke="#00FF66" stroke-width="1.5" class="glow-border" filter="url(#cardGlow_01)"/>
+  <rect x="58" y="3" width="372" height="199" rx="16" fill="none" stroke="#00FF66" stroke-width="1.5" class="glow-border" filter="url(#cardGlow_01)"/>
 
   <!-- Left Accent Notch -->
-  <rect x="3" y="28" width="4" height="145" rx="2" fill="#00FF66"/>
+  <rect x="58" y="28" width="4" height="145" rx="2" fill="#00FF66"/>
 
   <!-- Top Notebook Tape Header Accent -->
-  <polygon points="25,3 110,3 105,14 20,14" fill="#00FF66" opacity="0.25"/>
+  <polygon points="75,3 160,3 155,14 70,14" fill="#00FF66" opacity="0.25"/>
 
   <!-- Status Beacon Badge (Right aligned) -->
-  <g transform="translate(290, 18)">
+  <g transform="translate(296, 18)">
     <rect x="0" y="0" width="122" height="22" rx="11" fill="#0d1117" stroke="#00FF66" stroke-width="1"/>
     <circle cx="14" cy="11" r="3.5" fill="#00FF66"/>
     <circle cx="14" cy="11" r="3.5" fill="none" stroke="#00FF66" stroke-width="1.5" class="radar-pulse"/>
@@ -55,24 +120,24 @@
   </g>
 
   <!-- Project Number & Category -->
-  <text x="22" y="44" class="mono" font-size="12" font-weight="700" fill="#00FF66" letter-spacing="1">01 // STOCK MARKET SIMULATOR</text>
+  <text x="76" y="44" class="mono" font-size="12" font-weight="700" fill="#00FF66" letter-spacing="1">01 // STOCK MARKET SIMULATOR</text>
 
   <!-- Project Title (Size 26: never collides with badge) -->
-  <text x="22" y="74" class="doodle-hand" font-size="26" font-weight="700" fill="#f0f6fc" letter-spacing="0.5">TradeLab</text>
+  <text x="76" y="74" class="doodle-hand" font-size="26" font-weight="700" fill="#f0f6fc" letter-spacing="0.5">TradeLab</text>
 
   <!-- 2 Clean Short Lines: Never Out of Box, Zero Overlap -->
-  <text x="22" y="103" class="doodle-hand" font-size="16" fill="#8b949e">Real-time stock market simulator with</text>
-  <text x="22" y="125" class="doodle-hand" font-size="16" fill="#8b949e">virtual trading &amp; live portfolio tracking.</text>
+  <text x="76" y="103" class="doodle-hand" font-size="15" fill="#8b949e">Real-time stock market simulator with</text>
+  <text x="76" y="125" class="doodle-hand" font-size="15" fill="#8b949e">virtual trading &amp; live portfolio tracking.</text>
 
   <!-- Tech Stack Pills -->
-  <g transform="translate(22, 143)">
-    <text x="0" y="11" class="mono" font-size="11.5" font-weight="600" fill="#00F0FF" opacity="0.88">React • Node.js • MongoDB • Chart.js</text>
+  <g transform="translate(76, 143)">
+    <text x="0" y="11" class="mono" font-size="11" font-weight="600" fill="#00F0FF" opacity="0.88">React • Node.js • MongoDB • Chart.js</text>
   </g>
 
   <!-- Launch Prompt Bar (Click Card To Launch) -->
-  <g transform="translate(22, 166)">
-    <rect x="0" y="0" width="386" height="25" rx="7" fill="#0d1117" stroke="#00FF66" stroke-width="1" opacity="0.9"/>
-    <text x="193" y="17" text-anchor="middle" class="mono" font-size="10.5" font-weight="700" fill="#00FF66" letter-spacing="1">
+  <g transform="translate(76, 166)">
+    <rect x="0" y="0" width="338" height="25" rx="7" fill="#0d1117" stroke="#00FF66" stroke-width="1" opacity="0.9"/>
+    <text x="169" y="17" text-anchor="middle" class="mono" font-size="10.5" font-weight="700" fill="#00FF66" letter-spacing="1">
       CLICK CARD TO LAUNCH LIVE APP ↗
     </text>
   </g>

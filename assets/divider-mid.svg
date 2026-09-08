@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 54" width="294" height="54">
-  <defs>
-    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 24" width="880" height="24">
+  
   <defs>
     <!-- Notebook Graph Grid Pattern -->
     <pattern id="notebookGrid" width="24" height="24" patternUnits="userSpaceOnUse">
@@ -57,13 +56,7 @@
     </radialGradient>
   </defs>
 
-    <filter id="chipGlow_linkedin" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
-      <feFlood flood-color="#00F0FF" flood-opacity="0.4" result="color"/>
-      <feComposite in="color" in2="blur" operator="in" result="glow"/>
-      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
+  
   <style><![CDATA[
     
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&amp;family=Caveat:wght@600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;family=Inter:wght@400;600;800&amp;display=swap');
@@ -78,14 +71,46 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+    @keyframes floatAvatar {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(-1deg); }
+    }
+    @keyframes orbitSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes orbitCounter {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+    @keyframes blinkCursor {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes pulseNeon {
+      0%, 100% { opacity: 0.55; stroke-width: 1.5; }
+      50% { opacity: 1; stroke-width: 2.2; }
+    }
+    @keyframes radarPing {
+      0% { r: 3; opacity: 1; }
+      70% { r: 8; opacity: 0; }
+      100% { r: 8; opacity: 0; }
+    }
+    @keyframes dashTravel {
+      to { stroke-dashoffset: -32; }
+    }
+    .floating-avatar { animation: floatAvatar 4.5s ease-in-out infinite; transform-origin: center; }
+    .orbit-system { animation: orbitSpin 22s linear infinite; transform-origin: 0px 0px; }
+    .orbit-counter { animation: orbitCounter 22s linear infinite; transform-origin: 0px 0px; }
+    .cursor-blink { animation: blinkCursor 0.9s infinite; }
+    .pulse-glow { animation: pulseNeon 2.8s ease-in-out infinite; }
+    .radar-pulse { animation: radarPing 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
+    .connecting-line { stroke-dasharray: 6, 6; animation: dashTravel 2s linear infinite; }
   ]]></style>
 
-  <!-- Full-bleed dark background tiles seamlessly into 880px container -->
-  <rect width="294" height="54" fill="#0d1117"/>
-  <rect width="294" height="54" fill="url(#notebookGrid)"/>
-  
-
-  <!-- Centered Chip Pill -->
-  <rect x="42" y="6" width="210" height="42" rx="21" fill="#121820" stroke="#00F0FF" stroke-width="1.5" filter="url(#chipGlow_linkedin)"/>
-  <text x="147" y="32" text-anchor="middle" class="doodle-hand" font-size="17" font-weight="700" fill="#f0f6fc">💼 LinkedIn Profile</text>
+  <rect width="880" height="24" fill="#0d1117"/>
+  <rect width="880" height="24" fill="url(#notebookGrid)"/>
+  <line x1="45" y1="0" x2="45" y2="24" stroke="#00FF66" stroke-width="1.2" opacity="0.35"/>
+  <line x1="49" y1="0" x2="49" y2="24" stroke="#00F0FF" stroke-width="0.6" opacity="0.2"/>
+  <line x1="440" y1="0" x2="440" y2="24" stroke="#00FF66" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
 </svg>

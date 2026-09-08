@@ -1,5 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 44" width="145" height="44">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 54" width="220" height="54">
   <defs>
+    
+  <defs>
+    <!-- Notebook Graph Grid Pattern -->
+    <pattern id="notebookGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#14231b" stroke-width="0.8" opacity="0.6"/>
+      <circle cx="12" cy="12" r="0.6" fill="#00FF66" opacity="0.25"/>
+    </pattern>
+
+    <!-- Neon Glow Filters -->
+    <filter id="neonGlowGreen" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur1" operator="in" result="glow1"/>
+      <feComposite in="color" in2="blur2" operator="in" result="glow2"/>
+      <feMerge>
+        <feMergeNode in="glow2"/>
+        <feMergeNode in="glow1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="neonGlowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.55" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.4" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Animated Shimmer Gradient -->
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00FF66">
+        <animate attributeName="stop-color" values="#00FF66;#00F0FF;#00FF66" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#00F0FF">
+        <animate attributeName="stop-color" values="#00F0FF;#00FF66;#00F0FF" dur="4s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <!-- Ambient Avatar Glow -->
+    <radialGradient id="avatarBackdropGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00FF66" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#00F0FF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
     <filter id="btnGlow_linkedin" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
       <feFlood flood-color="#FFD700" flood-opacity="0.45" result="color"/>
@@ -28,14 +85,18 @@
     .btn-border { animation: btnPulse 2.8s ease-in-out infinite; }
   ]]></style>
 
-  <!-- Button Background -->
-  <rect x="2" y="2" width="141" height="40" rx="20" fill="#121820"/>
+  <!-- Full-bleed dark background tiles seamlessly into 880px container -->
+  <rect width="220" height="54" fill="#0d1117"/>
+  <rect width="220" height="54" fill="url(#notebookGrid)"/>
+  
+  
 
-  <!-- Neon Sketched Border -->
-  <rect x="2" y="2" width="141" height="40" rx="20" fill="none" stroke="#FFD700" stroke-width="1.6" class="btn-border" filter="url(#btnGlow_linkedin)"/>
+  <!-- Centered Button Pill -->
+  <rect x="15" y="6" width="190" height="42" rx="21" fill="#121820"/>
+  <rect x="15" y="6" width="190" height="42" rx="21" fill="none" stroke="#FFD700" stroke-width="1.6" class="btn-border" filter="url(#btnGlow_linkedin)"/>
 
-  <!-- Button Label (Handwritten/Casual + Clean) -->
-  <text x="72" y="27" text-anchor="middle" class="doodle-hand" font-size="18" font-weight="700" fill="#f0f6fc" letter-spacing="0.3">
+  <!-- Button Label -->
+  <text x="110" y="32" text-anchor="middle" class="doodle-hand" font-size="18" font-weight="700" fill="#f0f6fc" letter-spacing="0.3">
     💼 LinkedIn
   </text>
 </svg>

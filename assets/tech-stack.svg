@@ -73,7 +73,15 @@
 
     @keyframes floatAvatar {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(-1deg); }
+      50% { transform: translateY(-7px) rotate(-1deg); }
+    }
+    @keyframes orbitSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes orbitCounter {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
     }
     @keyframes blinkCursor {
       0%, 49% { opacity: 1; }
@@ -88,19 +96,15 @@
       70% { r: 8; opacity: 0; }
       100% { r: 8; opacity: 0; }
     }
-    @keyframes starTwinkle {
-      0%, 100% { transform: scale(0.8); opacity: 0.3; }
-      50% { transform: scale(1.2); opacity: 1; }
-    }
     @keyframes dashTravel {
       to { stroke-dashoffset: -32; }
     }
     .floating-avatar { animation: floatAvatar 4.5s ease-in-out infinite; transform-origin: center; }
+    .orbit-system { animation: orbitSpin 22s linear infinite; transform-origin: 0px 0px; }
+    .orbit-counter { animation: orbitCounter 22s linear infinite; transform-origin: 0px 0px; }
     .cursor-blink { animation: blinkCursor 0.9s infinite; }
     .pulse-glow { animation: pulseNeon 2.8s ease-in-out infinite; }
     .radar-pulse { animation: radarPing 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
-    .star-1 { animation: starTwinkle 2.5s ease-in-out infinite; transform-origin: center; }
-    .star-2 { animation: starTwinkle 2.5s ease-in-out infinite 1.2s; transform-origin: center; }
     .connecting-line { stroke-dasharray: 6, 6; animation: dashTravel 2s linear infinite; }
   ]]></style>
 
@@ -130,87 +134,38 @@
   <line x1="45" y1="0" x2="45" y2="265" stroke="#00FF66" stroke-width="1.2" opacity="0.35"/>
   <line x1="49" y1="0" x2="49" y2="265" stroke="#00F0FF" stroke-width="0.6" opacity="0.2"/>
 
-  <!-- Row 1: Frontend & Core (Y=125) -->
-  <g transform="translate(80, 125)">
-    <!-- React -->
-    <g transform="translate(0, 0)">
-      <rect width="105" height="36" rx="18" fill="#121820" stroke="#00F0FF" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="#00F0FF" class="pulse-glow"/>
-      <text x="58" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">React.js</text>
-    </g>
-    <!-- Next.js -->
-    <g transform="translate(120, 0)">
-      <rect width="105" height="36" rx="18" fill="#121820" stroke="#f0f6fc" stroke-width="1.2" opacity="0.9"/>
-      <circle cx="16" cy="18" r="4" fill="#f0f6fc"/>
-      <text x="58" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">Next.js</text>
-    </g>
-    <!-- TypeScript -->
-    <g transform="translate(240, 0)">
-      <rect width="115" height="36" rx="18" fill="#121820" stroke="#00F0FF" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="#00F0FF"/>
-      <text x="63" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">TypeScript</text>
-    </g>
-    <!-- Tailwind CSS -->
-    <g transform="translate(370, 0)">
-      <rect width="115" height="36" rx="18" fill="#121820" stroke="#00F0FF" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="#00F0FF"/>
-      <text x="63" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">TailwindCSS</text>
-    </g>
-    <!-- JavaScript -->
-    <g transform="translate(500, 0)">
-      <rect width="110" height="36" rx="18" fill="#121820" stroke="#FFD700" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="#FFD700"/>
-      <text x="61" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">JavaScript</text>
-    </g>
-    <!-- HTML5/CSS3 -->
-    <g transform="translate(625, 0)">
-      <rect width="95" height="36" rx="18" fill="#121820" stroke="#00FF66" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="#00FF66"/>
-      <text x="53" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">HTML/CSS</text>
-    </g>
+  <!-- 3 Categorized Skill Cards (Width 240 each) -->
+  <!-- Card 1: Frontend -->
+  <g transform="translate(70, 118)">
+    <rect x="0" y="0" width="232" height="118" rx="12" fill="#121820" stroke="#00FF66" stroke-width="1.2"/>
+    <rect x="12" y="10" width="100" height="20" rx="6" fill="#0d1117"/>
+    <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="#00FF66">01 // FRONTEND</text>
+    <text x="14" y="52" class="doodle-hand" font-size="16" fill="#f0f6fc">• React.js &amp; Next.js 14</text>
+    <text x="14" y="74" class="doodle-hand" font-size="16" fill="#f0f6fc">• TypeScript &amp; JavaScript</text>
+    <text x="14" y="96" class="doodle-hand" font-size="16" fill="#f0f6fc">• Tailwind CSS &amp; Motion</text>
   </g>
 
-  <!-- Row 2: Backend, Data, AI & Cloud (Y=182, 21px gap) -->
-  <g transform="translate(80, 182)">
-    <!-- Node.js -->
-    <g transform="translate(0, 0)">
-      <rect width="105" height="36" rx="18" fill="#121820" stroke="#00FF66" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="#00FF66" class="pulse-glow"/>
-      <text x="58" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">Node.js</text>
-    </g>
-    <!-- Python -->
-    <g transform="translate(120, 0)">
-      <rect width="100" height="36" rx="18" fill="#121820" stroke="#FFD700" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="#FFD700"/>
-      <text x="56" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">Python</text>
-    </g>
-    <!-- Django -->
-    <g transform="translate(235, 0)">
-      <rect width="100" height="36" rx="18" fill="#121820" stroke="#00FF66" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="#00FF66"/>
-      <text x="56" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">Django</text>
-    </g>
-    <!-- MongoDB -->
-    <g transform="translate(350, 0)">
-      <rect width="105" height="36" rx="18" fill="#121820" stroke="#00FF66" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="#00FF66"/>
-      <text x="58" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">MongoDB</text>
-    </g>
-    <!-- PostgreSQL -->
-    <g transform="translate(470, 0)">
-      <rect width="115" height="36" rx="18" fill="#121820" stroke="#00F0FF" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="#00F0FF"/>
-      <text x="63" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">PostgreSQL</text>
-    </g>
-    <!-- Git & GitHub -->
-    <g transform="translate(600, 0)">
-      <rect width="120" height="36" rx="18" fill="#121820" stroke="#FF2A85" stroke-width="1.2"/>
-      <circle cx="16" cy="18" r="4" fill="#FF2A85"/>
-      <text x="66" y="23" text-anchor="middle" class="mono" font-size="12" font-weight="600" fill="#f0f6fc">Git &amp; GitHub</text>
-    </g>
+  <!-- Card 2: Backend & APIs -->
+  <g transform="translate(324, 118)">
+    <rect x="0" y="0" width="232" height="118" rx="12" fill="#121820" stroke="#00F0FF" stroke-width="1.2"/>
+    <rect x="12" y="10" width="112" height="20" rx="6" fill="#0d1117"/>
+    <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="#00F0FF">02 // BACKEND</text>
+    <text x="14" y="52" class="doodle-hand" font-size="16" fill="#f0f6fc">• Python &amp; Django / DRF</text>
+    <text x="14" y="74" class="doodle-hand" font-size="16" fill="#f0f6fc">• Node.js &amp; Express</text>
+    <text x="14" y="96" class="doodle-hand" font-size="16" fill="#f0f6fc">• RESTful APIs &amp; WebSockets</text>
   </g>
 
-  <!-- Continuous Flow Line to Next Section -->
-  <line x1="440" y1="235" x2="440" y2="265" stroke="#00FF66" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
+  <!-- Card 3: Databases & DevOps -->
+  <g transform="translate(578, 118)">
+    <rect x="0" y="0" width="232" height="118" rx="12" fill="#121820" stroke="#FFD700" stroke-width="1.2"/>
+    <rect x="12" y="10" width="124" height="20" rx="6" fill="#0d1117"/>
+    <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="#FFD700">03 // DATA &amp; CLOUD</text>
+    <text x="14" y="52" class="doodle-hand" font-size="16" fill="#f0f6fc">• PostgreSQL &amp; MongoDB</text>
+    <text x="14" y="74" class="doodle-hand" font-size="16" fill="#f0f6fc">• Redis &amp; SQLite</text>
+    <text x="14" y="96" class="doodle-hand" font-size="16" fill="#f0f6fc">• Git, Docker &amp; Vercel</text>
+  </g>
+
+  <!-- Continuous Flow Line to Projects -->
+  <line x1="440" y1="236" x2="440" y2="265" stroke="#00FF66" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
   <circle cx="440" cy="263" r="3" fill="#00FF66"/>
 </svg>
