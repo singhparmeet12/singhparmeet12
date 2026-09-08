@@ -3,10 +3,10 @@
   <!-- 01 • HERO BANNER -->
   <img src="./assets/hero-banner.svg" alt="Hey, I'm Parmeet — Full-Stack Developer" width="100%" style="max-width: 880px;" /><br/><br/>
 
-  <!-- 02 • ACTION BUTTONS (ALL OPEN IN NEW TAB) -->
+  <!-- 02 • ACTION BUTTONS (ALL WITH TARGET=_BLANK FOR NEW TAB) -->
   <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-resume.svg" height="44" alt="View Resume (PDF)" /></a>
   &nbsp;&nbsp;
-  <a href="mailto:parmeetssms@gmail.com" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-talk.svg" height="44" alt="Let's Talk" /></a>
+  <a href="https://personal-portfolio-parmeet1.vercel.app/contact/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-talk.svg" height="44" alt="Let's Talk" /></a>
   &nbsp;&nbsp;
   <a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-linkedin.svg" height="44" alt="LinkedIn Profile" /></a>
   &nbsp;&nbsp;
@@ -34,12 +34,10 @@
   <!-- 05 • CONNECT SECTION -->
   <img src="./assets/section-connect.svg" alt="Let's Connect &amp; Build" width="100%" style="max-width: 880px;" /><br/><br/>
 
-  <!-- CLICKABLE CONNECT CHIPS (2 SPACIOUS ROWS - NEVER OVERLAPS OR CLIPS) -->
+  <!-- CLICKABLE CONNECT CHIPS (3 CLEAN, SPACIOUS CHIPS - CENTERED) -->
   <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-resume.svg" height="44" alt="View Resume (PDF)" /></a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-linkedin.svg" height="44" alt="LinkedIn Profile" /></a>
-  <br/><br/>
-  <a href="mailto:parmeetssms@gmail.com" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-email.svg" height="44" alt="Email Parmeet" /></a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-portfolio.svg" height="44" alt="Personal Portfolio" /></a>
   <br/><br/>

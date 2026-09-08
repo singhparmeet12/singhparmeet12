@@ -2,13 +2,13 @@
 """
 generate_neon_doodle_profile.py
 Builds Parmeet Singh's Cyber-Doodle Notebook GitHub Profile:
-- Spacious, Clean & Beautiful Layout (breathing room, zero crowded elements)
-- Removed project GitHub repo buttons (clicking card directly launches demo)
-- Removed 'TURBAN & CODE' tag from avatar
-- Every link opens in a new tab (target="_blank" rel="noopener noreferrer")
-- Reduced card text for maximum clarity and scannability
-- Cute animated floating neon coding elements (coffee with steam, terminal window, { ; }, pixel heart, git branch, rocket)
-- 100% Verified Working Links
+- Clean, Uncluttered Avatar (removed extra emojis around photo and above status badge)
+- Removed rocket emojis from Featured Projects header
+- Clean Project Cue Cards (removed overlapping emojis, descriptions split into 2 perfectly fitting lines)
+- "Let's Talk" button directs to https://personal-portfolio-parmeet1.vercel.app/contact/
+- Removed Gmail chip from bottom connect section (now 3 centered, perfectly spaced chips)
+- All links configured with target="_blank" rel="noopener noreferrer"
+- Spacious, neat layout throughout
 """
 
 import base64
@@ -117,28 +117,6 @@ COMMON_STYLES = f"""
       0%, 100% {{ transform: translateY(0px) rotate(0deg); }}
       50% {{ transform: translateY(-10px) rotate(-1deg); }}
     }}
-    @keyframes floatGentle {{
-      0%, 100% {{ transform: translateY(0px) rotate(0deg); }}
-      50% {{ transform: translateY(-8px) rotate(-2deg); }}
-    }}
-    @keyframes floatBob {{
-      0%, 100% {{ transform: translateY(0px) rotate(0deg); }}
-      50% {{ transform: translateY(-10px) rotate(3deg); }}
-    }}
-    @keyframes floatWobble {{
-      0%, 100% {{ transform: translateY(0px) rotate(-3deg); }}
-      50% {{ transform: translateY(-7px) rotate(3deg); }}
-    }}
-    @keyframes steamRise {{
-      0% {{ transform: translateY(0px); opacity: 0; }}
-      50% {{ opacity: 0.85; }}
-      100% {{ transform: translateY(-10px); opacity: 0; }}
-    }}
-    @keyframes heartBeat {{
-      0%, 100% {{ transform: scale(1); }}
-      30% {{ transform: scale(1.15); }}
-      60% {{ transform: scale(0.95); }}
-    }}
     @keyframes blinkCursor {{
       0%, 49% {{ opacity: 1; }}
       50%, 100% {{ opacity: 0; }}
@@ -160,13 +138,6 @@ COMMON_STYLES = f"""
       to {{ stroke-dashoffset: -32; }}
     }}
     .floating-avatar {{ animation: floatAvatar 4.5s ease-in-out infinite; transform-origin: center; }}
-    .float-gentle {{ animation: floatGentle 4s ease-in-out infinite; transform-origin: center; }}
-    .float-bob {{ animation: floatBob 3.6s ease-in-out infinite; transform-origin: center; }}
-    .float-wobble {{ animation: floatWobble 4.2s ease-in-out infinite; transform-origin: center; }}
-    .steam-1 {{ animation: steamRise 2.2s linear infinite; }}
-    .steam-2 {{ animation: steamRise 2.2s linear infinite 0.7s; }}
-    .steam-3 {{ animation: steamRise 2.2s linear infinite 1.4s; }}
-    .heart-pulse {{ animation: heartBeat 1.8s ease-in-out infinite; transform-origin: center; }}
     .cursor-blink {{ animation: blinkCursor 0.9s infinite; }}
     .pulse-glow {{ animation: pulseNeon 2.8s ease-in-out infinite; }}
     .radar-pulse {{ animation: radarPing 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }}
@@ -182,7 +153,7 @@ def write_file(filename, content):
     print(f"[OK] Generated {filename}")
 
 # ═══════════════════════════════════════════════════════════════
-# 3. HERO BANNER (880 × 420) - Spacious, Clean, Cute Neon Cues
+# 3. HERO BANNER (880 × 420) - Clean, Uncluttered, Elegant
 # ═══════════════════════════════════════════════════════════════
 hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 420" width="880" height="420">
   {COMMON_DEFS}
@@ -200,22 +171,12 @@ hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w
   <line x1="45" y1="0" x2="45" y2="420" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
   <line x1="49" y1="0" x2="49" y2="420" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
 
-  <!-- Main Greeting Group (Well spaced, 70px left margin) -->
+  <!-- Main Greeting Group (Clean, Left-aligned, No clutter above status) -->
   <g transform="translate(70, 75)">
-    <!-- Small Status Pill -->
+    <!-- Clean Status Pill -->
     <rect x="0" y="0" width="144" height="26" rx="13" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1" opacity="0.9"/>
     <circle cx="14" cy="13" r="3.5" fill="{NEON_GREEN}" class="pulse-glow"/>
     <text x="26" y="17" class="mono" font-size="11" font-weight="600" fill="{NEON_GREEN}" letter-spacing="0.5">ONLINE • BUILDING</text>
-
-    <!-- Cute Mini Terminal Doodle beside status -->
-    <g transform="translate(160, -4)" class="float-bob">
-      <rect x="0" y="0" width="62" height="32" rx="6" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.2" filter="url(#softGlow)"/>
-      <circle cx="9" cy="8" r="2.2" fill="#FF5F56"/>
-      <circle cx="16" cy="8" r="2.2" fill="#FFBD2E"/>
-      <circle cx="23" cy="8" r="2.2" fill="#27C93F"/>
-      <text x="8" y="23" class="mono" font-size="9" font-weight="700" fill="{NEON_CYAN}">&gt;_ dev</text>
-      <circle cx="50" cy="20" r="1.8" fill="{NEON_GREEN}" class="cursor-blink"/>
-    </g>
 
     <!-- Hey, I'm Parmeet! -->
     <text x="0" y="76" class="doodle-hand" font-size="58" font-weight="700" fill="{TEXT_MAIN}" letter-spacing="0.5">
@@ -231,7 +192,7 @@ hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w
       FULL-STACK DEVELOPER <tspan fill="{TEXT_MUTED}">|</tspan> <tspan fill="{NEON_CYAN}">WEB • DATA • AI</tspan>
     </text>
 
-    <!-- Notebook Handwritten Notes & Bio (Clean, Concise, No Overflow!) -->
+    <!-- Notebook Handwritten Notes & Bio (Generous whitespace, fits perfectly) -->
     <g transform="translate(2, 156)">
       <text x="0" y="20" class="doodle-hand" font-size="19" fill="{TEXT_MAIN}" opacity="0.92">
         ✏️  Building fast, scalable web apps &amp; intelligent tools.
@@ -254,56 +215,17 @@ hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w
     </g>
   </g>
 
-  <!-- Right Floating Sikh Tech Avatar & Cute Neon Floating Elements -->
+  <!-- Right Floating Sikh Tech Avatar (Clean, no extra emojis around photo) -->
   <g transform="translate(565, 30)">
     <!-- Ambient Neon Backdrop Glow -->
     <ellipse cx="145" cy="180" rx="145" ry="165" fill="url(#avatarBackdropGlow)"/>
 
-    <!-- Sketched Doodle Orbit Ring -->
-    <ellipse cx="145" cy="180" rx="135" ry="155" fill="none" stroke="{NEON_GREEN}" stroke-width="1.2" stroke-dasharray="6,8" opacity="0.4" class="connecting-line"/>
+    <!-- Subtle Sketched Orbit Ring -->
+    <ellipse cx="145" cy="180" rx="135" ry="155" fill="none" stroke="{NEON_GREEN}" stroke-width="1.2" stroke-dasharray="6,8" opacity="0.3" class="connecting-line"/>
 
-    <!-- Floating Avatar with Laptop (NO 'TURBAN' BADGE!) -->
+    <!-- Floating Avatar with Laptop -->
     <g class="floating-avatar">
       <image href="data:image/png;base64,{AVATAR_B64}" x="20" y="10" width="250" height="340" preserveAspectRatio="xMidYMid meet"/>
-    </g>
-
-    <!-- CUTE NEON FLOATING ELEMENT 1: Coffee Cup with Animated Steam -->
-    <g transform="translate(-15, 140)" class="float-gentle">
-      <!-- Cup Body -->
-      <path d="M 0,6 L 2,24 Q 3,28 8,28 L 20,28 Q 25,28 26,24 L 28,6 Z" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.4" filter="url(#softGlow)"/>
-      <!-- Handle -->
-      <path d="M 27,9 Q 34,9 34,15 Q 34,21 26,21" fill="none" stroke="{NEON_CYAN}" stroke-width="1.4"/>
-      <!-- Coffee Surface -->
-      <ellipse cx="14" cy="6" rx="13" ry="2.8" fill="{NEON_GREEN}" opacity="0.4"/>
-      <!-- Rising Steam Curls -->
-      <path d="M 8,2 Q 6,-4 9,-9" fill="none" stroke="{NEON_GREEN}" stroke-width="1.2" stroke-linecap="round" class="steam-1"/>
-      <path d="M 14,3 Q 16,-3 13,-8" fill="none" stroke="{NEON_CYAN}" stroke-width="1.2" stroke-linecap="round" class="steam-2"/>
-      <path d="M 20,2 Q 18,-4 21,-9" fill="none" stroke="{NEON_GREEN}" stroke-width="1.2" stroke-linecap="round" class="steam-3"/>
-    </g>
-
-    <!-- CUTE NEON FLOATING ELEMENT 2: Curly Brackets -->
-    <g transform="translate(255, 65)" class="float-wobble">
-      <rect x="0" y="0" width="46" height="26" rx="13" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.2" filter="url(#softGlow)"/>
-      <text x="23" y="18" text-anchor="middle" class="mono" font-size="13" font-weight="700" fill="{NEON_CYAN}">&#123; ; &#125;</text>
-    </g>
-
-    <!-- CUTE NEON FLOATING ELEMENT 3: Pixel Heart Beating -->
-    <g transform="translate(15, 290)" class="heart-pulse">
-      <path d="M 10,3 Q 10,0 6,0 Q 0,0 0,6 Q 0,11 10,17 Q 20,11 20,6 Q 20,0 14,0 Q 10,0 10,3 Z" fill="{NEON_GREEN}" opacity="0.9" filter="url(#softGlow)"/>
-    </g>
-
-    <!-- CUTE NEON FLOATING ELEMENT 4: Code Tag </> -->
-    <g transform="translate(245, 270)" class="float-bob">
-      <rect x="0" y="0" width="48" height="26" rx="8" fill="{BG_SURFACE}" stroke="{NEON_GOLD}" stroke-width="1.2"/>
-      <text x="24" y="18" text-anchor="middle" class="mono" font-size="12" font-weight="700" fill="{NEON_GOLD}">&lt;/&gt;</text>
-    </g>
-
-    <!-- Twinkling Neon Stars -->
-    <g transform="translate(20, 50)" class="star-1">
-      <path d="M 0,-7 L 2,-2 L 7,0 L 2,2 L 0,7 L -2,2 L -7,0 L -2,-2 Z" fill="{NEON_GOLD}" filter="url(#softGlow)"/>
-    </g>
-    <g transform="translate(275, 175)" class="star-2">
-      <path d="M 0,-6 L 1.5,-1.5 L 6,0 L 1.5,1.5 L 0,6 L -1.5,1.5 L -6,0 L -1.5,-1.5 Z" fill="{NEON_PINK}" filter="url(#softGlow)"/>
     </g>
   </g>
 
@@ -357,7 +279,7 @@ for b_id, label, width, color in buttons_data:
     write_file(os.path.join(ASSETS_DIR, f'btn-{b_id}.svg'), btn_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 5. TECH STACK & TOOLKIT (880 × 265) - Generous Breathing Room
+# 5. TECH STACK & TOOLKIT (880 × 265) - Clean & Focused
 # ═══════════════════════════════════════════════════════════════
 tech_stack_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 265" width="880" height="265">
   {COMMON_DEFS}
@@ -377,25 +299,6 @@ tech_stack_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 26
     <text x="150" y="24" text-anchor="middle" class="doodle-hand" font-size="21" font-weight="700" fill="{NEON_GREEN}" letter-spacing="1">
       ⚡ TECH STACK &amp; TOOLKIT ⚡
     </text>
-  </g>
-
-  <!-- Cute Floating Git Branch Doodle (Left Margin) -->
-  <g transform="translate(105, 42)" class="float-gentle">
-    <line x1="6" y1="4" x2="6" y2="24" stroke="{NEON_CYAN}" stroke-width="1.5"/>
-    <path d="M 6,18 Q 16,18 16,10" fill="none" stroke="{NEON_PINK}" stroke-width="1.5"/>
-    <circle cx="6" cy="6" r="3" fill="{NEON_CYAN}"/>
-    <circle cx="6" cy="22" r="3" fill="{NEON_GREEN}"/>
-    <circle cx="16" cy="10" r="3" fill="{NEON_PINK}"/>
-    <text x="22" y="14" class="mono" font-size="9" font-weight="700" fill="{NEON_PINK}">git:push</text>
-  </g>
-
-  <!-- Cute Floating Rocket Doodle (Right Margin) -->
-  <g transform="translate(730, 36)" class="float-bob">
-    <path d="M 10,0 Q 18,4 18,16 L 2,16 Q 2,4 10,0 Z" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.2" filter="url(#softGlow)"/>
-    <circle cx="10" cy="8" r="2.5" fill="{NEON_GREEN}"/>
-    <path d="M 2,12 L -2,17 L 3,16 Z" fill="{NEON_CYAN}"/>
-    <path d="M 18,12 L 22,17 L 17,16 Z" fill="{NEON_CYAN}"/>
-    <path d="M 6,16 Q 10,22 10,22 Q 10,22 14,16 Z" fill="{NEON_GOLD}" class="cursor-blink"/>
   </g>
 
   <!-- Handwritten Note Beside Title -->
@@ -495,7 +398,7 @@ tech_stack_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 26
 write_file(os.path.join(ASSETS_DIR, 'tech-stack.svg'), tech_stack_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 6. SELECTED WORK HEADER (880 × 95) - Clean & Punchy
+# 6. SELECTED WORK HEADER (880 × 95) - NO ROCKET EMOJIS
 # ═══════════════════════════════════════════════════════════════
 section_work_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 95" width="880" height="95">
   {COMMON_DEFS}
@@ -512,20 +415,12 @@ section_work_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 
   <!-- Connecting line entering from top -->
   <line x1="440" y1="0" x2="440" y2="20" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
 
-  <!-- Header Badge -->
+  <!-- Header Badge (NO ROCKET EMOJIS) -->
   <g transform="translate(285, 20)">
     <rect x="0" y="0" width="310" height="38" rx="19" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.5" filter="url(#softGlow)"/>
     <text x="155" y="25" text-anchor="middle" class="doodle-hand" font-size="22" font-weight="700" fill="{NEON_CYAN}" letter-spacing="1">
-      🚀 FEATURED PROJECTS 🚀
+      ✦ FEATURED PROJECTS ✦
     </text>
-  </g>
-
-  <!-- Cute Floating Sparkle Stars around header -->
-  <g transform="translate(235, 36)" class="star-1">
-    <path d="M 0,-6 L 1.5,-1.5 L 6,0 L 1.5,1.5 L 0,6 L -1.5,1.5 L -6,0 L -1.5,-1.5 Z" fill="{NEON_GREEN}" filter="url(#softGlow)"/>
-  </g>
-  <g transform="translate(640, 36)" class="star-2">
-    <path d="M 0,-6 L 1.5,-1.5 L 6,0 L 1.5,1.5 L 0,6 L -1.5,1.5 L -6,0 L -1.5,-1.5 Z" fill="{NEON_GOLD}" filter="url(#softGlow)"/>
   </g>
 
   <!-- Handwritten Sub-note -->
@@ -537,7 +432,7 @@ section_work_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 
 write_file(os.path.join(ASSETS_DIR, 'section-work.svg'), section_work_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 7. PROJECT CARDS (430 × 210) - Concise Text & Cute Coding Accents
+# 7. PROJECT CARDS (430 × 205) - Zero Overlapping Doodles, 2 Safe Lines
 # ═══════════════════════════════════════════════════════════════
 projects = [
     {
@@ -545,70 +440,50 @@ projects = [
         'file': 'card-01-tradelab',
         'title': 'TradeLab',
         'type': 'STOCK MARKET SIMULATOR',
-        'desc': 'Real-time virtual trading platform with live portfolio tracking.',
+        'desc1': 'Real-time stock market simulator with',
+        'desc2': 'virtual trading &amp; live portfolio tracking.',
         'tech': 'React • Node.js • MongoDB • Chart.js',
         'badge': '● LIVE SIMULATOR',
         'accent': NEON_GREEN,
-        'icon_doodle': """
-          <g transform="translate(378, 80)" class="float-gentle">
-            <polyline points="0,18 8,10 16,14 24,4" fill="none" stroke="#00FF66" stroke-width="2" stroke-linecap="round" filter="url(#softGlow)"/>
-            <polygon points="20,4 25,3 24,8" fill="#00FF66"/>
-          </g>
-        """
     },
     {
         'num': '02',
         'file': 'card-02-tourcraze',
         'title': 'TourCraze',
         'type': 'SMART TRAVEL BOOKING',
-        'desc': 'AI-powered smart travel planning &amp; curated tour exploration.',
+        'desc1': 'AI-powered smart travel planning platform',
+        'desc2': 'with curated tours &amp; instant booking.',
         'tech': 'React • Express • MongoDB • Tailwind',
         'badge': '● LIVE PLATFORM',
         'accent': NEON_CYAN,
-        'icon_doodle': """
-          <g transform="translate(378, 76)" class="float-bob">
-            <circle cx="12" cy="12" r="10" fill="none" stroke="#00F0FF" stroke-width="1.5" stroke-dasharray="3,3"/>
-            <polygon points="12,4 15,12 12,20 9,12" fill="#00F0FF" opacity="0.8"/>
-          </g>
-        """
     },
     {
         'num': '03',
         'file': 'card-03-gaadimandi',
         'title': 'GaadiMandi',
         'type': 'VEHICLE MARKETPLACE',
-        'desc': 'Full-stack automotive marketplace with transparent inspections.',
+        'desc1': 'Full-stack automotive trading marketplace',
+        'desc2': 'with verified listings &amp; dealer analytics.',
         'tech': 'Python • Django • PostgreSQL • Tailwind',
         'badge': '● LIVE MARKETPLACE',
         'accent': NEON_GOLD,
-        'icon_doodle': """
-          <g transform="translate(376, 80)" class="float-gentle">
-            <path d="M 2,12 Q 5,4 12,4 Q 19,4 22,12 L 24,14 L 0,14 Z" fill="none" stroke="#FFD700" stroke-width="1.4"/>
-            <circle cx="6" cy="15" r="2.5" fill="#FFD700"/>
-            <circle cx="18" cy="15" r="2.5" fill="#FFD700"/>
-          </g>
-        """
     },
     {
         'num': '04',
         'file': 'card-04-portfolio',
         'title': 'Personal Portfolio',
         'type': 'DEVELOPER SHOWCASE',
-        'desc': 'Interactive 3D developer showcase with sleek motion animations.',
+        'desc1': 'Interactive 3D developer showcase with',
+        'desc2': 'motion animations &amp; responsive design.',
         'tech': 'Next.js • TailwindCSS • Framer Motion',
         'badge': '● LIVE SITE',
         'accent': NEON_GREEN,
-        'icon_doodle': """
-          <g transform="translate(380, 78)" class="star-1">
-            <path d="M 0,-8 L 2,-2 L 8,0 L 2,2 L 0,8 L -2,2 L -8,0 L -2,-2 Z" fill="#00FF66" filter="url(#softGlow)"/>
-          </g>
-        """
     },
 ]
 
 for p in projects:
     acc = p['accent']
-    card_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 210" width="430" height="210">
+    card_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 205" width="430" height="205">
   <defs>
     <filter id="cardGlow_{p['num']}" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="3" result="blur"/>
@@ -630,52 +505,46 @@ for p in projects:
       50% {{ stroke-opacity: 1; }}
     }}
     .glow-border {{ animation: borderPulse_{p['num']} 3s ease-in-out infinite; }}
-    .float-gentle {{ animation: floatGentle 4s ease-in-out infinite; transform-origin: center; }}
-    .float-bob {{ animation: floatBob 3.6s ease-in-out infinite; transform-origin: center; }}
-    .star-1 {{ animation: starTwinkle 2.5s ease-in-out infinite; transform-origin: center; }}
   ]]></style>
 
   <!-- Card Surface (Doodle Notebook Card) -->
-  <rect x="3" y="3" width="424" height="204" rx="16" fill="{BG_SURFACE}"/>
+  <rect x="3" y="3" width="424" height="199" rx="16" fill="{BG_SURFACE}"/>
 
   <!-- Sketched Doodle Neon Border -->
-  <rect x="3" y="3" width="424" height="204" rx="16" fill="none" stroke="{acc}" stroke-width="1.5" class="glow-border" filter="url(#cardGlow_{p['num']})"/>
+  <rect x="3" y="3" width="424" height="199" rx="16" fill="none" stroke="{acc}" stroke-width="1.5" class="glow-border" filter="url(#cardGlow_{p['num']})"/>
 
   <!-- Left Accent Notch -->
-  <rect x="3" y="30" width="4" height="150" rx="2" fill="{acc}"/>
+  <rect x="3" y="28" width="4" height="145" rx="2" fill="{acc}"/>
 
   <!-- Top Notebook Tape Header Accent -->
   <polygon points="25,3 110,3 105,14 20,14" fill="{acc}" opacity="0.25"/>
 
-  <!-- Status Beacon Badge -->
+  <!-- Status Beacon Badge (Right aligned) -->
   <g transform="translate(290, 18)">
     <rect x="0" y="0" width="122" height="22" rx="11" fill="{BG}" stroke="{acc}" stroke-width="1"/>
-    <!-- Animated Radar Circle -->
     <circle cx="14" cy="11" r="3.5" fill="{acc}"/>
     <circle cx="14" cy="11" r="3.5" fill="none" stroke="{acc}" stroke-width="1.5" class="radar-pulse"/>
     <text x="24" y="15" class="mono" font-size="9" font-weight="700" fill="{acc}" letter-spacing="0.5">{p['badge']}</text>
   </g>
 
   <!-- Project Number & Category -->
-  <text x="22" y="44" class="mono" font-size="12.5" font-weight="700" fill="{acc}" letter-spacing="1">{p['num']} // {p['type']}</text>
+  <text x="22" y="44" class="mono" font-size="12" font-weight="700" fill="{acc}" letter-spacing="1">{p['num']} // {p['type']}</text>
 
-  <!-- Project Title -->
-  <text x="22" y="76" class="doodle-hand" font-size="29" font-weight="700" fill="{TEXT_MAIN}" letter-spacing="0.5">{p['title']}</text>
+  <!-- Project Title (Size 26: never collides with badge) -->
+  <text x="22" y="74" class="doodle-hand" font-size="26" font-weight="700" fill="{TEXT_MAIN}" letter-spacing="0.5">{p['title']}</text>
 
-  <!-- Cute Floating Neon Doodle Icon on Card -->
-  {p['icon_doodle']}
-
-  <!-- Short, Crisp, Clear Description (Single line, ample whitespace) -->
-  <text x="22" y="108" class="doodle-hand" font-size="17" fill="{TEXT_MUTED}">{p['desc']}</text>
+  <!-- 2 Clean Short Lines: Never Out of Box, Zero Overlap -->
+  <text x="22" y="103" class="doodle-hand" font-size="16" fill="{TEXT_MUTED}">{p['desc1']}</text>
+  <text x="22" y="125" class="doodle-hand" font-size="16" fill="{TEXT_MUTED}">{p['desc2']}</text>
 
   <!-- Tech Stack Pills -->
-  <g transform="translate(22, 142)">
-    <text x="0" y="12" class="mono" font-size="11.5" font-weight="600" fill="{NEON_CYAN}" opacity="0.88">{p['tech']}</text>
+  <g transform="translate(22, 143)">
+    <text x="0" y="11" class="mono" font-size="11.5" font-weight="600" fill="{NEON_CYAN}" opacity="0.88">{p['tech']}</text>
   </g>
 
   <!-- Launch Prompt Bar (Click Card To Launch) -->
-  <g transform="translate(22, 168)">
-    <rect x="0" y="0" width="386" height="26" rx="8" fill="{BG}" stroke="{acc}" stroke-width="1" opacity="0.9"/>
+  <g transform="translate(22, 166)">
+    <rect x="0" y="0" width="386" height="25" rx="7" fill="{BG}" stroke="{acc}" stroke-width="1" opacity="0.9"/>
     <text x="193" y="17" text-anchor="middle" class="mono" font-size="10.5" font-weight="700" fill="{acc}" letter-spacing="1">
       CLICK CARD TO LAUNCH LIVE APP ↗
     </text>
@@ -684,19 +553,19 @@ for p in projects:
     write_file(os.path.join(ASSETS_DIR, f"{p['file']}.svg"), card_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 8. CONNECT SECTION (880 × 125) - Cute Coffee & Chat Elements
+# 8. CONNECT SECTION (880 × 110) - Clean & Elegant
 # ═══════════════════════════════════════════════════════════════
-section_connect_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 125" width="880" height="125">
+section_connect_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 110" width="880" height="110">
   {COMMON_DEFS}
   {COMMON_STYLES}
 
   <!-- Background -->
-  <rect width="880" height="125" fill="{BG}"/>
-  <rect width="880" height="125" fill="url(#notebookGrid)"/>
+  <rect width="880" height="110" fill="{BG}"/>
+  <rect width="880" height="110" fill="url(#notebookGrid)"/>
 
   <!-- Left Continuous Margin Guide Line -->
-  <line x1="45" y1="0" x2="45" y2="125" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
-  <line x1="49" y1="0" x2="49" y2="125" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
+  <line x1="45" y1="0" x2="45" y2="110" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
+  <line x1="49" y1="0" x2="49" y2="110" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
 
   <!-- Continuous Flow Line entering from projects -->
   <line x1="440" y1="0" x2="440" y2="22" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
@@ -709,23 +578,8 @@ section_connect_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8
     </text>
   </g>
 
-  <!-- Cute Floating Chat Bubble Doodle (Left) -->
-  <g transform="translate(195, 22)" class="float-gentle">
-    <path d="M 0,0 L 28,0 Q 34,0 34,6 L 34,18 Q 34,24 28,24 L 10,24 L 2,30 L 4,24 L 0,24 Q -6,24 -6,18 L -6,6 Q -6,0 0,0 Z" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.2" filter="url(#softGlow)"/>
-    <text x="14" y="16" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="{NEON_CYAN}">:)</text>
-  </g>
-
-  <!-- Cute Floating Coffee Cup Doodle (Right) -->
-  <g transform="translate(640, 22)" class="float-bob">
-    <path d="M 0,4 L 2,18 Q 3,22 7,22 L 17,22 Q 21,22 22,18 L 24,4 Z" fill="{BG_SURFACE}" stroke="{NEON_GOLD}" stroke-width="1.2" filter="url(#softGlow)"/>
-    <path d="M 23,7 Q 29,7 29,12 Q 29,17 22,17" fill="none" stroke="{NEON_GOLD}" stroke-width="1.2"/>
-    <path d="M 6,1 Q 5,-4 7,-8" fill="none" stroke="{NEON_GREEN}" stroke-width="1" stroke-linecap="round" class="steam-1"/>
-    <path d="M 12,2 Q 14,-3 11,-7" fill="none" stroke="{NEON_CYAN}" stroke-width="1" stroke-linecap="round" class="steam-2"/>
-    <path d="M 18,1 Q 16,-4 19,-8" fill="none" stroke="{NEON_GREEN}" stroke-width="1" stroke-linecap="round" class="steam-3"/>
-  </g>
-
   <!-- Friendly Handwritten Note (Generous spacing) -->
-  <text x="440" y="96" text-anchor="middle" class="doodle-hand" font-size="19" fill="{TEXT_MUTED}">
+  <text x="440" y="88" text-anchor="middle" class="doodle-hand" font-size="18" fill="{TEXT_MUTED}">
     Always excited for new projects, full-time opportunities, or tech discussions!
   </text>
 </svg>"""
@@ -733,12 +587,11 @@ section_connect_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8
 write_file(os.path.join(ASSETS_DIR, 'section-connect.svg'), section_connect_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 9. CONNECT CHIPS (Clickable Footer Badges - Generously Sized)
+# 9. CONNECT CHIPS (3 Clickable Badges - Resume, LinkedIn, Portfolio)
 # ═══════════════════════════════════════════════════════════════
 chips = [
     ('resume',    '📄 View Resume (PDF)', 195, NEON_GREEN),
     ('linkedin',  '💼 LinkedIn Profile',  185, NEON_CYAN),
-    ('email',     '✉️ parmeetssms@gmail.com', 245, NEON_GOLD),
     ('portfolio', '🌐 Personal Portfolio', 195, NEON_GREEN),
 ]
 
@@ -787,17 +640,17 @@ footer_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 75" wi
 write_file(os.path.join(ASSETS_DIR, 'footer-bar.svg'), footer_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 11. README.md - CLEAN, SPACIOUS, 100% WORKING & NEW TABS
+# 11. README.md - CLEAN, SPACIOUS, 100% WORKING LINKS
 # ═══════════════════════════════════════════════════════════════
 readme_md = f"""<div align="center">
 
   <!-- 01 • HERO BANNER -->
   <img src="./assets/hero-banner.svg" alt="Hey, I'm Parmeet — Full-Stack Developer" width="100%" style="max-width: 880px;" /><br/><br/>
 
-  <!-- 02 • ACTION BUTTONS (ALL OPEN IN NEW TAB) -->
+  <!-- 02 • ACTION BUTTONS (ALL WITH TARGET=_BLANK FOR NEW TAB) -->
   <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-resume.svg" height="44" alt="View Resume (PDF)" /></a>
   &nbsp;&nbsp;
-  <a href="mailto:parmeetssms@gmail.com" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-talk.svg" height="44" alt="Let's Talk" /></a>
+  <a href="https://personal-portfolio-parmeet1.vercel.app/contact/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-talk.svg" height="44" alt="Let's Talk" /></a>
   &nbsp;&nbsp;
   <a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-linkedin.svg" height="44" alt="LinkedIn Profile" /></a>
   &nbsp;&nbsp;
@@ -825,12 +678,10 @@ readme_md = f"""<div align="center">
   <!-- 05 • CONNECT SECTION -->
   <img src="./assets/section-connect.svg" alt="Let's Connect &amp; Build" width="100%" style="max-width: 880px;" /><br/><br/>
 
-  <!-- CLICKABLE CONNECT CHIPS (2 SPACIOUS ROWS - NEVER OVERLAPS OR CLIPS) -->
+  <!-- CLICKABLE CONNECT CHIPS (3 CLEAN, SPACIOUS CHIPS - CENTERED) -->
   <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-resume.svg" height="44" alt="View Resume (PDF)" /></a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-linkedin.svg" height="44" alt="LinkedIn Profile" /></a>
-  <br/><br/>
-  <a href="mailto:parmeetssms@gmail.com" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-email.svg" height="44" alt="Email Parmeet" /></a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-portfolio.svg" height="44" alt="Personal Portfolio" /></a>
   <br/><br/>

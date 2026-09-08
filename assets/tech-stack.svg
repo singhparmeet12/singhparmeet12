@@ -75,28 +75,6 @@
       0%, 100% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-10px) rotate(-1deg); }
     }
-    @keyframes floatGentle {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-8px) rotate(-2deg); }
-    }
-    @keyframes floatBob {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(3deg); }
-    }
-    @keyframes floatWobble {
-      0%, 100% { transform: translateY(0px) rotate(-3deg); }
-      50% { transform: translateY(-7px) rotate(3deg); }
-    }
-    @keyframes steamRise {
-      0% { transform: translateY(0px); opacity: 0; }
-      50% { opacity: 0.85; }
-      100% { transform: translateY(-10px); opacity: 0; }
-    }
-    @keyframes heartBeat {
-      0%, 100% { transform: scale(1); }
-      30% { transform: scale(1.15); }
-      60% { transform: scale(0.95); }
-    }
     @keyframes blinkCursor {
       0%, 49% { opacity: 1; }
       50%, 100% { opacity: 0; }
@@ -118,13 +96,6 @@
       to { stroke-dashoffset: -32; }
     }
     .floating-avatar { animation: floatAvatar 4.5s ease-in-out infinite; transform-origin: center; }
-    .float-gentle { animation: floatGentle 4s ease-in-out infinite; transform-origin: center; }
-    .float-bob { animation: floatBob 3.6s ease-in-out infinite; transform-origin: center; }
-    .float-wobble { animation: floatWobble 4.2s ease-in-out infinite; transform-origin: center; }
-    .steam-1 { animation: steamRise 2.2s linear infinite; }
-    .steam-2 { animation: steamRise 2.2s linear infinite 0.7s; }
-    .steam-3 { animation: steamRise 2.2s linear infinite 1.4s; }
-    .heart-pulse { animation: heartBeat 1.8s ease-in-out infinite; transform-origin: center; }
     .cursor-blink { animation: blinkCursor 0.9s infinite; }
     .pulse-glow { animation: pulseNeon 2.8s ease-in-out infinite; }
     .radar-pulse { animation: radarPing 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
@@ -148,25 +119,6 @@
     <text x="150" y="24" text-anchor="middle" class="doodle-hand" font-size="21" font-weight="700" fill="#00FF66" letter-spacing="1">
       ⚡ TECH STACK &amp; TOOLKIT ⚡
     </text>
-  </g>
-
-  <!-- Cute Floating Git Branch Doodle (Left Margin) -->
-  <g transform="translate(105, 42)" class="float-gentle">
-    <line x1="6" y1="4" x2="6" y2="24" stroke="#00F0FF" stroke-width="1.5"/>
-    <path d="M 6,18 Q 16,18 16,10" fill="none" stroke="#FF2A85" stroke-width="1.5"/>
-    <circle cx="6" cy="6" r="3" fill="#00F0FF"/>
-    <circle cx="6" cy="22" r="3" fill="#00FF66"/>
-    <circle cx="16" cy="10" r="3" fill="#FF2A85"/>
-    <text x="22" y="14" class="mono" font-size="9" font-weight="700" fill="#FF2A85">git:push</text>
-  </g>
-
-  <!-- Cute Floating Rocket Doodle (Right Margin) -->
-  <g transform="translate(730, 36)" class="float-bob">
-    <path d="M 10,0 Q 18,4 18,16 L 2,16 Q 2,4 10,0 Z" fill="#121820" stroke="#00F0FF" stroke-width="1.2" filter="url(#softGlow)"/>
-    <circle cx="10" cy="8" r="2.5" fill="#00FF66"/>
-    <path d="M 2,12 L -2,17 L 3,16 Z" fill="#00F0FF"/>
-    <path d="M 18,12 L 22,17 L 17,16 Z" fill="#00F0FF"/>
-    <path d="M 6,16 Q 10,22 10,22 Q 10,22 14,16 Z" fill="#FFD700" class="cursor-blink"/>
   </g>
 
   <!-- Handwritten Note Beside Title -->

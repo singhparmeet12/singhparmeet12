@@ -75,28 +75,6 @@
       0%, 100% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-10px) rotate(-1deg); }
     }
-    @keyframes floatGentle {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-8px) rotate(-2deg); }
-    }
-    @keyframes floatBob {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(3deg); }
-    }
-    @keyframes floatWobble {
-      0%, 100% { transform: translateY(0px) rotate(-3deg); }
-      50% { transform: translateY(-7px) rotate(3deg); }
-    }
-    @keyframes steamRise {
-      0% { transform: translateY(0px); opacity: 0; }
-      50% { opacity: 0.85; }
-      100% { transform: translateY(-10px); opacity: 0; }
-    }
-    @keyframes heartBeat {
-      0%, 100% { transform: scale(1); }
-      30% { transform: scale(1.15); }
-      60% { transform: scale(0.95); }
-    }
     @keyframes blinkCursor {
       0%, 49% { opacity: 1; }
       50%, 100% { opacity: 0; }
@@ -118,13 +96,6 @@
       to { stroke-dashoffset: -32; }
     }
     .floating-avatar { animation: floatAvatar 4.5s ease-in-out infinite; transform-origin: center; }
-    .float-gentle { animation: floatGentle 4s ease-in-out infinite; transform-origin: center; }
-    .float-bob { animation: floatBob 3.6s ease-in-out infinite; transform-origin: center; }
-    .float-wobble { animation: floatWobble 4.2s ease-in-out infinite; transform-origin: center; }
-    .steam-1 { animation: steamRise 2.2s linear infinite; }
-    .steam-2 { animation: steamRise 2.2s linear infinite 0.7s; }
-    .steam-3 { animation: steamRise 2.2s linear infinite 1.4s; }
-    .heart-pulse { animation: heartBeat 1.8s ease-in-out infinite; transform-origin: center; }
     .cursor-blink { animation: blinkCursor 0.9s infinite; }
     .pulse-glow { animation: pulseNeon 2.8s ease-in-out infinite; }
     .radar-pulse { animation: radarPing 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
@@ -145,20 +116,12 @@
   <!-- Connecting line entering from top -->
   <line x1="440" y1="0" x2="440" y2="20" stroke="#00FF66" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
 
-  <!-- Header Badge -->
+  <!-- Header Badge (NO ROCKET EMOJIS) -->
   <g transform="translate(285, 20)">
     <rect x="0" y="0" width="310" height="38" rx="19" fill="#121820" stroke="#00F0FF" stroke-width="1.5" filter="url(#softGlow)"/>
     <text x="155" y="25" text-anchor="middle" class="doodle-hand" font-size="22" font-weight="700" fill="#00F0FF" letter-spacing="1">
-      🚀 FEATURED PROJECTS 🚀
+      ✦ FEATURED PROJECTS ✦
     </text>
-  </g>
-
-  <!-- Cute Floating Sparkle Stars around header -->
-  <g transform="translate(235, 36)" class="star-1">
-    <path d="M 0,-6 L 1.5,-1.5 L 6,0 L 1.5,1.5 L 0,6 L -1.5,1.5 L -6,0 L -1.5,-1.5 Z" fill="#00FF66" filter="url(#softGlow)"/>
-  </g>
-  <g transform="translate(640, 36)" class="star-2">
-    <path d="M 0,-6 L 1.5,-1.5 L 6,0 L 1.5,1.5 L 0,6 L -1.5,1.5 L -6,0 L -1.5,-1.5 Z" fill="#FFD700" filter="url(#softGlow)"/>
   </g>
 
   <!-- Handwritten Sub-note -->
