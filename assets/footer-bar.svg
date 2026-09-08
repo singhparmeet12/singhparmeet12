@@ -11,7 +11,7 @@
     <filter id="neonGlowGreen" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur1"/>
       <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
-      <feFlood flood-color="#00FF66" flood-opacity="0.6" result="color"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.65" result="color"/>
       <feComposite in="color" in2="blur1" operator="in" result="glow1"/>
       <feComposite in="color" in2="blur2" operator="in" result="glow2"/>
       <feMerge>
@@ -23,7 +23,7 @@
 
     <filter id="neonGlowCyan" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
-      <feFlood flood-color="#00F0FF" flood-opacity="0.55" result="color"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.6" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="glow"/>
       <feMerge>
         <feMergeNode in="glow"/>
@@ -33,7 +33,7 @@
 
     <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="2.5" result="blur"/>
-      <feFlood flood-color="#00FF66" flood-opacity="0.4" result="color"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.45" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="g"/>
       <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
@@ -71,9 +71,10 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+    /* Lively buoyancy: 20px vertical travel (+4px to -16px) at 2.8s period */
     @keyframes floatAvatar {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-7px) rotate(-1deg); }
+      0%, 100% { transform: translateY(4px) rotate(0deg); }
+      50% { transform: translateY(-16px) rotate(-1.5deg); }
     }
     @keyframes orbitCrissA {
       from { transform: rotate(0deg); }
@@ -91,9 +92,10 @@
       from { transform: rotate(0deg); }
       to { transform: rotate(-360deg); }
     }
+    /* Highly visible twinkling stars around Parmeet's name */
     @keyframes twinkleStar {
-      0%, 100% { opacity: 0.2; transform: scale(0.85); }
-      50% { opacity: 1; transform: scale(1.15); }
+      0%, 100% { opacity: 0.45; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.35); }
     }
     @keyframes blinkCursor {
       0%, 49% { opacity: 1; }
@@ -111,14 +113,14 @@
     @keyframes dashTravel {
       to { stroke-dashoffset: -32; }
     }
-    .floating-avatar { animation: floatAvatar 4.5s ease-in-out infinite; transform-origin: center; }
-    .orbit-a { animation: orbitCrissA 20s linear infinite; transform-origin: 0px 0px; }
-    .orbit-b { animation: orbitCrissB 25s linear infinite; transform-origin: 0px 0px; }
-    .counter-a { animation: orbitCounterA 20s linear infinite; transform-origin: 0px 0px; }
-    .counter-b { animation: orbitCounterB 25s linear infinite; transform-origin: 0px 0px; }
-    .star-twinkle-1 { animation: twinkleStar 2.6s ease-in-out infinite; transform-origin: center; }
-    .star-twinkle-2 { animation: twinkleStar 3.4s ease-in-out infinite 1.2s; transform-origin: center; }
-    .star-twinkle-3 { animation: twinkleStar 2.9s ease-in-out infinite 0.7s; transform-origin: center; }
+    .floating-avatar { animation: floatAvatar 2.8s ease-in-out infinite; transform-origin: center; }
+    .orbit-a { animation: orbitCrissA 19s linear infinite; transform-origin: 0px 0px; }
+    .orbit-b { animation: orbitCrissB 24s linear infinite; transform-origin: 0px 0px; }
+    .counter-a { animation: orbitCounterA 19s linear infinite; transform-origin: 0px 0px; }
+    .counter-b { animation: orbitCounterB 24s linear infinite; transform-origin: 0px 0px; }
+    .star-twinkle-1 { animation: twinkleStar 2.2s ease-in-out infinite; transform-origin: center; }
+    .star-twinkle-2 { animation: twinkleStar 2.8s ease-in-out infinite 0.7s; transform-origin: center; }
+    .star-twinkle-3 { animation: twinkleStar 3.2s ease-in-out infinite 1.4s; transform-origin: center; }
     .cursor-blink { animation: blinkCursor 0.9s infinite; }
     .pulse-glow { animation: pulseNeon 2.8s ease-in-out infinite; }
     .radar-pulse { animation: radarPing 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }

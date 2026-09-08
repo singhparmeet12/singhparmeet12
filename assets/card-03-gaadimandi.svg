@@ -12,7 +12,7 @@
     <filter id="neonGlowGreen" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur1"/>
       <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
-      <feFlood flood-color="#00FF66" flood-opacity="0.6" result="color"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.65" result="color"/>
       <feComposite in="color" in2="blur1" operator="in" result="glow1"/>
       <feComposite in="color" in2="blur2" operator="in" result="glow2"/>
       <feMerge>
@@ -24,7 +24,7 @@
 
     <filter id="neonGlowCyan" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
-      <feFlood flood-color="#00F0FF" flood-opacity="0.55" result="color"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.6" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="glow"/>
       <feMerge>
         <feMergeNode in="glow"/>
@@ -34,7 +34,7 @@
 
     <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="2.5" result="blur"/>
-      <feFlood flood-color="#00FF66" flood-opacity="0.4" result="color"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.45" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="g"/>
       <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
@@ -122,10 +122,22 @@
   <!-- Project Number & Category -->
   <text x="76" y="38" class="mono" font-size="11.5" font-weight="700" fill="#FFD700" letter-spacing="1">03 // VEHICLE MARKETPLACE</text>
 
-  <!-- Project Title + Small Cute Related Emoji (Never Covers Text!) -->
+  <!-- Project Title -->
   <text x="76" y="68" class="doodle-hand" font-size="26" font-weight="700" fill="#f0f6fc" letter-spacing="0.5">
-    GaadiMandi <tspan font-size="21">🚗</tspan>
+    GaadiMandi
   </text>
+
+  <!-- Custom Glowing NEON Vector Doodle Icon (Directly beside title, zero text overlap) -->
+  <g transform="translate(221, 53)">
+    
+          <!-- Glowing Neon Gold Sports Car Profile Doodle -->
+          <path d="M 0,11 L 4,5 L 11,2 L 22,2 L 28,6 L 35,8 L 35,12 L 0,12 Z" fill="#0d1117" stroke="#FFD700" stroke-width="1.8" stroke-linejoin="round" filter="url(#softGlow)"/>
+          <path d="M 0,11 L 4,5 L 11,2 L 22,2 L 28,6 L 35,8 L 35,12 L 0,12 Z" fill="#FFD700" opacity="0.25"/>
+          <circle cx="8" cy="12" r="3" fill="#0d1117" stroke="#FFD700" stroke-width="1.6"/>
+          <circle cx="27" cy="12" r="3" fill="#0d1117" stroke="#FFD700" stroke-width="1.6"/>
+          <line x1="35" y1="9" x2="41" y2="9" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round" opacity="0.85"/>
+        
+  </g>
 
   <!-- 2 Clean Short Lines: Generous Space, Zero Overlap -->
   <text x="76" y="98" class="doodle-hand" font-size="15.5" fill="#8b949e">Full-stack automotive marketplace with</text>

@@ -12,7 +12,7 @@
     <filter id="neonGlowGreen" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur1"/>
       <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
-      <feFlood flood-color="#00FF66" flood-opacity="0.6" result="color"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.65" result="color"/>
       <feComposite in="color" in2="blur1" operator="in" result="glow1"/>
       <feComposite in="color" in2="blur2" operator="in" result="glow2"/>
       <feMerge>
@@ -24,7 +24,7 @@
 
     <filter id="neonGlowCyan" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
-      <feFlood flood-color="#00F0FF" flood-opacity="0.55" result="color"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.6" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="glow"/>
       <feMerge>
         <feMergeNode in="glow"/>
@@ -34,7 +34,7 @@
 
     <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="2.5" result="blur"/>
-      <feFlood flood-color="#00FF66" flood-opacity="0.4" result="color"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.45" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="g"/>
       <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
@@ -119,10 +119,19 @@
   <!-- Project Number & Category -->
   <text x="28" y="38" class="mono" font-size="11.5" font-weight="700" fill="#00FF66" letter-spacing="1">04 // DEVELOPER SHOWCASE</text>
 
-  <!-- Project Title + Small Cute Related Emoji (Never Covers Text!) -->
+  <!-- Project Title -->
   <text x="28" y="68" class="doodle-hand" font-size="26" font-weight="700" fill="#f0f6fc" letter-spacing="0.5">
-    Portfolio <tspan font-size="21">⚡</tspan>
+    Portfolio
   </text>
+
+  <!-- Custom Glowing NEON Vector Doodle Icon (Directly beside title, zero text overlap) -->
+  <g transform="translate(136, 53)">
+    
+          <!-- Glowing Neon Green Lightning Bolt Doodle -->
+          <polygon points="12,-4 3,7 10,7 6,17 19,4 11,4" fill="#00FF66" stroke="#00FF66" stroke-width="1.4" stroke-linejoin="round" filter="url(#softGlow)"/>
+          <polygon points="12,-4 3,7 10,7 6,17 19,4 11,4" fill="#FFFFFF" opacity="0.55"/>
+        
+  </g>
 
   <!-- 2 Clean Short Lines: Generous Space, Zero Overlap -->
   <text x="28" y="98" class="doodle-hand" font-size="15.5" fill="#8b949e">Interactive developer showcase with</text>

@@ -12,7 +12,7 @@
     <filter id="neonGlowGreen" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur1"/>
       <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
-      <feFlood flood-color="#00FF66" flood-opacity="0.6" result="color"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.65" result="color"/>
       <feComposite in="color" in2="blur1" operator="in" result="glow1"/>
       <feComposite in="color" in2="blur2" operator="in" result="glow2"/>
       <feMerge>
@@ -24,7 +24,7 @@
 
     <filter id="neonGlowCyan" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
-      <feFlood flood-color="#00F0FF" flood-opacity="0.55" result="color"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.6" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="glow"/>
       <feMerge>
         <feMergeNode in="glow"/>
@@ -34,7 +34,7 @@
 
     <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="2.5" result="blur"/>
-      <feFlood flood-color="#00FF66" flood-opacity="0.4" result="color"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.45" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="g"/>
       <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>

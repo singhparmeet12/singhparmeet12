@@ -12,7 +12,7 @@
     <filter id="neonGlowGreen" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur1"/>
       <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
-      <feFlood flood-color="#00FF66" flood-opacity="0.6" result="color"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.65" result="color"/>
       <feComposite in="color" in2="blur1" operator="in" result="glow1"/>
       <feComposite in="color" in2="blur2" operator="in" result="glow2"/>
       <feMerge>
@@ -24,7 +24,7 @@
 
     <filter id="neonGlowCyan" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
-      <feFlood flood-color="#00F0FF" flood-opacity="0.55" result="color"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.6" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="glow"/>
       <feMerge>
         <feMergeNode in="glow"/>
@@ -34,7 +34,7 @@
 
     <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="2.5" result="blur"/>
-      <feFlood flood-color="#00FF66" flood-opacity="0.4" result="color"/>
+      <feFlood flood-color="#00FF66" flood-opacity="0.45" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="g"/>
       <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
@@ -119,10 +119,21 @@
   <!-- Project Number & Category -->
   <text x="28" y="38" class="mono" font-size="11.5" font-weight="700" fill="#00F0FF" letter-spacing="1">02 // SMART TRAVEL BOOKING</text>
 
-  <!-- Project Title + Small Cute Related Emoji (Never Covers Text!) -->
+  <!-- Project Title -->
   <text x="28" y="68" class="doodle-hand" font-size="26" font-weight="700" fill="#f0f6fc" letter-spacing="0.5">
-    TourCraze <tspan font-size="21">✈️</tspan>
+    TourCraze
   </text>
+
+  <!-- Custom Glowing NEON Vector Doodle Icon (Directly beside title, zero text overlap) -->
+  <g transform="translate(158, 53)">
+    
+          <!-- Glowing Neon Electric Cyan Supersonic Jet Doodle -->
+          <path d="M -6,13 Q 3,11 10,6" fill="none" stroke="#00F0FF" stroke-width="1.2" stroke-dasharray="2,2" opacity="0.75"/>
+          <polygon points="12,-3 30,2 16,13 15,6" fill="#0d1117" stroke="#00F0FF" stroke-width="1.8" stroke-linejoin="round" filter="url(#softGlow)"/>
+          <polygon points="12,-3 30,2 16,13 15,6" fill="#00F0FF" opacity="0.3"/>
+          <line x1="12" y1="-3" x2="16" y2="13" stroke="#00F0FF" stroke-width="1.2"/>
+        
+  </g>
 
   <!-- 2 Clean Short Lines: Generous Space, Zero Overlap -->
   <text x="28" y="98" class="doodle-hand" font-size="15.5" fill="#8b949e">Smart AI travel planning platform with</text>

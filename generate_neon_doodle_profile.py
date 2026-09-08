@@ -3,26 +3,31 @@
 generate_neon_doodle_profile.py
 Builds Parmeet Singh's Cyber-Doodle Notebook GitHub Profile:
 - 100% Seamless in BOTH Light Mode and Dark Mode (ZERO white horizontal lines anywhere!)
-  - Uses align="top" on every <img> tag to mathematically eliminate the browser font strut / descender gap (gap = 0.00px)
+  - Uses align="top" on every <img> tag to eliminate browser font descender strut gap (0.00px gap)
   - Full-width tiled button bar (4 x 220px = 880px solid dark background, 25% each)
   - Full-width tiled project cards (2 x 440px = 880px solid dark background, 50% each)
   - Full-width tiled connect chips (3 chips: 293+294+293 = 880px solid dark background)
   - Zero <br/> tags and zero &nbsp;
   - HTML comments (<!-- -->) between images eliminate all inline whitespace
-- 3 Cute Criss-Cross Doodle Satellites Around Avatar:
-  - Custom hand-drawn vector doodles: Sketched Laptop 💻, Sketched Coffee Mug ☕, Twinkling Doodle Star ✨
+- Avatar Floating Upgrade:
+  - Fast, buoyant float ("above and low"): 20px vertical travel (+4px to -16px) at 2.8s period (lively & smooth!)
+- Lightweight Criss-Cross Doodle Satellites:
+  - Lighter, airy, delicate vector doodle capsules (r=15.5px, soft semi-transparent fill, crisp glow)
   - Criss-cross orbital paths: Orbit 1 tilted at -24°, Orbit 2 tilted at +24°, Orbit 3 undulating loop
-  - Smooth, serene, rhythmic cycles (20s, 25s, 22s) — playful & unpredictable, but very gentle & less chaotic!
+  - Smooth, serene, un-chaotic periods (19s, 24s, 21s)
   - Upright counter-rotation ensures doodles remain upright
   - 138px safe clearance from bio text, 25px clearance from avatar
-- Project Cue Cards Polish:
-  - Cute related doodle emojis right after title (📈 for TradeLab, ✈️ for TourCraze, 🚗 for GaadiMandi, ⚡ for Portfolio)
+- Living Constellation of Animated Stars:
+  - Highly visible twinkling stars flowing from top-left corner right up to and around Parmeet's name!
+  - Vibrant 4-point stars with neon glows and white cores above and next to "Parmeet"
+- Project Cue Cards 100% NEON Icons:
+  - Replaced normal emojis with custom glowing NEON vector doodles:
+    - TradeLab: Neon green glowing upward trend graph + candlestick chart 📈
+    - TourCraze: Neon electric cyan glowing supersonic jet + dashed flight contrail ✈️
+    - GaadiMandi: Neon gold glowing sports car profile + headlight beam 🚗
+    - Portfolio: Neon green glowing lightning bolt with white core ⚡
   - Small, clean, zero text overlap
-  - Removed "CLICK CARD TO LAUNCH LIVE APP" bar (heading already conveys it)
-- Enhanced Lively Animations:
-  - Twinkling doodle stars and sparkles scattered across canvas
-  - Traveling data pulse on vertical guide lines
-  - Breathing neon glows and radar pings
+  - No launch button bar (heading already states it)
 """
 
 import base64
@@ -78,7 +83,7 @@ COMMON_DEFS = f"""
     <filter id="neonGlowGreen" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur1"/>
       <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
-      <feFlood flood-color="{NEON_GREEN}" flood-opacity="0.6" result="color"/>
+      <feFlood flood-color="{NEON_GREEN}" flood-opacity="0.65" result="color"/>
       <feComposite in="color" in2="blur1" operator="in" result="glow1"/>
       <feComposite in="color" in2="blur2" operator="in" result="glow2"/>
       <feMerge>
@@ -90,7 +95,7 @@ COMMON_DEFS = f"""
 
     <filter id="neonGlowCyan" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
-      <feFlood flood-color="{NEON_CYAN}" flood-opacity="0.55" result="color"/>
+      <feFlood flood-color="{NEON_CYAN}" flood-opacity="0.6" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="glow"/>
       <feMerge>
         <feMergeNode in="glow"/>
@@ -100,7 +105,7 @@ COMMON_DEFS = f"""
 
     <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="2.5" result="blur"/>
-      <feFlood flood-color="{NEON_GREEN}" flood-opacity="0.4" result="color"/>
+      <feFlood flood-color="{NEON_GREEN}" flood-opacity="0.45" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="g"/>
       <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
@@ -127,9 +132,10 @@ COMMON_DEFS = f"""
 COMMON_STYLES = f"""
   <style><![CDATA[
     {FONTS_CSS}
+    /* Lively buoyancy: 20px vertical travel (+4px to -16px) at 2.8s period */
     @keyframes floatAvatar {{
-      0%, 100% {{ transform: translateY(0px) rotate(0deg); }}
-      50% {{ transform: translateY(-7px) rotate(-1deg); }}
+      0%, 100% {{ transform: translateY(4px) rotate(0deg); }}
+      50% {{ transform: translateY(-16px) rotate(-1.5deg); }}
     }}
     @keyframes orbitCrissA {{
       from {{ transform: rotate(0deg); }}
@@ -147,9 +153,10 @@ COMMON_STYLES = f"""
       from {{ transform: rotate(0deg); }}
       to {{ transform: rotate(-360deg); }}
     }}
+    /* Highly visible twinkling stars around Parmeet's name */
     @keyframes twinkleStar {{
-      0%, 100% {{ opacity: 0.2; transform: scale(0.85); }}
-      50% {{ opacity: 1; transform: scale(1.15); }}
+      0%, 100% {{ opacity: 0.45; transform: scale(0.85); }}
+      50% {{ opacity: 1; transform: scale(1.35); }}
     }}
     @keyframes blinkCursor {{
       0%, 49% {{ opacity: 1; }}
@@ -167,14 +174,14 @@ COMMON_STYLES = f"""
     @keyframes dashTravel {{
       to {{ stroke-dashoffset: -32; }}
     }}
-    .floating-avatar {{ animation: floatAvatar 4.5s ease-in-out infinite; transform-origin: center; }}
-    .orbit-a {{ animation: orbitCrissA 20s linear infinite; transform-origin: 0px 0px; }}
-    .orbit-b {{ animation: orbitCrissB 25s linear infinite; transform-origin: 0px 0px; }}
-    .counter-a {{ animation: orbitCounterA 20s linear infinite; transform-origin: 0px 0px; }}
-    .counter-b {{ animation: orbitCounterB 25s linear infinite; transform-origin: 0px 0px; }}
-    .star-twinkle-1 {{ animation: twinkleStar 2.6s ease-in-out infinite; transform-origin: center; }}
-    .star-twinkle-2 {{ animation: twinkleStar 3.4s ease-in-out infinite 1.2s; transform-origin: center; }}
-    .star-twinkle-3 {{ animation: twinkleStar 2.9s ease-in-out infinite 0.7s; transform-origin: center; }}
+    .floating-avatar {{ animation: floatAvatar 2.8s ease-in-out infinite; transform-origin: center; }}
+    .orbit-a {{ animation: orbitCrissA 19s linear infinite; transform-origin: 0px 0px; }}
+    .orbit-b {{ animation: orbitCrissB 24s linear infinite; transform-origin: 0px 0px; }}
+    .counter-a {{ animation: orbitCounterA 19s linear infinite; transform-origin: 0px 0px; }}
+    .counter-b {{ animation: orbitCounterB 24s linear infinite; transform-origin: 0px 0px; }}
+    .star-twinkle-1 {{ animation: twinkleStar 2.2s ease-in-out infinite; transform-origin: center; }}
+    .star-twinkle-2 {{ animation: twinkleStar 2.8s ease-in-out infinite 0.7s; transform-origin: center; }}
+    .star-twinkle-3 {{ animation: twinkleStar 3.2s ease-in-out infinite 1.4s; transform-origin: center; }}
     .cursor-blink {{ animation: blinkCursor 0.9s infinite; }}
     .pulse-glow {{ animation: pulseNeon 2.8s ease-in-out infinite; }}
     .radar-pulse {{ animation: radarPing 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }}
@@ -188,7 +195,7 @@ def write_file(filename, content):
     print(f"[OK] Generated {filename}")
 
 # ═══════════════════════════════════════════════════════════════
-# 3. HERO BANNER (880 × 410) - Criss-Cross Cute Doodle Satellites
+# 3. HERO BANNER (880 × 410) - Lively Avatar, Visible Stars & Light Doodles
 # ═══════════════════════════════════════════════════════════════
 hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 410" width="880" height="410">
   {COMMON_DEFS}
@@ -206,19 +213,46 @@ hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w
   <line x1="45" y1="0" x2="45" y2="410" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
   <line x1="49" y1="0" x2="49" y2="410" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
 
-  <!-- Living Canvas: Twinkling Doodle Stars Scattered -->
-  <g class="star-twinkle-1" transform="translate(360, 48)">
-    <path d="M 0,-6 L 1.5,-1.5 L 6,0 L 1.5,1.5 L 0,6 L -1.5,1.5 L -6,0 L -1.5,-1.5 Z" fill="{NEON_GREEN}" opacity="0.75"/>
+  <!-- ═══ VIBRANT CONSTELLATION: Stars Twinkling from Top-Left up to Parmeet's Name ═══ -->
+  <!-- 1. Top-Left Corner Star (near margin lines) -->
+  <g class="star-twinkle-1" transform="translate(68, 42)">
+    <path d="M 0,-8 L 2,-2 L 8,0 L 2,2 L 0,8 L -2,2 L -8,0 L -2,-2 Z" fill="{NEON_CYAN}" filter="url(#softGlow)"/>
+    <circle cx="0" cy="0" r="1.5" fill="#FFFFFF"/>
   </g>
-  <g class="star-twinkle-2" transform="translate(510, 105)">
-    <path d="M 0,-7 L 1.8,-1.8 L 7,0 L 1.8,1.8 L 0,7 L -1.8,1.8 L -7,0 L -1.8,-1.8 Z" fill="{NEON_CYAN}" opacity="0.8"/>
+
+  <!-- 2. Cute Cross Sparkle above Status Pill -->
+  <g class="star-twinkle-2" transform="translate(155, 48)">
+    <path d="M -6,0 L 6,0 M 0,-6 L 0,6" stroke="{NEON_GREEN}" stroke-width="1.6" stroke-linecap="round" filter="url(#softGlow)"/>
+    <circle cx="0" cy="0" r="1.2" fill="{NEON_GREEN}"/>
   </g>
-  <g class="star-twinkle-3" transform="translate(480, 315)">
-    <circle cx="0" cy="0" r="2" fill="{NEON_GOLD}"/>
-    <path d="M -4,0 L 4,0 M 0,-4 L 0,4" stroke="{NEON_GOLD}" stroke-width="0.8" opacity="0.8"/>
+
+  <!-- 3. Golden Star between Status Pill and Hey -->
+  <g class="star-twinkle-3" transform="translate(235, 92)">
+    <circle cx="0" cy="0" r="2.5" fill="{NEON_GOLD}" filter="url(#softGlow)"/>
+    <path d="M -6,0 L 6,0 M 0,-6 L 0,6" stroke="{NEON_GOLD}" stroke-width="1.2" stroke-linecap="round"/>
   </g>
-  <g class="star-twinkle-1" transform="translate(90, 240)">
-    <circle cx="0" cy="0" r="1.5" fill="{NEON_GREEN}" opacity="0.6"/>
+
+  <!-- 4. Bright Neon Green 4-Point Star directly above 'Parmeet' -->
+  <g class="star-twinkle-1" transform="translate(325, 115)">
+    <path d="M 0,-11 L 2.8,-2.8 L 11,0 L 2.8,2.8 L 0,11 L -2.8,2.8 L -11,0 L -2.8,-2.8 Z" fill="{NEON_GREEN}" filter="url(#neonGlowGreen)"/>
+    <circle cx="0" cy="0" r="2.2" fill="#FFFFFF"/>
+  </g>
+
+  <!-- 5. Electric Cyan Star right next to 'Parmeet!' Exclamation Mark -->
+  <g class="star-twinkle-2" transform="translate(398, 142)">
+    <path d="M 0,-9 L 2.4,-2.4 L 9,0 L 2.4,2.4 L 0,9 L -2.4,2.4 L -9,0 L -2.4,-2.4 Z" fill="{NEON_CYAN}" filter="url(#neonGlowCyan)"/>
+    <circle cx="0" cy="0" r="1.8" fill="#FFFFFF"/>
+  </g>
+
+  <!-- 6. Cute Neon Pink Sparkle under the Underline -->
+  <g class="star-twinkle-3" transform="translate(355, 182)">
+    <path d="M -4,0 L 4,0 M 0,-4 L 0,4" stroke="{NEON_PINK}" stroke-width="1.4" stroke-linecap="round" filter="url(#softGlow)"/>
+  </g>
+
+  <!-- 7. Ambient Twinkle near Bio text -->
+  <g class="star-twinkle-1" transform="translate(505, 110)">
+    <circle cx="0" cy="0" r="2" fill="{NEON_CYAN}" opacity="0.85"/>
+    <path d="M -4,0 L 4,0 M 0,-4 L 0,4" stroke="{NEON_CYAN}" stroke-width="0.8" opacity="0.8"/>
   </g>
 
   <!-- Main Greeting Group (Clean, Left-aligned) -->
@@ -265,39 +299,40 @@ hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w
     </g>
   </g>
 
-  <!-- Right Floating Sikh Tech Avatar + 3 Cute Criss-Cross Doodle Satellites -->
+  <!-- Right Floating Sikh Tech Avatar + 3 Lightweight Criss-Cross Doodle Satellites -->
   <g transform="translate(565, 30)">
     <!-- Ambient Neon Backdrop Glow -->
     <ellipse cx="145" cy="175" rx="145" ry="160" fill="url(#avatarBackdropGlow)"/>
 
     <!-- Subtle Criss-Cross Dashed Orbital Guide Tracks -->
-    <ellipse cx="145" cy="175" rx="150" ry="105" transform="rotate(-24, 145, 175)" fill="none" stroke="{NEON_GREEN}" stroke-width="1" stroke-dasharray="4,8" opacity="0.22"/>
-    <ellipse cx="145" cy="175" rx="150" ry="105" transform="rotate(24, 145, 175)" fill="none" stroke="{NEON_CYAN}" stroke-width="1" stroke-dasharray="4,8" opacity="0.22"/>
+    <ellipse cx="145" cy="175" rx="148" ry="102" transform="rotate(-24, 145, 175)" fill="none" stroke="{NEON_GREEN}" stroke-width="0.9" stroke-dasharray="4,8" opacity="0.2"/>
+    <ellipse cx="145" cy="175" rx="148" ry="102" transform="rotate(24, 145, 175)" fill="none" stroke="{NEON_CYAN}" stroke-width="0.9" stroke-dasharray="4,8" opacity="0.2"/>
 
-    <!-- Floating Avatar with Laptop (Center cx=145, cy=175) -->
+    <!-- Floating Avatar with Laptop (Noticeable 20px buoyant vertical float at 2.8s) -->
     <g class="floating-avatar">
       <image href="data:image/png;base64,{AVATAR_B64}" x="20" y="5" width="250" height="340" preserveAspectRatio="xMidYMid meet"/>
     </g>
 
-    <!-- ═══ 3 CUTE CRISS-CROSS DOODLE SATELLITES ═══ -->
-    <!-- Center of orbit: (145, 175). Gentle, un-chaotic periods (20s, 25s) criss-crossing gracefully -->
+    <!-- ═══ 3 LIGHTWEIGHT CRISS-CROSS DOODLE SATELLITES ═══ -->
+    <!-- Lightweight, airy, luminous (r=15.5px, semi-transparent fill, delicate glow) -->
 
     <!-- ORBIT 1: Tilted -24° (Doodle Laptop 💻) -->
     <g transform="translate(145, 175) rotate(-24)">
       <g class="orbit-a">
-        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="20s" repeatCount="indefinite"/>
-        <!-- Position on ellipse (148, 0) -->
-        <g transform="translate(148, 0)">
+        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="19s" repeatCount="indefinite"/>
+        <!-- Position on ellipse (146, 0) -->
+        <g transform="translate(146, 0)">
           <g class="counter-a">
-            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="20s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="19s" repeatCount="indefinite"/>
             <!-- Upright Counter-Tilt (+24°) -->
             <g transform="rotate(24)">
-              <circle cx="0" cy="0" r="18" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.8" filter="url(#softGlow)"/>
-              <!-- Hand-Drawn Doodle Laptop Icon -->
+              <circle cx="0" cy="0" r="16.5" fill="{NEON_CYAN}" opacity="0.15" filter="url(#softGlow)"/>
+              <circle cx="0" cy="0" r="15.5" fill="{BG_SURFACE}" fill-opacity="0.8" stroke="{NEON_CYAN}" stroke-width="1.3"/>
+              <!-- Lightweight Hand-Drawn Doodle Laptop Icon -->
               <g transform="translate(0, -1)">
-                <rect x="-10" y="-7" width="20" height="13" rx="2" fill="{BG}" stroke="{NEON_CYAN}" stroke-width="1.4"/>
-                <text x="-4" y="2" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="{NEON_GREEN}">&gt;_</text>
-                <line x1="-13" y1="6" x2="13" y2="6" stroke="{NEON_CYAN}" stroke-width="2" stroke-linecap="round"/>
+                <rect x="-8.5" y="-6" width="17" height="11" rx="1.5" fill="{BG}" stroke="{NEON_CYAN}" stroke-width="1.2"/>
+                <text x="-3.5" y="1.5" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="700" fill="{NEON_GREEN}">&gt;_</text>
+                <line x1="-11" y1="5" x2="11" y2="5" stroke="{NEON_CYAN}" stroke-width="1.6" stroke-linecap="round"/>
               </g>
             </g>
           </g>
@@ -308,21 +343,22 @@ hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w
     <!-- ORBIT 2: Tilted +24° (Doodle Coffee Mug ☕) -->
     <g transform="translate(145, 175) rotate(24)">
       <g class="orbit-b">
-        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="25s" repeatCount="indefinite"/>
-        <!-- Position on ellipse (-148, 0) -->
-        <g transform="translate(-148, 0)">
+        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="24s" repeatCount="indefinite"/>
+        <!-- Position on ellipse (-146, 0) -->
+        <g transform="translate(-146, 0)">
           <g class="counter-b">
-            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="25s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="24s" repeatCount="indefinite"/>
             <!-- Upright Counter-Tilt (-24°) -->
             <g transform="rotate(-24)">
-              <circle cx="0" cy="0" r="18" fill="{BG_SURFACE}" stroke="{NEON_GOLD}" stroke-width="1.8" filter="url(#softGlow)"/>
-              <!-- Hand-Drawn Doodle Coffee Mug Icon -->
-              <g transform="translate(-1, 2)">
-                <rect x="-7" y="-6" width="14" height="13" rx="3" fill="{BG}" stroke="{NEON_GOLD}" stroke-width="1.4"/>
-                <path d="M 7,-3 C 11,-3 11,3 7,3" fill="none" stroke="{NEON_GOLD}" stroke-width="1.4" stroke-linecap="round"/>
-                <!-- Steam Squiggles -->
-                <path d="M -3,-10 Q -1,-8 -3,-6" fill="none" stroke="{NEON_GREEN}" stroke-width="1.1" stroke-linecap="round"/>
-                <path d="M 2,-10 Q 4,-8 2,-6" fill="none" stroke="{NEON_GREEN}" stroke-width="1.1" stroke-linecap="round"/>
+              <circle cx="0" cy="0" r="16.5" fill="{NEON_GOLD}" opacity="0.15" filter="url(#softGlow)"/>
+              <circle cx="0" cy="0" r="15.5" fill="{BG_SURFACE}" fill-opacity="0.8" stroke="{NEON_GOLD}" stroke-width="1.3"/>
+              <!-- Lightweight Hand-Drawn Doodle Coffee Mug Icon -->
+              <g transform="translate(-1, 1.5)">
+                <rect x="-6" y="-5" width="12" height="11" rx="2.5" fill="{BG}" stroke="{NEON_GOLD}" stroke-width="1.2"/>
+                <path d="M 6,-2.5 C 9.5,-2.5 9.5,2.5 6,2.5" fill="none" stroke="{NEON_GOLD}" stroke-width="1.2" stroke-linecap="round"/>
+                <!-- Delicate Steam Squiggles -->
+                <path d="M -2.5,-8.5 Q -1,-6.5 -2.5,-5" fill="none" stroke="{NEON_GREEN}" stroke-width="0.9" stroke-linecap="round"/>
+                <path d="M 1.5,-8.5 Q 3,-6.5 1.5,-5" fill="none" stroke="{NEON_GREEN}" stroke-width="0.9" stroke-linecap="round"/>
               </g>
             </g>
           </g>
@@ -330,18 +366,19 @@ hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w
       </g>
     </g>
 
-    <!-- SATELLITE 3: Floating Twinkle Doodle Star ✨ (Undulating 22s Orbit) -->
+    <!-- SATELLITE 3: Lightweight Twinkle Doodle Star ✨ (Undulating 21s Orbit) -->
     <g transform="translate(145, 175)">
       <g class="orbit-a">
-        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="22s" repeatCount="indefinite"/>
-        <!-- Position at top (0, -150) -->
-        <g transform="translate(0, -150)">
+        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="21s" repeatCount="indefinite"/>
+        <!-- Position at top (0, -148) -->
+        <g transform="translate(0, -148)">
           <g class="counter-a">
-            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="22s" repeatCount="indefinite"/>
-            <circle cx="0" cy="0" r="17" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.8" filter="url(#softGlow)"/>
-            <!-- Hand-Drawn Doodle 4-Point Sparkle Star -->
-            <path d="M 0,-9 L 2.5,-2.5 L 9,0 L 2.5,2.5 L 0,9 L -2.5,2.5 L -9,0 L -2.5,-2.5 Z" fill="{NEON_GREEN}"/>
-            <circle cx="0" cy="0" r="2" fill="#FFFFFF"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="21s" repeatCount="indefinite"/>
+            <circle cx="0" cy="0" r="16" fill="{NEON_GREEN}" opacity="0.15" filter="url(#softGlow)"/>
+            <circle cx="0" cy="0" r="15" fill="{BG_SURFACE}" fill-opacity="0.8" stroke="{NEON_GREEN}" stroke-width="1.3"/>
+            <!-- Delicate 4-Point Star -->
+            <path d="M 0,-8 L 2,-2 L 8,0 L 2,2 L 0,8 L -2,2 L -8,0 L -2,-2 Z" fill="{NEON_GREEN}"/>
+            <circle cx="0" cy="0" r="1.6" fill="#FFFFFF"/>
           </g>
         </g>
       </g>
@@ -516,18 +553,19 @@ section_work_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 
 write_file(os.path.join(ASSETS_DIR, 'section-work.svg'), section_work_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 7. PROJECT CARDS (440 × 170) - Small Cute Emojis, No Launch Bar!
+# 7. PROJECT CARDS (440 × 170) - 100% NEON Vector Doodles (Zero Text Overlap)
 # ═══════════════════════════════════════════════════════════════
-# Cue cards have:
-# - Cute related small emoji (📈, ✈️, 🚗, ⚡) placed cleanly inline after title (zero text covering)
-# - No "CLICK CARD TO LAUNCH" button (heading already states it, cards are cleaner and more spacious)
-# - 170px height: perfectly balanced and proportional
+# Custom vector NEON doodles replacing normal emojis:
+# - TradeLab: Glowing neon green upward trend line + candlestick chart
+# - TourCraze: Glowing neon cyan jet supersonic plane + dashed flight path
+# - GaadiMandi: Glowing neon gold sports car silhouette + headlight beam
+# - Portfolio: Glowing neon green lightning bolt with white core
 projects = [
     {
         'num': '01',
         'file': 'card-01-tradelab',
         'title': 'TradeLab',
-        'emoji': '📈',
+        'title_w': 105,
         'type': 'STOCK MARKET SIMULATOR',
         'desc1': 'Real-time stock market simulator with',
         'desc2': 'virtual trading &amp; live portfolio tracking.',
@@ -535,12 +573,21 @@ projects = [
         'badge': '● LIVE SIMULATOR',
         'accent': NEON_GREEN,
         'is_left': True,
+        'neon_icon': f"""
+          <!-- Glowing Neon Green Stock Market Trend Doodle -->
+          <path d="M 0,13 L 6,8 L 12,11 L 18,3 L 24,5 L 30,-2" fill="none" stroke="{NEON_GREEN}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)"/>
+          <polygon points="26,-3 32,-3 32,3" fill="{NEON_GREEN}"/>
+          <line x1="6" y1="5" x2="6" y2="12" stroke="{NEON_GREEN}" stroke-width="1.1" opacity="0.75"/>
+          <rect x="4.5" y="7" width="3" height="3.5" fill="{NEON_GREEN}" rx="0.5"/>
+          <line x1="18" y1="1" x2="18" y2="8" stroke="{NEON_GREEN}" stroke-width="1.1" opacity="0.75"/>
+          <rect x="16.5" y="3" width="3" height="4" fill="{NEON_GREEN}" rx="0.5"/>
+        """,
     },
     {
         'num': '02',
         'file': 'card-02-tourcraze',
         'title': 'TourCraze',
-        'emoji': '✈️',
+        'title_w': 120,
         'type': 'SMART TRAVEL BOOKING',
         'desc1': 'Smart AI travel planning platform with',
         'desc2': 'curated tour discovery &amp; instant booking.',
@@ -548,12 +595,19 @@ projects = [
         'badge': '● LIVE PLATFORM',
         'accent': NEON_CYAN,
         'is_left': False,
+        'neon_icon': f"""
+          <!-- Glowing Neon Electric Cyan Supersonic Jet Doodle -->
+          <path d="M -6,13 Q 3,11 10,6" fill="none" stroke="{NEON_CYAN}" stroke-width="1.2" stroke-dasharray="2,2" opacity="0.75"/>
+          <polygon points="12,-3 30,2 16,13 15,6" fill="{BG}" stroke="{NEON_CYAN}" stroke-width="1.8" stroke-linejoin="round" filter="url(#softGlow)"/>
+          <polygon points="12,-3 30,2 16,13 15,6" fill="{NEON_CYAN}" opacity="0.3"/>
+          <line x1="12" y1="-3" x2="16" y2="13" stroke="{NEON_CYAN}" stroke-width="1.2"/>
+        """,
     },
     {
         'num': '03',
         'file': 'card-03-gaadimandi',
         'title': 'GaadiMandi',
-        'emoji': '🚗',
+        'title_w': 135,
         'type': 'VEHICLE MARKETPLACE',
         'desc1': 'Full-stack automotive marketplace with',
         'desc2': 'verified listings &amp; dealer analytics.',
@@ -561,12 +615,20 @@ projects = [
         'badge': '● LIVE MARKETPLACE',
         'accent': NEON_GOLD,
         'is_left': True,
+        'neon_icon': f"""
+          <!-- Glowing Neon Gold Sports Car Profile Doodle -->
+          <path d="M 0,11 L 4,5 L 11,2 L 22,2 L 28,6 L 35,8 L 35,12 L 0,12 Z" fill="{BG}" stroke="{NEON_GOLD}" stroke-width="1.8" stroke-linejoin="round" filter="url(#softGlow)"/>
+          <path d="M 0,11 L 4,5 L 11,2 L 22,2 L 28,6 L 35,8 L 35,12 L 0,12 Z" fill="{NEON_GOLD}" opacity="0.25"/>
+          <circle cx="8" cy="12" r="3" fill="{BG}" stroke="{NEON_GOLD}" stroke-width="1.6"/>
+          <circle cx="27" cy="12" r="3" fill="{BG}" stroke="{NEON_GOLD}" stroke-width="1.6"/>
+          <line x1="35" y1="9" x2="41" y2="9" stroke="{NEON_GOLD}" stroke-width="1.5" stroke-linecap="round" opacity="0.85"/>
+        """,
     },
     {
         'num': '04',
         'file': 'card-04-portfolio',
         'title': 'Portfolio',
-        'emoji': '⚡',
+        'title_w': 98,
         'type': 'DEVELOPER SHOWCASE',
         'desc1': 'Interactive developer showcase with',
         'desc2': 'smooth animations &amp; creative layout.',
@@ -574,6 +636,11 @@ projects = [
         'badge': '● LIVE SITE',
         'accent': NEON_GREEN,
         'is_left': False,
+        'neon_icon': f"""
+          <!-- Glowing Neon Green Lightning Bolt Doodle -->
+          <polygon points="12,-4 3,7 10,7 6,17 19,4 11,4" fill="{NEON_GREEN}" stroke="{NEON_GREEN}" stroke-width="1.4" stroke-linejoin="round" filter="url(#softGlow)"/>
+          <polygon points="12,-4 3,7 10,7 6,17 19,4 11,4" fill="#FFFFFF" opacity="0.55"/>
+        """,
     },
 ]
 
@@ -596,6 +663,8 @@ for p in projects:
         content_x = 28
         tape_points = "28,3 113,3 108,14 23,14"
         badge_x = 248
+
+    icon_offset_x = content_x + p['title_w'] + 10
 
     card_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 170" width="440" height="170">
   <defs>
@@ -650,10 +719,15 @@ for p in projects:
   <!-- Project Number & Category -->
   <text x="{content_x}" y="38" class="mono" font-size="11.5" font-weight="700" fill="{acc}" letter-spacing="1">{p['num']} // {p['type']}</text>
 
-  <!-- Project Title + Small Cute Related Emoji (Never Covers Text!) -->
+  <!-- Project Title -->
   <text x="{content_x}" y="68" class="doodle-hand" font-size="26" font-weight="700" fill="{TEXT_MAIN}" letter-spacing="0.5">
-    {p['title']} <tspan font-size="21">{p['emoji']}</tspan>
+    {p['title']}
   </text>
+
+  <!-- Custom Glowing NEON Vector Doodle Icon (Directly beside title, zero text overlap) -->
+  <g transform="translate({icon_offset_x}, 53)">
+    {p['neon_icon']}
+  </g>
 
   <!-- 2 Clean Short Lines: Generous Space, Zero Overlap -->
   <text x="{content_x}" y="98" class="doodle-hand" font-size="15.5" fill="{TEXT_MUTED}">{p['desc1']}</text>
@@ -769,11 +843,6 @@ write_file(os.path.join(ASSETS_DIR, 'footer-bar.svg'), footer_svg)
 # ═══════════════════════════════════════════════════════════════
 # 11. README.md - 100% ZERO HORIZONTAL WHITE LINES!
 # ═══════════════════════════════════════════════════════════════
-# CRITICAL TECHNIQUE:
-# Every <img> tag has align="top".
-# As mathematically verified with Chrome and GitHub GFM parser, align="top"
-# sets vertical-align: top on the line box, reducing the descent strut gap to 0.00px!
-# Combined with HTML comment connectors (<!-- -->), all images touch seamlessly.
 readme_md = f"""<div align="center">
   <img src="./assets/hero-banner.svg" alt="Hey, I'm Parmeet — Full-Stack Developer" width="100%" align="top" /><!--
   --><a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-resume.svg" width="25%" align="top" alt="View Resume (PDF)" /></a><!--
@@ -807,7 +876,7 @@ preview_html = f"""<!DOCTYPE html>
   <style>
     * {{ margin: 0; padding: 0; box-sizing: border-box; }}
     body {{
-      background: #ffffff; /* Test against light mode by default! */
+      background: #ffffff;
       color: #000;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       display: flex;
