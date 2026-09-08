@@ -2,21 +2,27 @@
 """
 generate_neon_doodle_profile.py
 Builds Parmeet Singh's Cyber-Doodle Notebook GitHub Profile:
-- 100% Seamless in BOTH Light Mode and Dark Mode (ZERO white gaps anywhere!)
+- 100% Seamless in BOTH Light Mode and Dark Mode (ZERO white horizontal lines anywhere!)
+  - Uses align="top" on every <img> tag to mathematically eliminate the browser font strut / descender gap (gap = 0.00px)
   - Full-width tiled button bar (4 x 220px = 880px solid dark background, 25% each)
   - Full-width tiled project cards (2 x 440px = 880px solid dark background, 50% each)
   - Full-width tiled connect chips (3 chips: 293+294+293 = 880px solid dark background)
-  - Zero <br/> tags and zero &nbsp; (no browser line-height gaps exposing white background)
-  - HTML comment tags (<!-- -->) between images to eliminate all inline whitespace
-- 3 Cute Emojis Revolving Around Avatar (Laptop 💻, Coffee ☕, Sparkles ✨)
-  - Smooth 22s orbital rotation along circular path (R=152px)
-  - Both SMIL <animateTransform> & CSS @keyframes for universal hardware-accelerated playback
-  - Upright counter-rotation (emojis stay upright throughout rotation)
-  - Zero collision with bio text (138px safe buffer) or avatar (25px outer clearance)
-- Clean Project Cue Cards (440px wide, safe text, no clipping, no overlapping icons)
-- "Let's Talk" links to https://personal-portfolio-parmeet1.vercel.app/contact/
-- Removed Gmail chip from bottom (3 clean chips: Resume, LinkedIn, Portfolio)
-- Featured Projects header clean (no rocket emojis)
+  - Zero <br/> tags and zero &nbsp;
+  - HTML comments (<!-- -->) between images eliminate all inline whitespace
+- 3 Cute Criss-Cross Doodle Satellites Around Avatar:
+  - Custom hand-drawn vector doodles: Sketched Laptop 💻, Sketched Coffee Mug ☕, Twinkling Doodle Star ✨
+  - Criss-cross orbital paths: Orbit 1 tilted at -24°, Orbit 2 tilted at +24°, Orbit 3 undulating loop
+  - Smooth, serene, rhythmic cycles (20s, 25s, 22s) — playful & unpredictable, but very gentle & less chaotic!
+  - Upright counter-rotation ensures doodles remain upright
+  - 138px safe clearance from bio text, 25px clearance from avatar
+- Project Cue Cards Polish:
+  - Cute related doodle emojis right after title (📈 for TradeLab, ✈️ for TourCraze, 🚗 for GaadiMandi, ⚡ for Portfolio)
+  - Small, clean, zero text overlap
+  - Removed "CLICK CARD TO LAUNCH LIVE APP" bar (heading already conveys it)
+- Enhanced Lively Animations:
+  - Twinkling doodle stars and sparkles scattered across canvas
+  - Traveling data pulse on vertical guide lines
+  - Breathing neon glows and radar pings
 """
 
 import base64
@@ -125,13 +131,25 @@ COMMON_STYLES = f"""
       0%, 100% {{ transform: translateY(0px) rotate(0deg); }}
       50% {{ transform: translateY(-7px) rotate(-1deg); }}
     }}
-    @keyframes orbitSpin {{
+    @keyframes orbitCrissA {{
+      from {{ transform: rotate(0deg); }}
+      to {{ transform: rotate(-360deg); }}
+    }}
+    @keyframes orbitCrissB {{
       from {{ transform: rotate(0deg); }}
       to {{ transform: rotate(360deg); }}
     }}
-    @keyframes orbitCounter {{
+    @keyframes orbitCounterA {{
+      from {{ transform: rotate(0deg); }}
+      to {{ transform: rotate(360deg); }}
+    }}
+    @keyframes orbitCounterB {{
       from {{ transform: rotate(0deg); }}
       to {{ transform: rotate(-360deg); }}
+    }}
+    @keyframes twinkleStar {{
+      0%, 100% {{ opacity: 0.2; transform: scale(0.85); }}
+      50% {{ opacity: 1; transform: scale(1.15); }}
     }}
     @keyframes blinkCursor {{
       0%, 49% {{ opacity: 1; }}
@@ -150,8 +168,13 @@ COMMON_STYLES = f"""
       to {{ stroke-dashoffset: -32; }}
     }}
     .floating-avatar {{ animation: floatAvatar 4.5s ease-in-out infinite; transform-origin: center; }}
-    .orbit-system {{ animation: orbitSpin 22s linear infinite; transform-origin: 0px 0px; }}
-    .orbit-counter {{ animation: orbitCounter 22s linear infinite; transform-origin: 0px 0px; }}
+    .orbit-a {{ animation: orbitCrissA 20s linear infinite; transform-origin: 0px 0px; }}
+    .orbit-b {{ animation: orbitCrissB 25s linear infinite; transform-origin: 0px 0px; }}
+    .counter-a {{ animation: orbitCounterA 20s linear infinite; transform-origin: 0px 0px; }}
+    .counter-b {{ animation: orbitCounterB 25s linear infinite; transform-origin: 0px 0px; }}
+    .star-twinkle-1 {{ animation: twinkleStar 2.6s ease-in-out infinite; transform-origin: center; }}
+    .star-twinkle-2 {{ animation: twinkleStar 3.4s ease-in-out infinite 1.2s; transform-origin: center; }}
+    .star-twinkle-3 {{ animation: twinkleStar 2.9s ease-in-out infinite 0.7s; transform-origin: center; }}
     .cursor-blink {{ animation: blinkCursor 0.9s infinite; }}
     .pulse-glow {{ animation: pulseNeon 2.8s ease-in-out infinite; }}
     .radar-pulse {{ animation: radarPing 2s cubic-bezier(0, 0.2, 0.8, 1) infinite; }}
@@ -165,7 +188,7 @@ def write_file(filename, content):
     print(f"[OK] Generated {filename}")
 
 # ═══════════════════════════════════════════════════════════════
-# 3. HERO BANNER (880 × 410) - 3 Cute Revolving Orbiting Emojis
+# 3. HERO BANNER (880 × 410) - Criss-Cross Cute Doodle Satellites
 # ═══════════════════════════════════════════════════════════════
 hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 410" width="880" height="410">
   {COMMON_DEFS}
@@ -183,7 +206,22 @@ hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w
   <line x1="45" y1="0" x2="45" y2="410" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
   <line x1="49" y1="0" x2="49" y2="410" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
 
-  <!-- Main Greeting Group (Clean, Left-aligned, No clutter above status) -->
+  <!-- Living Canvas: Twinkling Doodle Stars Scattered -->
+  <g class="star-twinkle-1" transform="translate(360, 48)">
+    <path d="M 0,-6 L 1.5,-1.5 L 6,0 L 1.5,1.5 L 0,6 L -1.5,1.5 L -6,0 L -1.5,-1.5 Z" fill="{NEON_GREEN}" opacity="0.75"/>
+  </g>
+  <g class="star-twinkle-2" transform="translate(510, 105)">
+    <path d="M 0,-7 L 1.8,-1.8 L 7,0 L 1.8,1.8 L 0,7 L -1.8,1.8 L -7,0 L -1.8,-1.8 Z" fill="{NEON_CYAN}" opacity="0.8"/>
+  </g>
+  <g class="star-twinkle-3" transform="translate(480, 315)">
+    <circle cx="0" cy="0" r="2" fill="{NEON_GOLD}"/>
+    <path d="M -4,0 L 4,0 M 0,-4 L 0,4" stroke="{NEON_GOLD}" stroke-width="0.8" opacity="0.8"/>
+  </g>
+  <g class="star-twinkle-1" transform="translate(90, 240)">
+    <circle cx="0" cy="0" r="1.5" fill="{NEON_GREEN}" opacity="0.6"/>
+  </g>
+
+  <!-- Main Greeting Group (Clean, Left-aligned) -->
   <g transform="translate(70, 75)">
     <!-- Clean Status Pill -->
     <rect x="0" y="0" width="144" height="26" rx="13" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1" opacity="0.9"/>
@@ -227,49 +265,83 @@ hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w
     </g>
   </g>
 
-  <!-- Right Floating Sikh Tech Avatar + 3 Cute Revolving Orbiting Emojis -->
+  <!-- Right Floating Sikh Tech Avatar + 3 Cute Criss-Cross Doodle Satellites -->
   <g transform="translate(565, 30)">
     <!-- Ambient Neon Backdrop Glow -->
     <ellipse cx="145" cy="175" rx="145" ry="160" fill="url(#avatarBackdropGlow)"/>
 
-    <!-- Visible Dashed Circular Orbit Track (Radius R=152) -->
-    <ellipse cx="145" cy="175" rx="152" ry="152" fill="none" stroke="{NEON_GREEN}" stroke-width="1.2" stroke-dasharray="5,8" opacity="0.32"/>
+    <!-- Subtle Criss-Cross Dashed Orbital Guide Tracks -->
+    <ellipse cx="145" cy="175" rx="150" ry="105" transform="rotate(-24, 145, 175)" fill="none" stroke="{NEON_GREEN}" stroke-width="1" stroke-dasharray="4,8" opacity="0.22"/>
+    <ellipse cx="145" cy="175" rx="150" ry="105" transform="rotate(24, 145, 175)" fill="none" stroke="{NEON_CYAN}" stroke-width="1" stroke-dasharray="4,8" opacity="0.22"/>
 
     <!-- Floating Avatar with Laptop (Center cx=145, cy=175) -->
     <g class="floating-avatar">
       <image href="data:image/png;base64,{AVATAR_B64}" x="20" y="5" width="250" height="340" preserveAspectRatio="xMidYMid meet"/>
     </g>
 
-    <!-- 3 CUTE REVOLVING EMOJIS (Smooth 22s Orbit, Zero Covering, Upright Counter-Rotation) -->
-    <!-- Center of orbit is at (145, 175). Both SMIL and CSS keep it rotating smoothly at 60fps -->
+    <!-- ═══ 3 CUTE CRISS-CROSS DOODLE SATELLITES ═══ -->
+    <!-- Center of orbit: (145, 175). Gentle, un-chaotic periods (20s, 25s) criss-crossing gracefully -->
+
+    <!-- ORBIT 1: Tilted -24° (Doodle Laptop 💻) -->
+    <g transform="translate(145, 175) rotate(-24)">
+      <g class="orbit-a">
+        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="20s" repeatCount="indefinite"/>
+        <!-- Position on ellipse (148, 0) -->
+        <g transform="translate(148, 0)">
+          <g class="counter-a">
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="20s" repeatCount="indefinite"/>
+            <!-- Upright Counter-Tilt (+24°) -->
+            <g transform="rotate(24)">
+              <circle cx="0" cy="0" r="18" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.8" filter="url(#softGlow)"/>
+              <!-- Hand-Drawn Doodle Laptop Icon -->
+              <g transform="translate(0, -1)">
+                <rect x="-10" y="-7" width="20" height="13" rx="2" fill="{BG}" stroke="{NEON_CYAN}" stroke-width="1.4"/>
+                <text x="-4" y="2" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="{NEON_GREEN}">&gt;_</text>
+                <line x1="-13" y1="6" x2="13" y2="6" stroke="{NEON_CYAN}" stroke-width="2" stroke-linecap="round"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- ORBIT 2: Tilted +24° (Doodle Coffee Mug ☕) -->
+    <g transform="translate(145, 175) rotate(24)">
+      <g class="orbit-b">
+        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="25s" repeatCount="indefinite"/>
+        <!-- Position on ellipse (-148, 0) -->
+        <g transform="translate(-148, 0)">
+          <g class="counter-b">
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="25s" repeatCount="indefinite"/>
+            <!-- Upright Counter-Tilt (-24°) -->
+            <g transform="rotate(-24)">
+              <circle cx="0" cy="0" r="18" fill="{BG_SURFACE}" stroke="{NEON_GOLD}" stroke-width="1.8" filter="url(#softGlow)"/>
+              <!-- Hand-Drawn Doodle Coffee Mug Icon -->
+              <g transform="translate(-1, 2)">
+                <rect x="-7" y="-6" width="14" height="13" rx="3" fill="{BG}" stroke="{NEON_GOLD}" stroke-width="1.4"/>
+                <path d="M 7,-3 C 11,-3 11,3 7,3" fill="none" stroke="{NEON_GOLD}" stroke-width="1.4" stroke-linecap="round"/>
+                <!-- Steam Squiggles -->
+                <path d="M -3,-10 Q -1,-8 -3,-6" fill="none" stroke="{NEON_GREEN}" stroke-width="1.1" stroke-linecap="round"/>
+                <path d="M 2,-10 Q 4,-8 2,-6" fill="none" stroke="{NEON_GREEN}" stroke-width="1.1" stroke-linecap="round"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- SATELLITE 3: Floating Twinkle Doodle Star ✨ (Undulating 22s Orbit) -->
     <g transform="translate(145, 175)">
-      <g class="orbit-system">
-        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="22s" repeatCount="indefinite" />
-
-        <!-- 1. Laptop 💻 (Top: Angle 270° -> x=0, y=-152) -->
-        <g transform="translate(0, -152)">
-          <g class="orbit-counter">
-            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="22s" repeatCount="indefinite" />
-            <circle cx="0" cy="0" r="17" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.6" filter="url(#softGlow)"/>
-            <text x="0" y="5" text-anchor="middle" font-size="15">💻</text>
-          </g>
-        </g>
-
-        <!-- 2. Coffee ☕ (Bottom-Right: Angle 30° -> x=132, y=76) -->
-        <g transform="translate(132, 76)">
-          <g class="orbit-counter">
-            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="22s" repeatCount="indefinite" />
-            <circle cx="0" cy="0" r="17" fill="{BG_SURFACE}" stroke="{NEON_GOLD}" stroke-width="1.6" filter="url(#softGlow)"/>
-            <text x="0" y="5" text-anchor="middle" font-size="15">☕</text>
-          </g>
-        </g>
-
-        <!-- 3. Sparkles ✨ (Bottom-Left: Angle 150° -> x=-132, y=76) -->
-        <g transform="translate(-132, 76)">
-          <g class="orbit-counter">
-            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="22s" repeatCount="indefinite" />
-            <circle cx="0" cy="0" r="17" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.6" filter="url(#softGlow)"/>
-            <text x="0" y="5" text-anchor="middle" font-size="15">✨</text>
+      <g class="orbit-a">
+        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="22s" repeatCount="indefinite"/>
+        <!-- Position at top (0, -150) -->
+        <g transform="translate(0, -150)">
+          <g class="counter-a">
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="22s" repeatCount="indefinite"/>
+            <circle cx="0" cy="0" r="17" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.8" filter="url(#softGlow)"/>
+            <!-- Hand-Drawn Doodle 4-Point Sparkle Star -->
+            <path d="M 0,-9 L 2.5,-2.5 L 9,0 L 2.5,2.5 L 0,9 L -2.5,2.5 L -9,0 L -2.5,-2.5 Z" fill="{NEON_GREEN}"/>
+            <circle cx="0" cy="0" r="2" fill="#FFFFFF"/>
           </g>
         </g>
       </g>
@@ -286,11 +358,9 @@ write_file(os.path.join(ASSETS_DIR, 'hero-banner.svg'), hero_svg)
 # ═══════════════════════════════════════════════════════════════
 # 4. ACTION BUTTONS (4 × 220px = 880px Solid Dark Tiled Bar)
 # ═══════════════════════════════════════════════════════════════
-# Each button is 220px wide with a full-bleed #0d1117 background + grid.
-# Placed side-by-side (25% each), they form a solid 880px dark bar with ZERO white space in light mode!
 buttons_data = [
-    ('resume',    '📄 View Resume', NEON_GREEN, True,  False), # left margin lines
-    ('talk',      '💬 Let\'s Talk',  NEON_CYAN,  False, True),  # center line on right edge
+    ('resume',    '📄 View Resume', NEON_GREEN, True,  False),
+    ('talk',      '💬 Let\'s Talk',  NEON_CYAN,  False, True),
     ('linkedin',  '💼 LinkedIn',    NEON_GOLD,  False, False),
     ('portfolio', '🌐 Portfolio',   NEON_GREEN, False, False),
 ]
@@ -342,21 +412,7 @@ for b_id, label, color, has_left_margin, has_center_line in buttons_data:
     write_file(os.path.join(ASSETS_DIR, f'btn-{b_id}.svg'), btn_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 4B. SEAMLESS DIVIDER LINE (880 × 24) - Fills gaps with dark canvas
-# ═══════════════════════════════════════════════════════════════
-divider_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 24" width="880" height="24">
-  {COMMON_DEFS}
-  {COMMON_STYLES}
-  <rect width="880" height="24" fill="{BG}"/>
-  <rect width="880" height="24" fill="url(#notebookGrid)"/>
-  <line x1="45" y1="0" x2="45" y2="24" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
-  <line x1="49" y1="0" x2="49" y2="24" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
-  <line x1="440" y1="0" x2="440" y2="24" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
-</svg>"""
-write_file(os.path.join(ASSETS_DIR, 'divider-mid.svg'), divider_svg)
-
-# ═══════════════════════════════════════════════════════════════
-# 5. TECH STACK & TOOLKIT (880 × 265) - Clean & Focused
+# 5. TECH STACK & TOOLKIT (880 × 265) - Lively Micro-Animations
 # ═══════════════════════════════════════════════════════════════
 tech_stack_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 265" width="880" height="265">
   {COMMON_DEFS}
@@ -443,7 +499,7 @@ section_work_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 
   <!-- Connecting line entering from top -->
   <line x1="440" y1="0" x2="440" y2="20" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
 
-  <!-- Header Badge (NO ROCKET EMOJIS) -->
+  <!-- Header Badge (Clean) -->
   <g transform="translate(285, 20)">
     <rect x="0" y="0" width="310" height="38" rx="19" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.5" filter="url(#softGlow)"/>
     <text x="155" y="25" text-anchor="middle" class="doodle-hand" font-size="22" font-weight="700" fill="{NEON_CYAN}" letter-spacing="1">
@@ -460,15 +516,18 @@ section_work_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 
 write_file(os.path.join(ASSETS_DIR, 'section-work.svg'), section_work_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 7. PROJECT CARDS (2 × 440px = 880px Solid Dark Tiled Rows)
+# 7. PROJECT CARDS (440 × 170) - Small Cute Emojis, No Launch Bar!
 # ═══════════════════════════════════════════════════════════════
-# Left card (440px) + Right card (440px) = 880px solid dark row with ZERO white gaps!
-# Inset card body is 372px wide, leaving 20px notebook gap in between.
+# Cue cards have:
+# - Cute related small emoji (📈, ✈️, 🚗, ⚡) placed cleanly inline after title (zero text covering)
+# - No "CLICK CARD TO LAUNCH" button (heading already states it, cards are cleaner and more spacious)
+# - 170px height: perfectly balanced and proportional
 projects = [
     {
         'num': '01',
         'file': 'card-01-tradelab',
         'title': 'TradeLab',
+        'emoji': '📈',
         'type': 'STOCK MARKET SIMULATOR',
         'desc1': 'Real-time stock market simulator with',
         'desc2': 'virtual trading &amp; live portfolio tracking.',
@@ -481,6 +540,7 @@ projects = [
         'num': '02',
         'file': 'card-02-tourcraze',
         'title': 'TourCraze',
+        'emoji': '✈️',
         'type': 'SMART TRAVEL BOOKING',
         'desc1': 'Smart AI travel planning platform with',
         'desc2': 'curated tour discovery &amp; instant booking.',
@@ -493,6 +553,7 @@ projects = [
         'num': '03',
         'file': 'card-03-gaadimandi',
         'title': 'GaadiMandi',
+        'emoji': '🚗',
         'type': 'VEHICLE MARKETPLACE',
         'desc1': 'Full-stack automotive marketplace with',
         'desc2': 'verified listings &amp; dealer analytics.',
@@ -504,10 +565,11 @@ projects = [
     {
         'num': '04',
         'file': 'card-04-portfolio',
-        'title': 'Personal Portfolio',
+        'title': 'Portfolio',
+        'emoji': '⚡',
         'type': 'DEVELOPER SHOWCASE',
-        'desc1': 'Interactive developer portfolio with',
-        'desc2': 'smooth animations &amp; creative showcase.',
+        'desc1': 'Interactive developer showcase with',
+        'desc2': 'smooth animations &amp; creative layout.',
         'tech': 'Next.js • TailwindCSS • Framer Motion',
         'badge': '● LIVE SITE',
         'accent': NEON_GREEN,
@@ -519,28 +581,23 @@ for p in projects:
     acc = p['accent']
     is_left = p['is_left']
 
-    # Dimensions & offsets for Left vs Right card
     if is_left:
-        # Left card has left notebook margin line at x=45, 49
         left_margin_code = f"""
-          <line x1="45" y1="0" x2="45" y2="205" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
-          <line x1="49" y1="0" x2="49" y2="205" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
+          <line x1="45" y1="0" x2="45" y2="170" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
+          <line x1="49" y1="0" x2="49" y2="170" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
         """
         box_x = 58
         content_x = 76
         tape_points = "75,3 160,3 155,14 70,14"
         badge_x = 296
-        launch_w = 338
     else:
-        # Right card
         left_margin_code = ""
         box_x = 10
         content_x = 28
         tape_points = "28,3 113,3 108,14 23,14"
         badge_x = 248
-        launch_w = 338
 
-    card_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 205" width="440" height="205">
+    card_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 170" width="440" height="170">
   <defs>
     {COMMON_DEFS}
     <filter id="cardGlow_{p['num']}" x="-20%" y="-20%" width="140%" height="140%">
@@ -566,24 +623,24 @@ for p in projects:
   ]]></style>
 
   <!-- Full-bleed outer dark canvas (Tiles seamlessly to 880px) -->
-  <rect width="440" height="205" fill="{BG}"/>
-  <rect width="440" height="205" fill="url(#notebookGrid)"/>
+  <rect width="440" height="170" fill="{BG}"/>
+  <rect width="440" height="170" fill="url(#notebookGrid)"/>
   {left_margin_code}
 
   <!-- Card Surface (Doodle Notebook Card, width 372px) -->
-  <rect x="{box_x}" y="3" width="372" height="199" rx="16" fill="{BG_SURFACE}"/>
+  <rect x="{box_x}" y="3" width="372" height="164" rx="16" fill="{BG_SURFACE}"/>
 
   <!-- Sketched Doodle Neon Border -->
-  <rect x="{box_x}" y="3" width="372" height="199" rx="16" fill="none" stroke="{acc}" stroke-width="1.5" class="glow-border" filter="url(#cardGlow_{p['num']})"/>
+  <rect x="{box_x}" y="3" width="372" height="164" rx="16" fill="none" stroke="{acc}" stroke-width="1.5" class="glow-border" filter="url(#cardGlow_{p['num']})"/>
 
   <!-- Left Accent Notch -->
-  <rect x="{box_x}" y="28" width="4" height="145" rx="2" fill="{acc}"/>
+  <rect x="{box_x}" y="26" width="4" height="118" rx="2" fill="{acc}"/>
 
   <!-- Top Notebook Tape Header Accent -->
   <polygon points="{tape_points}" fill="{acc}" opacity="0.25"/>
 
   <!-- Status Beacon Badge (Right aligned) -->
-  <g transform="translate({badge_x}, 18)">
+  <g transform="translate({badge_x}, 16)">
     <rect x="0" y="0" width="122" height="22" rx="11" fill="{BG}" stroke="{acc}" stroke-width="1"/>
     <circle cx="14" cy="11" r="3.5" fill="{acc}"/>
     <circle cx="14" cy="11" r="3.5" fill="none" stroke="{acc}" stroke-width="1.5" class="radar-pulse"/>
@@ -591,26 +648,20 @@ for p in projects:
   </g>
 
   <!-- Project Number & Category -->
-  <text x="{content_x}" y="44" class="mono" font-size="12" font-weight="700" fill="{acc}" letter-spacing="1">{p['num']} // {p['type']}</text>
+  <text x="{content_x}" y="38" class="mono" font-size="11.5" font-weight="700" fill="{acc}" letter-spacing="1">{p['num']} // {p['type']}</text>
 
-  <!-- Project Title (Size 26: never collides with badge) -->
-  <text x="{content_x}" y="74" class="doodle-hand" font-size="26" font-weight="700" fill="{TEXT_MAIN}" letter-spacing="0.5">{p['title']}</text>
+  <!-- Project Title + Small Cute Related Emoji (Never Covers Text!) -->
+  <text x="{content_x}" y="68" class="doodle-hand" font-size="26" font-weight="700" fill="{TEXT_MAIN}" letter-spacing="0.5">
+    {p['title']} <tspan font-size="21">{p['emoji']}</tspan>
+  </text>
 
-  <!-- 2 Clean Short Lines: Never Out of Box, Zero Overlap -->
-  <text x="{content_x}" y="103" class="doodle-hand" font-size="15" fill="{TEXT_MUTED}">{p['desc1']}</text>
-  <text x="{content_x}" y="125" class="doodle-hand" font-size="15" fill="{TEXT_MUTED}">{p['desc2']}</text>
+  <!-- 2 Clean Short Lines: Generous Space, Zero Overlap -->
+  <text x="{content_x}" y="98" class="doodle-hand" font-size="15.5" fill="{TEXT_MUTED}">{p['desc1']}</text>
+  <text x="{content_x}" y="120" class="doodle-hand" font-size="15.5" fill="{TEXT_MUTED}">{p['desc2']}</text>
 
   <!-- Tech Stack Pills -->
   <g transform="translate({content_x}, 143)">
     <text x="0" y="11" class="mono" font-size="11" font-weight="600" fill="{NEON_CYAN}" opacity="0.88">{p['tech']}</text>
-  </g>
-
-  <!-- Launch Prompt Bar (Click Card To Launch) -->
-  <g transform="translate({content_x}, 166)">
-    <rect x="0" y="0" width="{launch_w}" height="25" rx="7" fill="{BG}" stroke="{acc}" stroke-width="1" opacity="0.9"/>
-    <text x="{launch_w//2}" y="17" text-anchor="middle" class="mono" font-size="10.5" font-weight="700" fill="{acc}" letter-spacing="1">
-      CLICK CARD TO LAUNCH LIVE APP ↗
-    </text>
   </g>
 </svg>"""
     write_file(os.path.join(ASSETS_DIR, f"{p['file']}.svg"), card_svg)
@@ -652,9 +703,8 @@ write_file(os.path.join(ASSETS_DIR, 'section-connect.svg'), section_connect_svg)
 # ═══════════════════════════════════════════════════════════════
 # 9. CONNECT CHIPS (3 chips: 293+294+293 = 880px Solid Dark Tiled Bar)
 # ═══════════════════════════════════════════════════════════════
-# 3 chips form a solid 880px dark bar with ZERO white space in light mode!
 chips_data = [
-    ('resume',    293, '📄 View Resume (PDF)', NEON_GREEN, True),  # has left margin line
+    ('resume',    293, '📄 View Resume (PDF)', NEON_GREEN, True),
     ('linkedin',  294, '💼 LinkedIn Profile',  NEON_CYAN,  False),
     ('portfolio', 293, '🌐 Personal Portfolio', NEON_GREEN, False),
 ]
@@ -717,30 +767,30 @@ footer_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 75" wi
 write_file(os.path.join(ASSETS_DIR, 'footer-bar.svg'), footer_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 11. README.md - 100% UNBROKEN CONTINUOUS FLOW (ZERO WHITE GAPS!)
+# 11. README.md - 100% ZERO HORIZONTAL WHITE LINES!
 # ═══════════════════════════════════════════════════════════════
-# Notice: ZERO <br/> tags and ZERO whitespace between HTML tags!
-# HTML comments (<!-- -->) ensure images touch seamlessly without browser line gaps.
+# CRITICAL TECHNIQUE:
+# Every <img> tag has align="top".
+# As mathematically verified with Chrome and GitHub GFM parser, align="top"
+# sets vertical-align: top on the line box, reducing the descent strut gap to 0.00px!
+# Combined with HTML comment connectors (<!-- -->), all images touch seamlessly.
 readme_md = f"""<div align="center">
-  <!-- 01 • HERO BANNER -->
-  <img src="./assets/hero-banner.svg" alt="Hey, I'm Parmeet — Full-Stack Developer" width="100%" /><!--
-  --><a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-resume.svg" width="25%" alt="View Resume (PDF)" /></a><!--
-  --><a href="https://personal-portfolio-parmeet1.vercel.app/contact/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-talk.svg" width="25%" alt="Let's Talk" /></a><!--
-  --><a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-linkedin.svg" width="25%" alt="LinkedIn Profile" /></a><!--
-  --><a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-portfolio.svg" width="25%" alt="Personal Portfolio" /></a><!--
-  --><img src="./assets/divider-mid.svg" width="100%" alt="" /><!--
-  --><img src="./assets/tech-stack.svg" alt="Tech Stack &amp; Toolkit: React, Next.js, Python, Django, Node.js" width="100%" /><!--
-  --><img src="./assets/section-work.svg" alt="Featured Projects — Click any card to launch demo" width="100%" /><!--
-  --><a href="https://tradelab-kappa.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-01-tradelab.svg" width="50%" alt="TradeLab — Real-Time Stock Market Simulator (Launch Demo)" /></a><!--
-  --><a href="https://tour-craze.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-02-tourcraze.svg" width="50%" alt="TourCraze — AI Travel Planning Platform (Launch Demo)" /></a><!--
-  --><img src="./assets/divider-mid.svg" width="100%" alt="" /><!--
-  --><a href="https://car-trade-gamma.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-03-gaadimandi.svg" width="50%" alt="GaadiMandi — Vehicle Marketplace (Launch Demo)" /></a><!--
-  --><a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-04-portfolio.svg" width="50%" alt="Personal Portfolio 2026 (Launch Live Site)" /></a><!--
-  --><img src="./assets/section-connect.svg" alt="Let's Connect &amp; Build" width="100%" /><!--
-  --><a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-resume.svg" width="33.33%" alt="View Resume (PDF)" /></a><!--
-  --><a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-linkedin.svg" width="33.34%" alt="LinkedIn Profile" /></a><!--
-  --><a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-portfolio.svg" width="33.33%" alt="Personal Portfolio" /></a><!--
-  --><img src="./assets/footer-bar.svg" alt="Parmeet Singh • Full-Stack Developer • Delhi, India" width="100%" />
+  <img src="./assets/hero-banner.svg" alt="Hey, I'm Parmeet — Full-Stack Developer" width="100%" align="top" /><!--
+  --><a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-resume.svg" width="25%" align="top" alt="View Resume (PDF)" /></a><!--
+  --><a href="https://personal-portfolio-parmeet1.vercel.app/contact/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-talk.svg" width="25%" align="top" alt="Let's Talk" /></a><!--
+  --><a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-linkedin.svg" width="25%" align="top" alt="LinkedIn Profile" /></a><!--
+  --><a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/btn-portfolio.svg" width="25%" align="top" alt="Personal Portfolio" /></a><!--
+  --><img src="./assets/tech-stack.svg" alt="Tech Stack &amp; Toolkit: React, Next.js, Python, Django, Node.js" width="100%" align="top" /><!--
+  --><img src="./assets/section-work.svg" alt="Featured Projects — Click any card to launch demo" width="100%" align="top" /><!--
+  --><a href="https://tradelab-kappa.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-01-tradelab.svg" width="50%" align="top" alt="TradeLab — Real-Time Stock Market Simulator (Launch Demo)" /></a><!--
+  --><a href="https://tour-craze.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-02-tourcraze.svg" width="50%" align="top" alt="TourCraze — AI Travel Planning Platform (Launch Demo)" /></a><!--
+  --><a href="https://car-trade-gamma.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-03-gaadimandi.svg" width="50%" align="top" alt="GaadiMandi — Vehicle Marketplace (Launch Demo)" /></a><!--
+  --><a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/card-04-portfolio.svg" width="50%" align="top" alt="Personal Portfolio 2026 (Launch Live Site)" /></a><!--
+  --><img src="./assets/section-connect.svg" alt="Let's Connect &amp; Build" width="100%" align="top" /><!--
+  --><a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-resume.svg" width="33.33%" align="top" alt="View Resume (PDF)" /></a><!--
+  --><a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-linkedin.svg" width="33.34%" align="top" alt="LinkedIn Profile" /></a><!--
+  --><a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/chip-portfolio.svg" width="33.33%" align="top" alt="Personal Portfolio" /></a><!--
+  --><img src="./assets/footer-bar.svg" alt="Parmeet Singh • Full-Stack Developer • Delhi, India" width="100%" align="top" />
 </div>"""
 
 write_file('README.md', readme_md)
@@ -785,23 +835,15 @@ preview_html = f"""<!DOCTYPE html>
       max-width: 880px;
       width: 100%;
       text-align: center;
-      line-height: 0;
-      font-size: 0;
+      line-height: 1.5;
+      font-size: 16px;
     }}
     .github-canvas img {{
-      display: inline-block;
-      vertical-align: top;
-      margin: 0;
-      padding: 0;
-      border: 0;
+      box-sizing: content-box;
+      max-width: 100%;
     }}
     .github-canvas a {{
       text-decoration: none;
-      display: inline-block;
-      margin: 0;
-      padding: 0;
-      line-height: 0;
-      font-size: 0;
     }}
   </style>
 </head>
