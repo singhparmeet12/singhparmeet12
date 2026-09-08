@@ -134,8 +134,8 @@
   </g>
 
   <!-- 2 Clean Short Lines: Generous Space, Zero Overlap -->
-  <text x="28" y="98" class="doodle-hand" font-size="15.5" fill="#8b949e">Interactive developer showcase with</text>
-  <text x="28" y="120" class="doodle-hand" font-size="15.5" fill="#8b949e">smooth animations &amp; creative layout.</text>
+  <text x="28" y="98" class="doodle-hand" font-size="15.5" fill="#8b949e">Personal developer portfolio showcasing</text>
+  <text x="28" y="120" class="doodle-hand" font-size="15.5" fill="#8b949e">full-stack Django projects &amp; demos.</text>
 
   <!-- Tech Stack Pills (Real stack: Python & Django based, max 4 skills!) -->
   <g transform="translate(28, 143)">

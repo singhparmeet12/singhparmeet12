@@ -117,7 +117,7 @@
   </g>
 
   <!-- Project Number & Category -->
-  <text x="28" y="38" class="mono" font-size="11.5" font-weight="700" fill="#00F0FF" letter-spacing="1">02 // SMART TRAVEL BOOKING</text>
+  <text x="28" y="38" class="mono" font-size="11.5" font-weight="700" fill="#00F0FF" letter-spacing="1">02 // TRAVEL &amp; TOUR BOOKING</text>
 
   <!-- Project Title -->
   <text x="28" y="68" class="doodle-hand" font-size="26" font-weight="700" fill="#f0f6fc" letter-spacing="0.5">
@@ -136,8 +136,8 @@
   </g>
 
   <!-- 2 Clean Short Lines: Generous Space, Zero Overlap -->
-  <text x="28" y="98" class="doodle-hand" font-size="15.5" fill="#8b949e">Smart AI travel planning platform with</text>
-  <text x="28" y="120" class="doodle-hand" font-size="15.5" fill="#8b949e">curated tour discovery &amp; instant booking.</text>
+  <text x="28" y="98" class="doodle-hand" font-size="15.5" fill="#8b949e">Travel discovery platform featuring</text>
+  <text x="28" y="120" class="doodle-hand" font-size="15.5" fill="#8b949e">curated tours &amp; itinerary booking.</text>
 
   <!-- Tech Stack Pills (Real stack: Python & Django based, max 4 skills!) -->
   <g transform="translate(28, 143)">

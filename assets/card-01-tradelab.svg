@@ -141,8 +141,8 @@
   </g>
 
   <!-- 2 Clean Short Lines: Generous Space, Zero Overlap -->
-  <text x="76" y="98" class="doodle-hand" font-size="15.5" fill="#8b949e">Real-time stock market simulator with</text>
-  <text x="76" y="120" class="doodle-hand" font-size="15.5" fill="#8b949e">virtual trading &amp; live portfolio tracking.</text>
+  <text x="76" y="98" class="doodle-hand" font-size="15.5" fill="#8b949e">Stock market simulator with custom</text>
+  <text x="76" y="120" class="doodle-hand" font-size="15.5" fill="#8b949e">buy/sell indicator &amp; paper trading.</text>
 
   <!-- Tech Stack Pills (Real stack: Python & Django based, max 4 skills!) -->
   <g transform="translate(76, 143)">
