@@ -395,14 +395,16 @@ write_file(os.path.join(ASSETS_DIR, 'hero-banner.svg'), hero_svg)
 # ═══════════════════════════════════════════════════════════════
 # 4. ACTION BUTTONS (4 × 220px = 880px Solid Dark Tiled Bar)
 # ═══════════════════════════════════════════════════════════════
+# Pill positions customized so View Resume is safely INSIDE the left margin line (x=45, 49)
 buttons_data = [
-    ('resume',    '📄 View Resume', NEON_GREEN, True,  False),
-    ('talk',      '💬 Let\'s Talk',  NEON_CYAN,  False, True),
-    ('linkedin',  '💼 LinkedIn',    NEON_GOLD,  False, False),
-    ('portfolio', '🌐 Portfolio',   NEON_GREEN, False, False),
+    # id, label, color, has_left_margin, has_center_line, pill_x, pill_w, text_x, font_size
+    ('resume',    '📄 View Resume', NEON_GREEN, True,  False, 58, 154, 135, 17),
+    ('talk',      '💬 Let\'s Talk',  NEON_CYAN,  False, True,  24, 168, 108, 17.5),
+    ('linkedin',  '💼 LinkedIn',    NEON_GOLD,  False, False, 28, 168, 112, 17.5),
+    ('portfolio', '🌐 Portfolio',   NEON_GREEN, False, False, 8,  154, 85,  17),
 ]
 
-for b_id, label, color, has_left_margin, has_center_line in buttons_data:
+for b_id, label, color, has_left_margin, has_center_line, px, pw, tx, fs in buttons_data:
     left_line = f"""
       <line x1="45" y1="0" x2="45" y2="54" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
       <line x1="49" y1="0" x2="49" y2="54" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
@@ -437,12 +439,12 @@ for b_id, label, color, has_left_margin, has_center_line in buttons_data:
   {left_line}
   {center_line}
 
-  <!-- Centered Button Pill -->
-  <rect x="15" y="6" width="190" height="42" rx="21" fill="{BG_SURFACE}"/>
-  <rect x="15" y="6" width="190" height="42" rx="21" fill="none" stroke="{color}" stroke-width="1.6" class="btn-border" filter="url(#btnGlow_{b_id})"/>
+  <!-- Button Pill: Safely placed, zero collision with margin lines -->
+  <rect x="{px}" y="6" width="{pw}" height="42" rx="21" fill="{BG_SURFACE}"/>
+  <rect x="{px}" y="6" width="{pw}" height="42" rx="21" fill="none" stroke="{color}" stroke-width="1.6" class="btn-border" filter="url(#btnGlow_{b_id})"/>
 
   <!-- Button Label -->
-  <text x="110" y="32" text-anchor="middle" class="doodle-hand" font-size="18" font-weight="700" fill="{TEXT_MAIN}" letter-spacing="0.3">
+  <text x="{tx}" y="32" text-anchor="middle" class="doodle-hand" font-size="{fs}" font-weight="700" fill="{TEXT_MAIN}" letter-spacing="0.3">
     {label}
   </text>
 </svg>"""
@@ -741,25 +743,26 @@ for p in projects:
 # ═══════════════════════════════════════════════════════════════
 # 8. CONNECT SECTION (880 × 110) - Generous Badge Width (No 'L' Overlap!)
 # ═══════════════════════════════════════════════════════════════
-# Widened badge to 350px centered at x=265.
-# Gives >30px of margin on left and right so 'L' never touches the rounded arc circle!
-section_connect_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 110" width="880" height="110">
+# 8. CONNECT SECTION (880 × 130) - Full-Sized Connecting Line & Clean Badge
+# ═══════════════════════════════════════════════════════════════
+section_connect_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 130" width="880" height="130">
   {COMMON_DEFS}
   {COMMON_STYLES}
 
   <!-- Background -->
-  <rect width="880" height="110" fill="{BG}"/>
-  <rect width="880" height="110" fill="url(#notebookGrid)"/>
+  <rect width="880" height="130" fill="{BG}"/>
+  <rect width="880" height="130" fill="url(#notebookGrid)"/>
 
   <!-- Left Continuous Margin Guide Line -->
-  <line x1="45" y1="0" x2="45" y2="110" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
-  <line x1="49" y1="0" x2="49" y2="110" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
+  <line x1="45" y1="0" x2="45" y2="130" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
+  <line x1="49" y1="0" x2="49" y2="130" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
 
-  <!-- Continuous Flow Line entering from projects -->
-  <line x1="440" y1="0" x2="440" y2="22" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
+  <!-- Continuous Flow Line entering from projects (Full-sized, prominent line + glowing node!) -->
+  <line x1="440" y1="0" x2="440" y2="38" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
+  <circle cx="440" cy="38" r="4" fill="{NEON_GREEN}" filter="url(#softGlow)"/>
 
   <!-- Header Badge: 350px width, centered at 265 (Clean text, NO emojis) -->
-  <g transform="translate(265, 22)">
+  <g transform="translate(265, 46)">
     <rect x="0" y="0" width="350" height="42" rx="21" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.5" filter="url(#softGlow)"/>
     <text x="175" y="27" text-anchor="middle" class="doodle-hand" font-size="21" font-weight="700" fill="{NEON_GREEN}" letter-spacing="1.5">
       LET'S CONNECT &amp; BUILD
@@ -767,7 +770,7 @@ section_connect_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8
   </g>
 
   <!-- Friendly Handwritten Note (Generous spacing) -->
-  <text x="440" y="88" text-anchor="middle" class="doodle-hand" font-size="18" fill="{TEXT_MUTED}">
+  <text x="440" y="112" text-anchor="middle" class="doodle-hand" font-size="18" fill="{TEXT_MUTED}">
     Always excited for new projects, full-time opportunities, or tech discussions!
   </text>
 </svg>"""
