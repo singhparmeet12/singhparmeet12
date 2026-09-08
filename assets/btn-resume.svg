@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 44" width="160" height="44">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165 44" width="165" height="44">
   <defs>
-    <filter id="btnGlow" x="-30%" y="-30%" width="160%" height="160%">
+    <filter id="btnGlow_resume" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
       <feFlood flood-color="#00FF66" flood-opacity="0.45" result="color"/>
       <feComposite in="color" in2="blur" operator="in" result="glow"/>
@@ -29,13 +29,13 @@
   ]]></style>
 
   <!-- Button Background -->
-  <rect x="2" y="2" width="156" height="40" rx="20" fill="#121820"/>
+  <rect x="2" y="2" width="161" height="40" rx="20" fill="#121820"/>
 
   <!-- Neon Sketched Border -->
-  <rect x="2" y="2" width="156" height="40" rx="20" fill="none" stroke="#00FF66" stroke-width="1.6" class="btn-border" filter="url(#btnGlow)"/>
+  <rect x="2" y="2" width="161" height="40" rx="20" fill="none" stroke="#00FF66" stroke-width="1.6" class="btn-border" filter="url(#btnGlow_resume)"/>
 
   <!-- Button Label (Handwritten/Casual + Clean) -->
-  <text x="80" y="27" text-anchor="middle" class="doodle-hand" font-size="18" font-weight="700" fill="#f0f6fc" letter-spacing="0.3">
+  <text x="82" y="27" text-anchor="middle" class="doodle-hand" font-size="18" font-weight="700" fill="#f0f6fc" letter-spacing="0.3">
     📄 View Resume
   </text>
 </svg>
