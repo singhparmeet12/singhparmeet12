@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" width="200" height="44">
+  <defs>
+    <style>
+      .btn-text {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        font-weight: 700;
+        fill: #FFFFFF;
+        letter-spacing: 0.04em;
+      }
+    </style>
+  </defs>
+  <rect x="2" y="2" width="196" height="40" rx="10" fill="#24452E" stroke="#18231A" stroke-width="1.2"/>
+  <text x="100" y="26" class="btn-text" text-anchor="middle">📄 VIEW RESUME (PDF) &#8594;</text>
+</svg>

@@ -8,21 +8,60 @@
   </a>
 
   <!-- ================================================================= -->
-  <!-- 02 • UNIFIED HERO BANNER (TERMINAL + FLOATING PARMEET AVATAR)    -->
+  <!-- 02 • UNIFIED HERO BANNER (INTRO + TERMINAL + FLOATING AVATAR)     -->
   <!-- ================================================================= -->
   <img src="./assets/hero-banner.svg" alt="Hey, I'm Parmeet — Full-Stack Developer • Web • Data • AI" width="100%" style="max-width: 880px; display: block;" />
 
-  <!-- ================================================================= -->
-  <!-- 03 • COMPACT 2X2 BENTO GRID PROJECTS                              -->
-  <!-- ================================================================= -->
-  <img src="./assets/projects-grid.svg" alt="Selected Projects Bento Grid" width="100%" style="max-width: 880px; display: block;" />
+  <!-- HERO REAL CLICKABLE ACTION BUTTONS -->
+  <p align="center" style="margin-top: 10px; margin-bottom: 16px;">
+    <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer">
+      <img src="./assets/btn-resume.svg" height="40" alt="View Resume (PDF)" />
+    </a>
+    &nbsp;&nbsp;
+    <a href="mailto:parmeetssms@gmail.com">
+      <img src="./assets/btn-talk.svg" height="40" alt="Let's Talk" />
+    </a>
+    &nbsp;&nbsp;
+    <a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer">
+      <img src="./assets/btn-linkedin.svg" height="40" alt="LinkedIn" />
+    </a>
+    &nbsp;&nbsp;
+    <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <img src="./assets/btn-portfolio.svg" height="40" alt="Portfolio" />
+    </a>
+  </p>
 
-  <!-- COMPACT DIRECT ACTION LINKS -->
-  <p align="center" style="max-width: 880px; margin-top: 4px; margin-bottom: 12px; font-family: monospace; font-size: 12.5px;">
+  <!-- ================================================================= -->
+  <!-- 03 • COMPACT 2X2 BENTO GRID PROJECTS (EVERY CARD IS CLICKABLE)   -->
+  <!-- ================================================================= -->
+  <img src="./assets/bento-header.svg" alt="Selected Work — Compact Bento Grid" width="100%" style="max-width: 880px; display: block; margin-bottom: 6px;" />
+
+  <!-- ROW 1: TRADELAB & TOURCRAZE -->
+  <p align="center" style="margin: 0; padding: 0;">
+    <a href="https://tradelab-kappa.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <img src="./assets/bento-01-tradelab.svg" width="48.5%" style="max-width: 430px; margin: 4px;" alt="01 TradeLab — Launch Live Demo" />
+    </a>
+    <a href="https://tour-craze.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <img src="./assets/bento-02-tourcraze.svg" width="48.5%" style="max-width: 430px; margin: 4px;" alt="02 TourCraze — Launch Live Demo" />
+    </a>
+  </p>
+
+  <!-- ROW 2: GAADIMANDI & PORTFOLIO -->
+  <p align="center" style="margin: 0; padding: 0;">
+    <a href="https://car-trade-gamma.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <img src="./assets/bento-03-gaadimandi.svg" width="48.5%" style="max-width: 430px; margin: 4px;" alt="03 GaadiMandi — Launch Live Demo" />
+    </a>
+    <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <img src="./assets/bento-04-portfolio.svg" width="48.5%" style="max-width: 430px; margin: 4px;" alt="04 Portfolio — Launch Live Site" />
+    </a>
+  </p>
+
+  <!-- DIRECT ACTION LINKS & CODE REPOSITORIES -->
+  <p align="center" style="max-width: 880px; margin-top: 6px; margin-bottom: 16px; font-family: monospace; font-size: 12px;">
     <a href="https://tradelab-kappa.vercel.app/" target="_blank"><code>01 TradeLab Demo ↗</code></a> &nbsp;&bull;&nbsp;
-    <a href="https://github.com/singhparmeet12/TradeLab" target="_blank"><code>TradeLab Code ↗</code></a> &nbsp;|&nbsp;
+    <a href="https://github.com/singhparmeet12/TradeLab" target="_blank"><code>TradeLab Repo ↗</code></a> &nbsp;|&nbsp;
     <a href="https://tour-craze.vercel.app/" target="_blank"><code>02 TourCraze Demo ↗</code></a> &nbsp;&bull;&nbsp;
-    <a href="https://github.com/singhparmeet12/TourCraze" target="_blank"><code>TourCraze Code ↗</code></a> &nbsp;|&nbsp;
+    <a href="https://github.com/singhparmeet12/TourCraze" target="_blank"><code>TourCraze Repo ↗</code></a> &nbsp;|&nbsp;
     <a href="https://car-trade-gamma.vercel.app/" target="_blank"><code>03 GaadiMandi Demo ↗</code></a> &nbsp;|&nbsp;
     <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank"><code>04 Portfolio Live ↗</code></a>
   </p>
@@ -32,15 +71,34 @@
   <!-- ================================================================= -->
   <img src="./assets/skills.svg" alt="Toolkit & Craft: Technologies I Build With" width="100%" style="max-width: 880px; display: block;" />
 
-  <!-- ================================================================= -->
-  <!-- 05 • REACH OUT & RESUME ANCHOR                                    -->
-  <!-- ================================================================= -->
-  <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer">
-    <img src="./assets/connect.svg" alt="Reach Out & Connect with Parmeet Singh" width="100%" style="max-width: 880px; display: block;" />
-  </a>
+  <br/>
 
-  <!-- EXPLICIT ACTIONABLE CONTACT & RESUME BUTTONS -->
-  <p align="center" style="margin-top: 14px; margin-bottom: 6px;">
+  <!-- ================================================================= -->
+  <!-- 05 • REACH OUT & CONNECT (INDIVIDUAL CLICKABLE CHIPS)             -->
+  <!-- ================================================================= -->
+  <img src="./assets/connect-header.svg" alt="Reach Out & Connect with Parmeet Singh" width="100%" style="max-width: 880px; display: block; margin-bottom: 8px;" />
+
+  <!-- INDIVIDUAL REAL CLICKABLE CONTACT CHIPS -->
+  <p align="center" style="margin-top: 4px; margin-bottom: 14px;">
+    <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer">
+      <img src="./assets/chip-resume.svg" height="42" alt="View Resume (PDF)" />
+    </a>
+    &nbsp;
+    <a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer">
+      <img src="./assets/chip-linkedin.svg" height="42" alt="LinkedIn" />
+    </a>
+    &nbsp;
+    <a href="mailto:parmeetssms@gmail.com">
+      <img src="./assets/chip-email.svg" height="42" alt="Email (Gmail)" />
+    </a>
+    &nbsp;
+    <a href="https://personal-portfolio-parmeet1.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <img src="./assets/chip-portfolio.svg" height="42" alt="Portfolio" />
+    </a>
+  </p>
+
+  <!-- FOOTER TEXT BAR -->
+  <p align="center" style="margin-top: 6px; margin-bottom: 4px;">
     <a href="https://personal-portfolio-parmeet1.vercel.app/resume/download/" target="_blank" rel="noopener noreferrer"><b>📄 VIEW RESUME (PDF) ↗</b></a> &nbsp;&bull;&nbsp;
     <a href="https://linkedin.com/in/parmeetsingh12" target="_blank" rel="noopener noreferrer"><b>LinkedIn ↗</b></a> &nbsp;&bull;&nbsp;
     <a href="mailto:parmeetssms@gmail.com"><b>parmeetssms@gmail.com ↗</b></a> &nbsp;&bull;&nbsp;

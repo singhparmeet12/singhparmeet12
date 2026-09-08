@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 146" width="420" height="146">
+  <defs>
+    <style>
+      .proj-num {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        font-weight: 700;
+        fill: #4F7F5B;
+      }
+      .proj-title {
+        font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Inter', sans-serif;
+        font-size: 17px;
+        font-weight: 800;
+        fill: #18231A;
+        letter-spacing: -0.01em;
+      }
+      .proj-desc {
+        font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Inter', sans-serif;
+        font-size: 12.5px;
+        font-weight: 400;
+        fill: #657066;
+        line-height: 1.4;
+      }
+      .proj-tag {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10.5px;
+        font-weight: 600;
+        fill: #24452E;
+      }
+      .btn-txt {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        font-weight: 700;
+        fill: #FFFFFF;
+        letter-spacing: 0.04em;
+      }
+    </style>
+    <linearGradient id="cellBg1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8FAF6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Card Surface -->
+  <rect x="1" y="1" width="418" height="144" rx="14" fill="url(#cellBg1)" stroke="#DCE8D8" stroke-width="1.2"/>
+
+  <!-- Header row -->
+  <text x="18" y="28" class="proj-num">01</text>
+  <text x="44" y="28" class="proj-title">TRADELAB</text>
+
+  <!-- Mini Candlestick visual -->
+  <g transform="translate(345, 14)">
+    <line x1="10" y1="4" x2="10" y2="28" stroke="#9DB89B" stroke-width="1"/>
+    <rect x="7" y="10" width="6" height="12" fill="#DCE8D8" rx="1"/>
+    <line x1="22" y1="2" x2="22" y2="30" stroke="#4F7F5B" stroke-width="1"/>
+    <rect x="19" y="8" width="6" height="16" fill="#4F7F5B" rx="1">
+      <animate attributeName="height" values="14;18;14" dur="2.2s" repeatCount="indefinite"/>
+    </rect>
+    <line x1="34" y1="0" x2="34" y2="26" stroke="#4F7F5B" stroke-width="1"/>
+    <rect x="31" y="5" width="6" height="12" fill="#4F7F5B" rx="1"/>
+  </g>
+
+  <!-- One line description -->
+  <text x="18" y="52" class="proj-desc">AI-assisted market analysis platform detecting candlestick</text>
+  <text x="18" y="70" class="proj-desc">patterns and indicators with computer vision.</text>
+
+  <!-- Stack Tag Pill -->
+  <rect x="18" y="98" width="220" height="26" rx="13" fill="#EAF2E8" stroke="#D0E2CC" stroke-width="0.8"/>
+  <text x="28" y="115" class="proj-tag">Python &#8226; YOLOv5 &#8226; Django</text>
+
+  <!-- Active Launch Button -->
+  <g transform="translate(290, 96)">
+    <rect x="0" y="0" width="112" height="30" rx="8" fill="#24452E"/>
+    <text x="56" y="19" class="btn-txt" text-anchor="middle">LAUNCH DEMO &#8599;</text>
+  </g>
+</svg>

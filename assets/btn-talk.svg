@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 44" width="160" height="44">
+  <defs>
+    <style>
+      .btn-text {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        font-weight: 700;
+        fill: #24452E;
+        letter-spacing: 0.04em;
+      }
+    </style>
+  </defs>
+  <rect x="2" y="2" width="156" height="40" rx="10" fill="#EAF2E8" stroke="#D0E2CC" stroke-width="1.2"/>
+  <text x="80" y="26" class="btn-text" text-anchor="middle">💬 LET&#8217;S TALK &#8599;</text>
+</svg>
