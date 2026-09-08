@@ -139,11 +139,11 @@
   <!-- Continuous Flow Line entering from projects -->
   <line x1="440" y1="0" x2="440" y2="22" stroke="#00FF66" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
 
-  <!-- Header Badge: 350px width, centered at 265 (Generous 30px padding around text!) -->
+  <!-- Header Badge: 350px width, centered at 265 (Clean text, NO emojis) -->
   <g transform="translate(265, 22)">
     <rect x="0" y="0" width="350" height="42" rx="21" fill="#121820" stroke="#00FF66" stroke-width="1.5" filter="url(#softGlow)"/>
-    <text x="175" y="27" text-anchor="middle" class="doodle-hand" font-size="21" font-weight="700" fill="#00FF66" letter-spacing="1">
-      💬  LET'S CONNECT &amp; BUILD  💬
+    <text x="175" y="27" text-anchor="middle" class="doodle-hand" font-size="21" font-weight="700" fill="#00FF66" letter-spacing="1.5">
+      LET'S CONNECT &amp; BUILD
     </text>
   </g>
 

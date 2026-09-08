@@ -449,7 +449,7 @@ for b_id, label, color, has_left_margin, has_center_line in buttons_data:
     write_file(os.path.join(ASSETS_DIR, f'btn-{b_id}.svg'), btn_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 5. TECH STACK & TOOLKIT (880 × 265) - Clean Non-Overflowing Lines!
+# 5. TECH STACK & TOOLKIT (880 × 265) - Guaranteed Zero Overflow!
 # ═══════════════════════════════════════════════════════════════
 tech_stack_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 265" width="880" height="265">
   {COMMON_DEFS}
@@ -480,35 +480,35 @@ tech_stack_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 26
   <line x1="45" y1="0" x2="45" y2="265" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
   <line x1="49" y1="0" x2="49" y2="265" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
 
-  <!-- 3 Categorized Skill Cards (Width 232 each, all text safely contained) -->
+  <!-- 3 Categorized Skill Cards (Widened to 240px, safe font-size 15, concise lines for generous >45px margin!) -->
   <!-- Card 1: Frontend -->
-  <g transform="translate(70, 118)">
-    <rect x="0" y="0" width="232" height="118" rx="12" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.2"/>
+  <g transform="translate(60, 118)">
+    <rect x="0" y="0" width="240" height="118" rx="12" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.2"/>
     <rect x="12" y="10" width="100" height="20" rx="6" fill="{BG}"/>
     <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="{NEON_GREEN}">01 // FRONTEND</text>
-    <text x="14" y="52" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• HTML5, CSS3 &amp; Modern JS</text>
-    <text x="14" y="74" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Tailwind CSS &amp; Bootstrap</text>
-    <text x="14" y="96" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Responsive UI &amp; Motion</text>
+    <text x="14" y="52" class="doodle-hand" font-size="15" fill="{TEXT_MAIN}">• HTML5 &amp; CSS3</text>
+    <text x="14" y="74" class="doodle-hand" font-size="15" fill="{TEXT_MAIN}">• JavaScript &amp; Modern UI</text>
+    <text x="14" y="96" class="doodle-hand" font-size="15" fill="{TEXT_MAIN}">• Tailwind &amp; Bootstrap</text>
   </g>
 
-  <!-- Card 2: Backend (Fixed line length so WebSockets NEVER overflows!) -->
-  <g transform="translate(324, 118)">
-    <rect x="0" y="0" width="232" height="118" rx="12" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.2"/>
+  <!-- Card 2: Backend -->
+  <g transform="translate(320, 118)">
+    <rect x="0" y="0" width="240" height="118" rx="12" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.2"/>
     <rect x="12" y="10" width="104" height="20" rx="6" fill="{BG}"/>
     <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="{NEON_CYAN}">02 // BACKEND</text>
-    <text x="14" y="52" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Python &amp; Django / DRF</text>
-    <text x="14" y="74" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• REST APIs &amp; Architecture</text>
-    <text x="14" y="96" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• WebSockets &amp; Realtime</text>
+    <text x="14" y="52" class="doodle-hand" font-size="15" fill="{TEXT_MAIN}">• Python &amp; Django</text>
+    <text x="14" y="74" class="doodle-hand" font-size="15" fill="{TEXT_MAIN}">• Django REST (DRF)</text>
+    <text x="14" y="96" class="doodle-hand" font-size="15" fill="{TEXT_MAIN}">• WebSockets &amp; APIs</text>
   </g>
 
   <!-- Card 3: Databases & DevOps -->
-  <g transform="translate(578, 118)">
-    <rect x="0" y="0" width="232" height="118" rx="12" fill="{BG_SURFACE}" stroke="{NEON_GOLD}" stroke-width="1.2"/>
+  <g transform="translate(580, 118)">
+    <rect x="0" y="0" width="240" height="118" rx="12" fill="{BG_SURFACE}" stroke="{NEON_GOLD}" stroke-width="1.2"/>
     <rect x="12" y="10" width="124" height="20" rx="6" fill="{BG}"/>
     <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="{NEON_GOLD}">03 // DATA &amp; CLOUD</text>
-    <text x="14" y="52" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• PostgreSQL &amp; SQLite</text>
-    <text x="14" y="74" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Redis &amp; Whitenoise</text>
-    <text x="14" y="96" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Git, Docker &amp; Vercel</text>
+    <text x="14" y="52" class="doodle-hand" font-size="15" fill="{TEXT_MAIN}">• PostgreSQL &amp; SQLite</text>
+    <text x="14" y="74" class="doodle-hand" font-size="15" fill="{TEXT_MAIN}">• Redis &amp; Caching</text>
+    <text x="14" y="96" class="doodle-hand" font-size="15" fill="{TEXT_MAIN}">• Git, Docker &amp; Cloud</text>
   </g>
 
   <!-- Continuous Flow Line to Projects -->
@@ -758,11 +758,11 @@ section_connect_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8
   <!-- Continuous Flow Line entering from projects -->
   <line x1="440" y1="0" x2="440" y2="22" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
 
-  <!-- Header Badge: 350px width, centered at 265 (Generous 30px padding around text!) -->
+  <!-- Header Badge: 350px width, centered at 265 (Clean text, NO emojis) -->
   <g transform="translate(265, 22)">
     <rect x="0" y="0" width="350" height="42" rx="21" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.5" filter="url(#softGlow)"/>
-    <text x="175" y="27" text-anchor="middle" class="doodle-hand" font-size="21" font-weight="700" fill="{NEON_GREEN}" letter-spacing="1">
-      💬  LET'S CONNECT &amp; BUILD  💬
+    <text x="175" y="27" text-anchor="middle" class="doodle-hand" font-size="21" font-weight="700" fill="{NEON_GREEN}" letter-spacing="1.5">
+      LET'S CONNECT &amp; BUILD
     </text>
   </g>
 
