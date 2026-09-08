@@ -10,7 +10,7 @@ Builds Parmeet Singh's Cyber-Doodle Notebook GitHub Profile:
   - Zero <br/> tags and zero &nbsp;
   - HTML comments (<!-- -->) between images eliminate all inline whitespace
 - Avatar Floating Upgrade:
-  - Fast, buoyant float ("above and low"): 20px vertical travel (+4px to -16px) at 2.8s period (lively & smooth!)
+  - Fast, buoyant float ("above and low"): 20px vertical travel (+4px to -16px) at 2.8s period
 - Lightweight Criss-Cross Doodle Satellites:
   - Lighter, airy, delicate vector doodle capsules (r=15.5px, soft semi-transparent fill, crisp glow)
   - Criss-cross orbital paths: Orbit 1 tilted at -24°, Orbit 2 tilted at +24°, Orbit 3 undulating loop
@@ -20,14 +20,14 @@ Builds Parmeet Singh's Cyber-Doodle Notebook GitHub Profile:
 - Living Constellation of Animated Stars:
   - Highly visible twinkling stars flowing from top-left corner right up to and around Parmeet's name!
   - Vibrant 4-point stars with neon glows and white cores above and next to "Parmeet"
-- Project Cue Cards 100% NEON Icons:
-  - Replaced normal emojis with custom glowing NEON vector doodles:
-    - TradeLab: Neon green glowing upward trend graph + candlestick chart 📈
-    - TourCraze: Neon electric cyan glowing supersonic jet + dashed flight contrail ✈️
-    - GaadiMandi: Neon gold glowing sports car profile + headlight beam 🚗
-    - Portfolio: Neon green glowing lightning bolt with white core ⚡
-  - Small, clean, zero text overlap
-  - No launch button bar (heading already states it)
+- Project Cue Cards Polish:
+  - Accurate stack: Python & Django based (no React), max 4 skills each!
+  - Fixed Neon Icon Spacing: Fixed X positions (x=265 left card, x=210 right card) leaving 34px-85px of clean space — ZERO overlap!
+  - No launch button bar (heading already conveys it)
+- Tech Stack Polish:
+  - Fixed Backend Card text overflow (all lines fit comfortably within box)
+- Connect Section Header Polish:
+  - Widened badge to 350px with generous 30px padding so "L" never overlaps the rounded pill arc!
 """
 
 import base64
@@ -285,7 +285,7 @@ hero_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w
         📍  Delhi, India • Clean Code • High-Performance Systems
       </text>
       <text x="0" y="72" class="mono" font-size="12.5" fill="{TEXT_MUTED}">
-        const stack = ["React", "Next.js", "Django", "Python"];<tspan fill="{NEON_GREEN}" class="cursor-blink">▋</tspan>
+        const stack = ["Python", "Django", "PostgreSQL", "Tailwind"];<tspan fill="{NEON_GREEN}" class="cursor-blink">▋</tspan>
       </text>
     </g>
 
@@ -449,7 +449,7 @@ for b_id, label, color, has_left_margin, has_center_line in buttons_data:
     write_file(os.path.join(ASSETS_DIR, f'btn-{b_id}.svg'), btn_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 5. TECH STACK & TOOLKIT (880 × 265) - Lively Micro-Animations
+# 5. TECH STACK & TOOLKIT (880 × 265) - Clean Non-Overflowing Lines!
 # ═══════════════════════════════════════════════════════════════
 tech_stack_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 265" width="880" height="265">
   {COMMON_DEFS}
@@ -480,25 +480,25 @@ tech_stack_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 26
   <line x1="45" y1="0" x2="45" y2="265" stroke="{NEON_GREEN}" stroke-width="1.2" opacity="0.35"/>
   <line x1="49" y1="0" x2="49" y2="265" stroke="{NEON_CYAN}" stroke-width="0.6" opacity="0.2"/>
 
-  <!-- 3 Categorized Skill Cards (Width 240 each) -->
+  <!-- 3 Categorized Skill Cards (Width 232 each, all text safely contained) -->
   <!-- Card 1: Frontend -->
   <g transform="translate(70, 118)">
     <rect x="0" y="0" width="232" height="118" rx="12" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.2"/>
     <rect x="12" y="10" width="100" height="20" rx="6" fill="{BG}"/>
     <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="{NEON_GREEN}">01 // FRONTEND</text>
-    <text x="14" y="52" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• React.js &amp; Next.js 14</text>
-    <text x="14" y="74" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• TypeScript &amp; JavaScript</text>
-    <text x="14" y="96" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Tailwind CSS &amp; Motion</text>
+    <text x="14" y="52" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• HTML5, CSS3 &amp; Modern JS</text>
+    <text x="14" y="74" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Tailwind CSS &amp; Bootstrap</text>
+    <text x="14" y="96" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Responsive UI &amp; Motion</text>
   </g>
 
-  <!-- Card 2: Backend & APIs -->
+  <!-- Card 2: Backend (Fixed line length so WebSockets NEVER overflows!) -->
   <g transform="translate(324, 118)">
     <rect x="0" y="0" width="232" height="118" rx="12" fill="{BG_SURFACE}" stroke="{NEON_CYAN}" stroke-width="1.2"/>
-    <rect x="12" y="10" width="112" height="20" rx="6" fill="{BG}"/>
+    <rect x="12" y="10" width="104" height="20" rx="6" fill="{BG}"/>
     <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="{NEON_CYAN}">02 // BACKEND</text>
     <text x="14" y="52" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Python &amp; Django / DRF</text>
-    <text x="14" y="74" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Node.js &amp; Express</text>
-    <text x="14" y="96" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• RESTful APIs &amp; WebSockets</text>
+    <text x="14" y="74" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• REST APIs &amp; Architecture</text>
+    <text x="14" y="96" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• WebSockets &amp; Realtime</text>
   </g>
 
   <!-- Card 3: Databases & DevOps -->
@@ -506,8 +506,8 @@ tech_stack_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 26
     <rect x="0" y="0" width="232" height="118" rx="12" fill="{BG_SURFACE}" stroke="{NEON_GOLD}" stroke-width="1.2"/>
     <rect x="12" y="10" width="124" height="20" rx="6" fill="{BG}"/>
     <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="{NEON_GOLD}">03 // DATA &amp; CLOUD</text>
-    <text x="14" y="52" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• PostgreSQL &amp; MongoDB</text>
-    <text x="14" y="74" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Redis &amp; SQLite</text>
+    <text x="14" y="52" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• PostgreSQL &amp; SQLite</text>
+    <text x="14" y="74" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Redis &amp; Whitenoise</text>
     <text x="14" y="96" class="doodle-hand" font-size="16" fill="{TEXT_MAIN}">• Git, Docker &amp; Vercel</text>
   </g>
 
@@ -553,23 +553,22 @@ section_work_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 
 write_file(os.path.join(ASSETS_DIR, 'section-work.svg'), section_work_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 7. PROJECT CARDS (440 × 170) - 100% NEON Vector Doodles (Zero Text Overlap)
+# 7. PROJECT CARDS (440 × 170) - 100% NEON Vector Icons (Zero Overlap!)
 # ═══════════════════════════════════════════════════════════════
-# Custom vector NEON doodles replacing normal emojis:
-# - TradeLab: Glowing neon green upward trend line + candlestick chart
-# - TourCraze: Glowing neon cyan jet supersonic plane + dashed flight path
-# - GaadiMandi: Glowing neon gold sports car silhouette + headlight beam
-# - Portfolio: Glowing neon green lightning bolt with white core
+# Accurate Real Stack: Python & Django based (no React), max 4 skills each!
+# Fixed safe icon X positions:
+# - Left cards: icon at x=265 (ends at x=297). Title ends before x=231 -> 34px-70px clean gap!
+# - Right cards: icon at x=210 (ends at x=242). Title ends before x=173 -> 37px-85px clean gap!
+# ZERO overlap guaranteed!
 projects = [
     {
         'num': '01',
         'file': 'card-01-tradelab',
         'title': 'TradeLab',
-        'title_w': 105,
         'type': 'STOCK MARKET SIMULATOR',
         'desc1': 'Real-time stock market simulator with',
         'desc2': 'virtual trading &amp; live portfolio tracking.',
-        'tech': 'React • Node.js • MongoDB • Chart.js',
+        'tech': 'Python • Django • Chart.js • Bootstrap',
         'badge': '● LIVE SIMULATOR',
         'accent': NEON_GREEN,
         'is_left': True,
@@ -587,11 +586,10 @@ projects = [
         'num': '02',
         'file': 'card-02-tourcraze',
         'title': 'TourCraze',
-        'title_w': 120,
         'type': 'SMART TRAVEL BOOKING',
         'desc1': 'Smart AI travel planning platform with',
         'desc2': 'curated tour discovery &amp; instant booking.',
-        'tech': 'React • Express • MongoDB • Tailwind',
+        'tech': 'Python • Django • PostgreSQL • Tailwind',
         'badge': '● LIVE PLATFORM',
         'accent': NEON_CYAN,
         'is_left': False,
@@ -607,7 +605,6 @@ projects = [
         'num': '03',
         'file': 'card-03-gaadimandi',
         'title': 'GaadiMandi',
-        'title_w': 135,
         'type': 'VEHICLE MARKETPLACE',
         'desc1': 'Full-stack automotive marketplace with',
         'desc2': 'verified listings &amp; dealer analytics.',
@@ -628,11 +625,10 @@ projects = [
         'num': '04',
         'file': 'card-04-portfolio',
         'title': 'Portfolio',
-        'title_w': 98,
         'type': 'DEVELOPER SHOWCASE',
         'desc1': 'Interactive developer showcase with',
         'desc2': 'smooth animations &amp; creative layout.',
-        'tech': 'Next.js • TailwindCSS • Framer Motion',
+        'tech': 'Python • Django • JavaScript • Tailwind',
         'badge': '● LIVE SITE',
         'accent': NEON_GREEN,
         'is_left': False,
@@ -657,14 +653,16 @@ for p in projects:
         content_x = 76
         tape_points = "75,3 160,3 155,14 70,14"
         badge_x = 296
+        # Fixed safe X position: 265px (title ends <= 231, leaving 34px-70px padding!)
+        icon_x = 265
     else:
         left_margin_code = ""
         box_x = 10
         content_x = 28
         tape_points = "28,3 113,3 108,14 23,14"
         badge_x = 248
-
-    icon_offset_x = content_x + p['title_w'] + 10
+        # Fixed safe X position: 210px (title ends <= 173, leaving 37px-85px padding!)
+        icon_x = 210
 
     card_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 170" width="440" height="170">
   <defs>
@@ -724,8 +722,8 @@ for p in projects:
     {p['title']}
   </text>
 
-  <!-- Custom Glowing NEON Vector Doodle Icon (Directly beside title, zero text overlap) -->
-  <g transform="translate({icon_offset_x}, 53)">
+  <!-- Custom Glowing NEON Vector Doodle Icon (Generous safe spacing: ZERO text overlap!) -->
+  <g transform="translate({icon_x}, 53)">
     {p['neon_icon']}
   </g>
 
@@ -733,7 +731,7 @@ for p in projects:
   <text x="{content_x}" y="98" class="doodle-hand" font-size="15.5" fill="{TEXT_MUTED}">{p['desc1']}</text>
   <text x="{content_x}" y="120" class="doodle-hand" font-size="15.5" fill="{TEXT_MUTED}">{p['desc2']}</text>
 
-  <!-- Tech Stack Pills -->
+  <!-- Tech Stack Pills (Real stack: Python & Django based, max 4 skills!) -->
   <g transform="translate({content_x}, 143)">
     <text x="0" y="11" class="mono" font-size="11" font-weight="600" fill="{NEON_CYAN}" opacity="0.88">{p['tech']}</text>
   </g>
@@ -741,8 +739,10 @@ for p in projects:
     write_file(os.path.join(ASSETS_DIR, f"{p['file']}.svg"), card_svg)
 
 # ═══════════════════════════════════════════════════════════════
-# 8. CONNECT SECTION (880 × 110) - Clean & Elegant
+# 8. CONNECT SECTION (880 × 110) - Generous Badge Width (No 'L' Overlap!)
 # ═══════════════════════════════════════════════════════════════
+# Widened badge to 350px centered at x=265.
+# Gives >30px of margin on left and right so 'L' never touches the rounded arc circle!
 section_connect_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 110" width="880" height="110">
   {COMMON_DEFS}
   {COMMON_STYLES}
@@ -758,11 +758,11 @@ section_connect_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8
   <!-- Continuous Flow Line entering from projects -->
   <line x1="440" y1="0" x2="440" y2="22" stroke="{NEON_GREEN}" stroke-width="2" stroke-dasharray="4,4" class="connecting-line"/>
 
-  <!-- Header Badge -->
-  <g transform="translate(285, 22)">
-    <rect x="0" y="0" width="310" height="40" rx="20" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.5" filter="url(#softGlow)"/>
-    <text x="155" y="26" text-anchor="middle" class="doodle-hand" font-size="22" font-weight="700" fill="{NEON_GREEN}" letter-spacing="1">
-      💬 LET'S CONNECT &amp; BUILD 💬
+  <!-- Header Badge: 350px width, centered at 265 (Generous 30px padding around text!) -->
+  <g transform="translate(265, 22)">
+    <rect x="0" y="0" width="350" height="42" rx="21" fill="{BG_SURFACE}" stroke="{NEON_GREEN}" stroke-width="1.5" filter="url(#softGlow)"/>
+    <text x="175" y="27" text-anchor="middle" class="doodle-hand" font-size="21" font-weight="700" fill="{NEON_GREEN}" letter-spacing="1">
+      💬  LET'S CONNECT &amp; BUILD  💬
     </text>
   </g>
 

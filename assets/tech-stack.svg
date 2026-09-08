@@ -153,25 +153,25 @@
   <line x1="45" y1="0" x2="45" y2="265" stroke="#00FF66" stroke-width="1.2" opacity="0.35"/>
   <line x1="49" y1="0" x2="49" y2="265" stroke="#00F0FF" stroke-width="0.6" opacity="0.2"/>
 
-  <!-- 3 Categorized Skill Cards (Width 240 each) -->
+  <!-- 3 Categorized Skill Cards (Width 232 each, all text safely contained) -->
   <!-- Card 1: Frontend -->
   <g transform="translate(70, 118)">
     <rect x="0" y="0" width="232" height="118" rx="12" fill="#121820" stroke="#00FF66" stroke-width="1.2"/>
     <rect x="12" y="10" width="100" height="20" rx="6" fill="#0d1117"/>
     <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="#00FF66">01 // FRONTEND</text>
-    <text x="14" y="52" class="doodle-hand" font-size="16" fill="#f0f6fc">• React.js &amp; Next.js 14</text>
-    <text x="14" y="74" class="doodle-hand" font-size="16" fill="#f0f6fc">• TypeScript &amp; JavaScript</text>
-    <text x="14" y="96" class="doodle-hand" font-size="16" fill="#f0f6fc">• Tailwind CSS &amp; Motion</text>
+    <text x="14" y="52" class="doodle-hand" font-size="16" fill="#f0f6fc">• HTML5, CSS3 &amp; Modern JS</text>
+    <text x="14" y="74" class="doodle-hand" font-size="16" fill="#f0f6fc">• Tailwind CSS &amp; Bootstrap</text>
+    <text x="14" y="96" class="doodle-hand" font-size="16" fill="#f0f6fc">• Responsive UI &amp; Motion</text>
   </g>
 
-  <!-- Card 2: Backend & APIs -->
+  <!-- Card 2: Backend (Fixed line length so WebSockets NEVER overflows!) -->
   <g transform="translate(324, 118)">
     <rect x="0" y="0" width="232" height="118" rx="12" fill="#121820" stroke="#00F0FF" stroke-width="1.2"/>
-    <rect x="12" y="10" width="112" height="20" rx="6" fill="#0d1117"/>
+    <rect x="12" y="10" width="104" height="20" rx="6" fill="#0d1117"/>
     <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="#00F0FF">02 // BACKEND</text>
     <text x="14" y="52" class="doodle-hand" font-size="16" fill="#f0f6fc">• Python &amp; Django / DRF</text>
-    <text x="14" y="74" class="doodle-hand" font-size="16" fill="#f0f6fc">• Node.js &amp; Express</text>
-    <text x="14" y="96" class="doodle-hand" font-size="16" fill="#f0f6fc">• RESTful APIs &amp; WebSockets</text>
+    <text x="14" y="74" class="doodle-hand" font-size="16" fill="#f0f6fc">• REST APIs &amp; Architecture</text>
+    <text x="14" y="96" class="doodle-hand" font-size="16" fill="#f0f6fc">• WebSockets &amp; Realtime</text>
   </g>
 
   <!-- Card 3: Databases & DevOps -->
@@ -179,8 +179,8 @@
     <rect x="0" y="0" width="232" height="118" rx="12" fill="#121820" stroke="#FFD700" stroke-width="1.2"/>
     <rect x="12" y="10" width="124" height="20" rx="6" fill="#0d1117"/>
     <text x="18" y="24" class="mono" font-size="10.5" font-weight="700" fill="#FFD700">03 // DATA &amp; CLOUD</text>
-    <text x="14" y="52" class="doodle-hand" font-size="16" fill="#f0f6fc">• PostgreSQL &amp; MongoDB</text>
-    <text x="14" y="74" class="doodle-hand" font-size="16" fill="#f0f6fc">• Redis &amp; SQLite</text>
+    <text x="14" y="52" class="doodle-hand" font-size="16" fill="#f0f6fc">• PostgreSQL &amp; SQLite</text>
+    <text x="14" y="74" class="doodle-hand" font-size="16" fill="#f0f6fc">• Redis &amp; Whitenoise</text>
     <text x="14" y="96" class="doodle-hand" font-size="16" fill="#f0f6fc">• Git, Docker &amp; Vercel</text>
   </g>
 
